@@ -13,8 +13,33 @@
       var open = top.getAttribute("data-open") === "true";
       top.setAttribute("data-open", open ? "false" : "true");
       menuBtn.setAttribute("aria-expanded", open ? "false" : "true");
-      menuBtn.textContent = open ? "Menu" : "Close";
+      menuBtn.setAttribute("aria-label", open ? "Menu" : "Close menu");
     });
+  }
+
+  // close the menu after picking a link (matters for same-page links like Updates)
+  document.querySelectorAll(".nav a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      if (top && top.getAttribute("data-open") === "true" && menuBtn) menuBtn.click();
+    });
+  });
+
+  // home: large name shrinks into the header, intro fades as you scroll
+  var home = document.querySelector(".page.home");
+  if (home) {
+    var nameEl = home.querySelector(".name");
+    var intro = home.querySelector(".intro");
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var p = Math.min(1, Math.max(0, window.scrollY / 140));
+      nameEl.style.setProperty("--name-scale", (1.5 - 0.5 * p).toFixed(3));
+      if (intro) intro.style.setProperty("--intro-fade", (1 - p).toFixed(3));
+    };
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
   }
 
   // grid / list + scale

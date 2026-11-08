@@ -45,7 +45,7 @@ def cover(p):
 def nav(current):
     items = [(s["id"] + ".html", s["title"], s["id"]) for s in sections if by_section[s["id"]]]
     if news:
-        items.append(("news.html", "News", "news"))
+        items.append(("index.html#updates", "Updates", "updates"))
     items.append(("about.html", "About", "about"))
     cur = ' aria-current="page"'
     return "".join(
@@ -53,7 +53,7 @@ def nav(current):
     )
 
 
-def page(title, current, body, description=None, full_doc=True):
+def page(title, current, body, description=None, full_doc=True, kind=""):
     desc = e(description or C["description"])
     head = f"""<title>{e(title)}</title>
 <meta name="description" content="{desc}">
@@ -62,11 +62,11 @@ def page(title, current, body, description=None, full_doc=True):
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="{FONTS}">
 <link rel="stylesheet" href="assets/style.css">"""
-    content = f"""<div class="page">
+    content = f"""<div class="page{(" " + kind) if kind else ""}">
 <header class="top">
   <a class="name" href="index.html">{e(C["name"])}</a>
   <nav aria-label="Main"><ul class="nav" id="nav">{nav(current)}</ul></nav>
-  <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+  <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu"><span></span><span></span><span></span></button>
 </header>
 <main>
 {body}
@@ -118,6 +118,22 @@ def index_body(projects, cols=3):
 </div>"""
 
 
+def updates_table(items):
+    titles = {p["slug"]: p["title"] for p in C["projects"]}
+    rows = ""
+    for n in items:
+        title = e(n["title"])
+        if n.get("link"):
+            title = f'<a href="{e(n["link"])}" target="_blank" rel="noopener">{title}</a>'
+        if n.get("text"):
+            title += f'<p>{e(n["text"])}</p>'
+        proj = n.get("project")
+        proj = f'<a href="{e(proj)}.html">{e(titles.get(proj, proj))}</a>' if proj else ""
+        rows += (f'<tr><td>{e(n.get("outlet", ""))}</td><td>{title}</td>'
+                 f'<td>{proj}</td><td>{e(fmt_date(n["date"]))}</td></tr>')
+    return f'<table class="list feed"><tbody>{rows}</tbody></table>'
+
+
 def write(name, text):
     with open(os.path.join(OUT, name), "w") as f:
         f.write(text)
@@ -125,10 +141,16 @@ def write(name, text):
 
 def build(full_doc=True):
     pages = {}
-    # home: latest work large, then the rest of the work
+    # home: large name + intro, current updates, then work
+    intro = "".join(f"<p>{e(t)}</p>" for t in (C.get("intro") or [C["description"], C["tagline"]]))
+    home = f'<section class="intro" aria-label="Introduction">{intro}</section>'
+    if news:
+        home += f"""<section class="updates" id="updates" aria-labelledby="h-updates">
+  <h2 id="h-updates">Current updates</h2>
+  {updates_table(news)}
+</section>"""
     work = by_section["work"]
     lead, rest = (work[0], work[1:]) if work else (None, [])
-    home = ""
     if lead:
         src = cover(lead)
         home += f"""<a class="home-feature" href="{lead["slug"]}.html" style="display:block">
@@ -136,7 +158,7 @@ def build(full_doc=True):
   <div class="cap"><span>{e(lead["title"])}</span><span>{e(lead["year"])}</span></div>
 </a>"""
     home += f'<div class="grid" style="--cols:3;padding-top:24px">{"".join(tile(p) for p in rest)}</div>'
-    pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc)
+    pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc, kind="home")
 
     for s in sections:
         if by_section[s["id"]]:
@@ -165,21 +187,6 @@ def build(full_doc=True):
   <a href="{nxt["slug"]}.html">{e(nxt["title"])} &nbsp;<span>Next</span></a>
 </nav>"""
         pages[p["slug"] + ".html"] = page(f'{p["title"]} | {C["name"]}', p["section"], body)
-
-    if news:
-        titles = {p["slug"]: p["title"] for p in C["projects"]}
-        rows = ""
-        for n in news:
-            title = e(n["title"])
-            if n.get("link"):
-                title = f'<a href="{e(n["link"])}" target="_blank" rel="noopener">{title}</a>'
-            if n.get("text"):
-                title += f'<p>{e(n["text"])}</p>'
-            proj = n.get("project")
-            proj = f'<a href="{e(proj)}.html">{e(titles.get(proj, proj))}</a>' if proj else ""
-            rows += (f'<tr><td>{e(n.get("outlet", ""))}</td><td>{title}</td>'
-                     f'<td>{proj}</td><td>{e(fmt_date(n["date"]))}</td></tr>')
-        pages["news.html"] = page(f'News | {C["name"]}', "news", f'<table class="list feed"><tbody>{rows}</tbody></table>')
 
     c = C["contact"]
     about_text = "".join(f"<p>{e(t)}</p>" for t in (C.get("about") or [C["description"], C["tagline"]]))
