@@ -9,43 +9,227 @@
     "instagram": "https://instagram.com/tears_of_hunter",
     "linkedin": "https://www.linkedin.com/in/hunter-keene-003284173/"
   },
-
   "sections": [
-    { "id": "work",         "title": "Work" },
-    { "id": "competitions", "title": "Competitions" },
-    { "id": "events",       "title": "Events" },
-    { "id": "school",       "title": "School" },
-    { "id": "portfolio",    "title": "Portfolio" }
+    {
+      "id": "work",
+      "title": "Work"
+    },
+    {
+      "id": "competitions",
+      "title": "Competitions"
+    },
+    {
+      "id": "events",
+      "title": "Events"
+    },
+    {
+      "id": "school",
+      "title": "School"
+    },
+    {
+      "id": "portfolio",
+      "title": "Portfolio"
+    }
   ],
-
-  "news": [],
-
+  "news": [
+    {
+      "date": "2026-10-22",
+      "outlet": "GayCities",
+      "title": "13 Homo Halloween parties guaranteed to raise your spirits",
+      "link": "https://www.gaycities.com/articles/107754/13-halloween-parties-guaranteed-to-raise-your-spirits/",
+      "project": "gothic-folly"
+    },
+    {
+      "date": "2026-09-23",
+      "outlet": "FreeYork",
+      "title": "Burning Man 2026: Towering Creations and Emotional Narratives in the Nevada Desert",
+      "link": "https://freeyork.org/architecture/burning-man-2026-towering-creations/",
+      "project": "gothic-folly"
+    },
+    {
+      "date": "2026-09-22",
+      "outlet": "e-a-a.com",
+      "title": "Ephemeral Desert Architecture: Burning Man's 2026 Engineering Marvels",
+      "link": "https://www.e-a-a.com/ephemeral-desert-architecture-burning-mans-2026-engineering-marvels/",
+      "project": "gothic-folly"
+    },
+    {
+      "date": "2026-09-13",
+      "outlet": "ArchiPanic",
+      "title": "Burning Man 2026 explored the connection between different realms",
+      "link": "https://www.archipanic.com/burning-man-2026/",
+      "project": "gothic-folly"
+    },
+    {
+      "date": "2026-09",
+      "outlet": "SFGATE",
+      "title": "The best photos of Burning Man 2026",
+      "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
+      "project": "gothic-folly"
+    },
+    {
+      "date": "2026-09",
+      "outlet": "Dezeen",
+      "title": "The quirky architecture of Burning Man 2026",
+      "link": "https://www.dezeen.com/?p=2367540",
+      "project": "gothic-folly"
+    }
+  ],
   "projects": [
-    { "slug": "gothic-folly",               "title": "Gothic Folly",               "year": "Ongoing", "section": "work", "images": [] },
-    { "slug": "an-unfamiliar-path",         "title": "An Unfamiliar Path",         "year": "2025", "section": "work", "images": [] },
-    { "slug": "eclipse",                    "title": "Eclipse",                    "year": "2025", "section": "work", "images": [] },
-    { "slug": "fashion-explorations",       "title": "Fashion Explorations",       "year": "2023", "section": "work", "images": [] },
-    { "slug": "reveal",                     "title": "Reveal",                     "year": "2023", "section": "work", "images": [] },
-    { "slug": "hand-drawings",              "title": "Hand Drawings",              "year": "2022", "section": "work", "images": [] },
-
-    { "slug": "competition-entry",          "title": "Competition Entry",          "year": "2023", "section": "competitions", "images": [] },
-    { "slug": "monument-for-mars",          "title": "Monument for Mars",          "year": "2021", "section": "competitions", "note": "Honorable Mention", "images": [] },
-
-    { "slug": "an-unfamiliar-event",        "title": "An Unfamiliar Event",        "year": "2025", "section": "events", "images": [] },
-
-    { "slug": "kayak-center",               "title": "Kayak Center",               "year": "2023", "section": "school", "images": [] },
-    { "slug": "studio-roma",                "title": "Studio Roma",                "year": "2022", "section": "school", "images": [] },
-    { "slug": "explorations-roma",          "title": "Explorations Roma",          "year": "2022", "section": "school", "images": [] },
-    { "slug": "concrete-based-membranes",   "title": "Concrete-Based Membranes",   "year": "2022", "section": "school", "images": [] },
-    { "slug": "light-weight-tension-structures", "title": "Light Weight Tension Structures Studio", "year": "2021", "section": "school", "images": [] },
-    { "slug": "high-performance-building",  "title": "High Performance Building Studio", "year": "2021", "section": "school", "images": [] },
-    { "slug": "the-dude-series",            "title": "The Dude Series",            "year": "2021", "section": "school", "images": [] },
-    { "slug": "media-city",                 "title": "Media City Technical System Integration", "year": "2021", "section": "school", "images": [] },
-    { "slug": "bamboo-tension-bridge",      "title": "Bamboo Tension Bridge",      "year": "2021", "section": "school", "images": [] },
-    { "slug": "fractura",                   "title": "Fractura",                   "year": "2021", "section": "school", "images": [] },
-    { "slug": "ncma",                       "title": "NCMA",                       "year": "2021", "section": "school", "images": [] },
-    { "slug": "graphic-designs",            "title": "Graphic Designs",            "year": "2021", "section": "school", "images": [] },
-
-    { "slug": "portfolio-2023",             "title": "Portfolio Composition",      "year": "2023", "section": "portfolio", "images": [] }
+    {
+      "slug": "gothic-folly",
+      "title": "Gothic Folly",
+      "year": "Ongoing",
+      "section": "work",
+      "images": []
+    },
+    {
+      "slug": "an-unfamiliar-path",
+      "title": "An Unfamiliar Path",
+      "year": "2025",
+      "section": "work",
+      "images": []
+    },
+    {
+      "slug": "eclipse",
+      "title": "Eclipse",
+      "year": "2025",
+      "section": "work",
+      "images": []
+    },
+    {
+      "slug": "fashion-explorations",
+      "title": "Fashion Explorations",
+      "year": "2023",
+      "section": "work",
+      "images": []
+    },
+    {
+      "slug": "reveal",
+      "title": "Reveal",
+      "year": "2023",
+      "section": "work",
+      "images": []
+    },
+    {
+      "slug": "hand-drawings",
+      "title": "Hand Drawings",
+      "year": "2022",
+      "section": "work",
+      "images": []
+    },
+    {
+      "slug": "competition-entry",
+      "title": "Competition Entry",
+      "year": "2023",
+      "section": "competitions",
+      "images": []
+    },
+    {
+      "slug": "monument-for-mars",
+      "title": "Monument for Mars",
+      "year": "2021",
+      "section": "competitions",
+      "note": "Honorable Mention",
+      "images": []
+    },
+    {
+      "slug": "an-unfamiliar-event",
+      "title": "An Unfamiliar Event",
+      "year": "2025",
+      "section": "events",
+      "images": []
+    },
+    {
+      "slug": "kayak-center",
+      "title": "Kayak Center",
+      "year": "2023",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "studio-roma",
+      "title": "Studio Roma",
+      "year": "2022",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "explorations-roma",
+      "title": "Explorations Roma",
+      "year": "2022",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "concrete-based-membranes",
+      "title": "Concrete-Based Membranes",
+      "year": "2022",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "light-weight-tension-structures",
+      "title": "Light Weight Tension Structures Studio",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "high-performance-building",
+      "title": "High Performance Building Studio",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "the-dude-series",
+      "title": "The Dude Series",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "media-city",
+      "title": "Media City Technical System Integration",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "bamboo-tension-bridge",
+      "title": "Bamboo Tension Bridge",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "fractura",
+      "title": "Fractura",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "ncma",
+      "title": "NCMA",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "graphic-designs",
+      "title": "Graphic Designs",
+      "year": "2021",
+      "section": "school",
+      "images": []
+    },
+    {
+      "slug": "portfolio-2023",
+      "title": "Portfolio Composition",
+      "year": "2023",
+      "section": "portfolio",
+      "images": []
+    }
   ]
 }

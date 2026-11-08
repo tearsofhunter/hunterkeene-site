@@ -23,13 +23,15 @@ by_section = {s["id"]: sorted([p for p in C["projects"] if p["section"] == s["id
                               key=lambda p: -year_key(p["year"])) for s in sections}
 ordered = [p for s in sections for p in by_section[s["id"]]]
 section_title = {s["id"]: s["title"] for s in sections}
-news = sorted(C.get("news", []), key=lambda n: str(n["date"]), reverse=True)
+news = sorted(C.get("news", []), key=lambda n: (bool(n.get("date")), str(n.get("date") or "")), reverse=True)
 
 
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 
 def fmt_date(d):
+    if not d:
+        return ""
     parts = str(d).split("-")
     if len(parts) >= 2 and parts[1].isdigit() and 1 <= int(parts[1]) <= 12:
         return f"{MONTHS[int(parts[1]) - 1]} {parts[0]}"
