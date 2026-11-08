@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""Builds the static site from content.json.  Run:  python3 build.py
+Outputs one HTML file per page into this folder (GitHub Pages serves /about.html as /about)."""
+import html
+import json
+import os
+import sys
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+OUT = sys.argv[1] if len(sys.argv) > 1 else ROOT
+C = json.load(open(os.path.join(ROOT, "content.json")))
+e = html.escape
+
+FONTS = "https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swap"
+
+
+def year_key(y):
+    return 9999 if str(y).lower() == "ongoing" else int(str(y)[:4]) if str(y)[:4].isdigit() else 0
+
+
+sections = C["sections"]
+by_section = {s["id"]: sorted([p for p in C["projects"] if p["section"] == s["id"]],
+                              key=lambda p: -year_key(p["year"])) for s in sections}
+ordered = [p for s in sections for p in by_section[s["id"]]]
+section_title = {s["id"]: s["title"] for s in sections}
+news = sorted(C.get("news", []), key=lambda n: str(n["date"]), reverse=True)
+
+
+def cover(p):
+    if p.get("cover"):
+        return p["cover"]
+    return p["images"][0]["src"] if p.get("images") else ""
+
+
+def nav(current):
+    items = [(s["id"] + ".html", s["title"], s["id"]) for s in sections if by_section[s["id"]]]
+    if news:
+        items.append(("news.html", "News", "news"))
+    items.append(("about.html", "About", "about"))
+    cur = ' aria-current="page"'
+    return "".join(
+        f'<li><a href="{h}"{cur if k == current else ""}>{e(t)}</a></li>' for h, t, k in items
+    )
+
+
+def page(title, current, body, description=None, full_doc=True):
+    desc = e(description or C["description"])
+    head = f"""<title>{e(title)}</title>
+<meta name="description" content="{desc}">
+<meta property="og:title" content="{e(title)}">
+<meta property="og:description" content="{desc}">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="{FONTS}">
+<link rel="stylesheet" href="assets/style.css">"""
+    content = f"""<div class="page">
+<header class="top">
+  <a class="name" href="index.html">{e(C["name"])}</a>
+  <nav aria-label="Main"><ul class="nav" id="nav">{nav(current)}</ul></nav>
+  <button type="button" class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+</header>
+<main>
+{body}
+</main>
+<footer class="foot"><span>{e(C["name"])}, New York</span><a href="mailto:{e(C["contact"]["email"])}">{e(C["contact"]["email"])}</a></footer>
+</div>
+<script src="assets/site.js"></script>"""
+    if not full_doc:
+        return head + "\n" + content
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+{head}
+</head>
+<body>
+{content}
+</body>
+</html>
+"""
+
+
+def tile(p):
+    src = cover(p)
+    img = f'<img src="{e(src)}" alt="" loading="lazy">' if src else ""
+    right = e(p["year"])
+    return f"""<a class="tile" href="{p["slug"]}.html">
+  <div class="img">{img}</div>
+  <div class="cap"><span>{e(p["title"])}{(", " + e(p["note"])) if p.get("note") else ""}</span><span>{right}</span></div>
+</a>"""
+
+
+def index_body(projects, cols=3):
+    rows = "".join(
+        f'<tr><td><a href="{p["slug"]}.html">{e(p["title"])}</a></td>'
+        f'<td>{e(p.get("note", ""))}</td><td>{e(p["year"])}</td></tr>' for p in projects
+    )
+    return f"""<div data-view="grid">
+<div class="controls">
+  <div class="views">
+    <button type="button" data-set-view="grid" aria-pressed="true">Grid</button>
+    <button type="button" data-set-view="list" aria-pressed="false">List</button>
+  </div>
+  <label class="scale" for="scale">Scale <input type="range" id="scale" min="2" max="6" step="1" value="{cols}"></label>
+</div>
+<div class="grid">{"".join(tile(p) for p in projects)}</div>
+<table class="list"><tbody>{rows}</tbody></table>
+</div>"""
+
+
+def write(name, text):
+    with open(os.path.join(OUT, name), "w") as f:
+        f.write(text)
+
+
+def build(full_doc=True):
+    pages = {}
+    # home: latest work large, then the rest of the work
+    work = by_section["work"]
+    lead, rest = (work[0], work[1:]) if work else (None, [])
+    home = ""
+    if lead:
+        src = cover(lead)
+        home += f"""<a class="home-feature" href="{lead["slug"]}.html" style="display:block">
+  <div class="img">{f'<img src="{e(src)}" alt="">' if src else ""}</div>
+  <div class="cap"><span>{e(lead["title"])}</span><span>{e(lead["year"])}</span></div>
+</a>"""
+    home += f'<div class="grid" style="--cols:3;padding-top:24px">{"".join(tile(p) for p in rest)}</div>'
+    pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc)
+
+    for s in sections:
+        if by_section[s["id"]]:
+            pages[s["id"] + ".html"] = page(f'{s["title"]} | {C["name"]}', s["id"], index_body(by_section[s["id"]]))
+
+    for i, p in enumerate(ordered):
+        prev, nxt = ordered[i - 1], ordered[(i + 1) % len(ordered)]
+        imgs = p.get("images", [])
+        figs = "".join(
+            f"""<figure class="{'half' if im.get('size') == 'half' else ''}">
+  <button type="button" data-full="{e(im['src'])}" data-cap="{e(im.get('caption', ''))}" aria-label="View image {k + 1}">
+    <img src="{e(im['src'])}" alt="{e(im.get('caption') or p['title'])}" loading="{'eager' if k == 0 else 'lazy'}">
+  </button>{f"<figcaption>{e(im['caption'])}</figcaption>" if im.get('caption') else ""}
+</figure>""" for k, im in enumerate(imgs)
+        ) or '<div class="blank"></div>'
+        meta = ", ".join(x for x in [p.get("note"), section_title[p["section"]], p["year"]] if x)
+        text = "".join(f"<p>{e(t)}</p>" for t in (p.get("text") or []))
+        body = f"""<div class="project-head">
+  <h1>{e(p["title"])}</h1>
+  <span class="meta">{e(meta)}</span>
+  {f'<div class="text">{text}</div>' if text else ""}
+</div>
+<div class="images">{figs}</div>
+<nav class="pager" aria-label="More projects">
+  <a href="{prev["slug"]}.html"><span>Previous</span>&nbsp; {e(prev["title"])}</a>
+  <a href="{nxt["slug"]}.html">{e(nxt["title"])} &nbsp;<span>Next</span></a>
+</nav>"""
+        pages[p["slug"] + ".html"] = page(f'{p["title"]} | {C["name"]}', p["section"], body)
+
+    if news:
+        items = ""
+        for n in news:
+            head = e(n["headline"])
+            if n.get("project"):
+                head = f'<a href="{e(n["project"])}.html">{head}</a>'
+            elif n.get("link"):
+                head = f'<a href="{e(n["link"])}" target="_blank" rel="noopener">{head}</a>'
+            items += f"""<li><time>{e(n["date"])}</time><div>{head}{f"<p>{e(n['text'])}</p>" if n.get("text") else ""}{f'<img src="{e(n["image"])}" alt="" loading="lazy">' if n.get("image") else ""}</div></li>"""
+        pages["news.html"] = page(f'News | {C["name"]}', "news", f'<ul class="news">{items}</ul>')
+
+    c = C["contact"]
+    about_text = "".join(f"<p>{e(t)}</p>" for t in (C.get("about") or [C["description"], C["tagline"]]))
+    about = f"""<div class="about">
+  <div>{about_text}</div>
+  <dl>
+    <dt>Email</dt><dd><a href="mailto:{e(c["email"])}">{e(c["email"])}</a></dd>
+    <dt>Instagram</dt><dd><a href="{e(c["instagram"])}" target="_blank" rel="noopener">@{e(c["instagram"].rstrip("/").split("/")[-1])}</a></dd>
+    <dt>LinkedIn</dt><dd><a href="{e(c["linkedin"])}" target="_blank" rel="noopener">Hunter Keene</a></dd>
+  </dl>
+</div>"""
+    pages["about.html"] = page(f'About | {C["name"]}', "about", about)
+    return pages
+
+
+if __name__ == "__main__":
+    pages = build()
+    for name, text in pages.items():
+        write(name, text)
+    print(f"Built {len(pages)} pages into {OUT}")

@@ -1,0 +1,50 @@
+{
+  "name": "Hunter Keene",
+  "description": "New York based designer. Focused on spatial representation and the integration of analog mediums.",
+  "tagline": "On a perpetual mission to make cool stuff and support the people around me.",
+  "about": [],
+  "contact": {
+    "email": "inquiries.hunter@gmail.com",
+    "instagram": "https://instagram.com/tears_of_hunter",
+    "linkedin": "https://www.linkedin.com/in/hunter-keene-003284173/"
+  },
+
+  "sections": [
+    { "id": "work",         "title": "Work" },
+    { "id": "competitions", "title": "Competitions" },
+    { "id": "events",       "title": "Events" },
+    { "id": "school",       "title": "School" },
+    { "id": "portfolio",    "title": "Portfolio" }
+  ],
+
+  "news": [],
+
+  "projects": [
+    { "slug": "gothic-folly",               "title": "Gothic Folly",               "year": "Ongoing", "section": "work", "images": [] },
+    { "slug": "an-unfamiliar-path",         "title": "An Unfamiliar Path",         "year": "2025", "section": "work", "images": [] },
+    { "slug": "eclipse",                    "title": "Eclipse",                    "year": "2025", "section": "work", "images": [] },
+    { "slug": "reveal",                     "title": "Reveal",                     "year": "2023", "section": "work", "images": [] },
+    { "slug": "fashion-explorations",       "title": "Fashion Explorations",       "year": "2023", "section": "work", "images": [] },
+    { "slug": "hand-drawings",              "title": "Hand Drawings",              "year": "2022", "section": "work", "images": [] },
+
+    { "slug": "competition-entry",          "title": "Competition Entry",          "year": "2023", "section": "competitions", "images": [] },
+    { "slug": "monument-for-mars",          "title": "Monument for Mars",          "year": "2021", "section": "competitions", "note": "Honorable Mention", "images": [] },
+
+    { "slug": "an-unfamiliar-event",        "title": "An Unfamiliar Event",        "year": "2025", "section": "events", "images": [] },
+
+    { "slug": "kayak-center",               "title": "Kayak Center",               "year": "2023", "section": "school", "images": [] },
+    { "slug": "studio-roma",                "title": "Studio Roma",                "year": "2022", "section": "school", "images": [] },
+    { "slug": "explorations-roma",          "title": "Explorations Roma",          "year": "2022", "section": "school", "images": [] },
+    { "slug": "concrete-based-membranes",   "title": "Concrete-Based Membranes",   "year": "2022", "section": "school", "images": [] },
+    { "slug": "light-weight-tension-structures", "title": "Light Weight Tension Structures Studio", "year": "2021", "section": "school", "images": [] },
+    { "slug": "high-performance-building",  "title": "High Performance Building Studio", "year": "2021", "section": "school", "images": [] },
+    { "slug": "media-city",                 "title": "Media City Technical System Integration", "year": "2021", "section": "school", "images": [] },
+    { "slug": "bamboo-tension-bridge",      "title": "Bamboo Tension Bridge",      "year": "2021", "section": "school", "images": [] },
+    { "slug": "fractura",                   "title": "Fractura",                   "year": "2021", "section": "school", "images": [] },
+    { "slug": "ncma",                       "title": "NCMA",                       "year": "2021", "section": "school", "images": [] },
+    { "slug": "the-dude-series",            "title": "The Dude Series",            "year": "2021", "section": "school", "images": [] },
+    { "slug": "graphic-designs",            "title": "Graphic Designs",            "year": "2021", "section": "school", "images": [] },
+
+    { "slug": "portfolio-2023",             "title": "Portfolio Composition",      "year": "2023", "section": "portfolio", "images": [] }
+  ]
+}
