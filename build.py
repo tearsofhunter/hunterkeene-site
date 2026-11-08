@@ -24,6 +24,17 @@ by_section = {s["id"]: sorted([p for p in C["projects"] if p["section"] == s["id
 ordered = [p for s in sections for p in by_section[s["id"]]]
 section_title = {s["id"]: s["title"] for s in sections}
 news = sorted(C.get("news", []), key=lambda n: str(n["date"]), reverse=True)
+press = sorted(C.get("press", []), key=lambda n: str(n["date"]), reverse=True)
+
+
+MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+
+def fmt_date(d):
+    parts = str(d).split("-")
+    if len(parts) >= 2 and parts[1].isdigit() and 1 <= int(parts[1]) <= 12:
+        return f"{MONTHS[int(parts[1]) - 1]} {parts[0]}"
+    return str(d)
 
 
 def cover(p):
@@ -36,6 +47,8 @@ def nav(current):
     items = [(s["id"] + ".html", s["title"], s["id"]) for s in sections if by_section[s["id"]]]
     if news:
         items.append(("news.html", "News", "news"))
+    if press:
+        items.append(("press.html", "Press", "press"))
     items.append(("about.html", "About", "about"))
     cur = ' aria-current="page"'
     return "".join(
@@ -164,8 +177,18 @@ def build(full_doc=True):
                 head = f'<a href="{e(n["project"])}.html">{head}</a>'
             elif n.get("link"):
                 head = f'<a href="{e(n["link"])}" target="_blank" rel="noopener">{head}</a>'
-            items += f"""<li><time>{e(n["date"])}</time><div>{head}{f"<p>{e(n['text'])}</p>" if n.get("text") else ""}{f'<img src="{e(n["image"])}" alt="" loading="lazy">' if n.get("image") else ""}</div></li>"""
+            items += f"""<li><time>{e(fmt_date(n["date"]))}</time><div>{head}{f"<p>{e(n['text'])}</p>" if n.get("text") else ""}{f'<img src="{e(n["image"])}" alt="" loading="lazy">' if n.get("image") else ""}</div></li>"""
         pages["news.html"] = page(f'News | {C["name"]}', "news", f'<ul class="news">{items}</ul>')
+
+    if press:
+        rows = ""
+        for n in press:
+            title = e(n["title"])
+            if n.get("link"):
+                title = f'<a href="{e(n["link"])}" target="_blank" rel="noopener">{title}</a>'
+            proj = f'<a href="{e(n["project"])}.html">{e(n["project_title"] if n.get("project_title") else n["project"].replace("-", " ").title())}</a>' if n.get("project") else ""
+            rows += f'<tr><td>{e(n.get("outlet", ""))}</td><td>{title}</td><td>{proj}</td><td>{e(fmt_date(n["date"]))}</td></tr>'
+        pages["press.html"] = page(f'Press | {C["name"]}', "press", f'<table class="list press"><tbody>{rows}</tbody></table>')
 
     c = C["contact"]
     about_text = "".join(f"<p>{e(t)}</p>" for t in (C.get("about") or [C["description"], C["tagline"]]))

@@ -19,6 +19,8 @@
 
   "news": [],
 
+  "press": [],
+
   "projects": [
     { "slug": "gothic-folly",               "title": "Gothic Folly",               "year": "Ongoing", "section": "work", "images": [] },
     { "slug": "an-unfamiliar-path",         "title": "An Unfamiliar Path",         "year": "2025", "section": "work", "images": [] },
