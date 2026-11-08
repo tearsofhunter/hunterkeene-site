@@ -40,13 +40,6 @@
       "project": "gothic-folly"
     },
     {
-      "date": "2026-10-20",
-      "outlet": "NomadLawyer",
-      "title": "City of Gods Festival 2026 Expands Brooklyn Nightlife with 150,000 Sq Ft Immersive Experience",
-      "link": "https://www.nomadlawyer.org/city-of-gods-festival-2026-brooklyn-industry-city-immersive-experience",
-      "project": "gothic-folly"
-    },
-    {
       "date": "2026-09-23",
       "outlet": "FreeYork",
       "title": "Burning Man 2026: Towering Creations and Emotional Narratives in the Nevada Desert",
@@ -69,16 +62,16 @@
     },
     {
       "date": "2026-09",
-      "outlet": "Dezeen",
-      "title": "The quirky architecture of Burning Man 2026",
-      "link": "https://www.dezeen.com/?p=2367540",
+      "outlet": "SFGATE",
+      "title": "The best photos of Burning Man 2026",
+      "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
       "project": "gothic-folly"
     },
     {
       "date": "2026-09",
-      "outlet": "SFGATE",
-      "title": "The best photos of Burning Man 2026",
-      "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
+      "outlet": "Dezeen",
+      "title": "The quirky architecture of Burning Man 2026",
+      "link": "https://www.dezeen.com/?p=2367540",
       "project": "gothic-folly"
     }
   ],
