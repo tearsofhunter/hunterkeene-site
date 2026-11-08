@@ -7,7 +7,7 @@ import os
 import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-OUT = sys.argv[1] if len(sys.argv) > 1 else ROOT
+OUT = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") else ROOT
 C = json.load(open(os.path.join(ROOT, "content.json")))
 e = html.escape
 
@@ -194,6 +194,25 @@ def build(full_doc=True):
     pages["about.html"] = page(f'About | {C["name"]}', "about", about)
     return pages
 
+
+def build_preview(out):
+    """Full site plus start.html (the home page without the document skeleton) and assets,
+    for publishing as a Claude artifact preview."""
+    import shutil
+    os.makedirs(os.path.join(out, "assets"), exist_ok=True)
+    for name, text in build().items():
+        with open(os.path.join(out, name), "w") as f:
+            f.write(text)
+    with open(os.path.join(out, "start.html"), "w") as f:
+        f.write(build(full_doc=False)["index.html"])
+    for a in ("style.css", "site.js"):
+        shutil.copy(os.path.join(ROOT, "assets", a), os.path.join(out, "assets", a))
+    print(f"Built preview into {out}")
+
+
+if __name__ == "__main__" and len(sys.argv) > 2 and sys.argv[1] == "--preview":
+    build_preview(sys.argv[2])
+    sys.exit(0)
 
 if __name__ == "__main__":
     pages = build()
