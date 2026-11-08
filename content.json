@@ -24,8 +24,8 @@
     { "slug": "gothic-folly",               "title": "Gothic Folly",               "year": "Ongoing", "section": "work", "images": [] },
     { "slug": "an-unfamiliar-path",         "title": "An Unfamiliar Path",         "year": "2025", "section": "work", "images": [] },
     { "slug": "eclipse",                    "title": "Eclipse",                    "year": "2025", "section": "work", "images": [] },
-    { "slug": "reveal",                     "title": "Reveal",                     "year": "2023", "section": "work", "images": [] },
     { "slug": "fashion-explorations",       "title": "Fashion Explorations",       "year": "2023", "section": "work", "images": [] },
+    { "slug": "reveal",                     "title": "Reveal",                     "year": "2023", "section": "work", "images": [] },
     { "slug": "hand-drawings",              "title": "Hand Drawings",              "year": "2022", "section": "work", "images": [] },
 
     { "slug": "competition-entry",          "title": "Competition Entry",          "year": "2023", "section": "competitions", "images": [] },
@@ -39,11 +39,11 @@
     { "slug": "concrete-based-membranes",   "title": "Concrete-Based Membranes",   "year": "2022", "section": "school", "images": [] },
     { "slug": "light-weight-tension-structures", "title": "Light Weight Tension Structures Studio", "year": "2021", "section": "school", "images": [] },
     { "slug": "high-performance-building",  "title": "High Performance Building Studio", "year": "2021", "section": "school", "images": [] },
+    { "slug": "the-dude-series",            "title": "The Dude Series",            "year": "2021", "section": "school", "images": [] },
     { "slug": "media-city",                 "title": "Media City Technical System Integration", "year": "2021", "section": "school", "images": [] },
     { "slug": "bamboo-tension-bridge",      "title": "Bamboo Tension Bridge",      "year": "2021", "section": "school", "images": [] },
     { "slug": "fractura",                   "title": "Fractura",                   "year": "2021", "section": "school", "images": [] },
     { "slug": "ncma",                       "title": "NCMA",                       "year": "2021", "section": "school", "images": [] },
-    { "slug": "the-dude-series",            "title": "The Dude Series",            "year": "2021", "section": "school", "images": [] },
     { "slug": "graphic-designs",            "title": "Graphic Designs",            "year": "2021", "section": "school", "images": [] },
 
     { "slug": "portfolio-2023",             "title": "Portfolio Composition",      "year": "2023", "section": "portfolio", "images": [] }

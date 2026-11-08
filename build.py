@@ -141,7 +141,7 @@ def write(name, text):
 
 def build(full_doc=True):
     pages = {}
-    # home: large name + intro, current updates, then work
+    # home: large name + intro, then current updates (no projects)
     intro = "".join(f"<p>{e(t)}</p>" for t in (C.get("intro") or [C["description"], C["tagline"]]))
     home = f'<section class="intro" aria-label="Introduction">{intro}</section>'
     if news:
@@ -149,15 +149,6 @@ def build(full_doc=True):
   <h2 id="h-updates">Current updates</h2>
   {updates_table(news)}
 </section>"""
-    work = by_section["work"]
-    lead, rest = (work[0], work[1:]) if work else (None, [])
-    if lead:
-        src = cover(lead)
-        home += f"""<a class="home-feature" href="{lead["slug"]}.html" style="display:block">
-  <div class="img">{f'<img src="{e(src)}" alt="">' if src else ""}</div>
-  <div class="cap"><span>{e(lead["title"])}</span><span>{e(lead["year"])}</span></div>
-</a>"""
-    home += f'<div class="grid" style="--cols:3;padding-top:24px">{"".join(tile(p) for p in rest)}</div>'
     pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc, kind="home")
 
     for s in sections:
