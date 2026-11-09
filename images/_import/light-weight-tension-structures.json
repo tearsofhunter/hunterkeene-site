@@ -10,5 +10,8 @@
     "images/light-weight-tension-structures/02.jpg",
     "images/light-weight-tension-structures/03.jpg"
   ],
-  "sizes": []
+  "sizes": [
+    "source",
+    "source"
+  ]
 }

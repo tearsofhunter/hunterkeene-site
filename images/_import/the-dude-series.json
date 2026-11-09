@@ -18,13 +18,5 @@
     "images/the-dude-series/06.jpg",
     "images/the-dude-series/07.jpg"
   ],
-  "sizes": [
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source"
-  ]
+  "sizes": []
 }

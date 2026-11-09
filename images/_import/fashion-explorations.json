@@ -20,14 +20,5 @@
     "images/fashion-explorations/07.jpg",
     "images/fashion-explorations/08.jpg"
   ],
-  "sizes": [
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source"
-  ]
+  "sizes": []
 }

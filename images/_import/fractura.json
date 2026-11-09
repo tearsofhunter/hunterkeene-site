@@ -16,12 +16,5 @@
     "images/fractura/05.jpg",
     "images/fractura/06.jpg"
   ],
-  "sizes": [
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source"
-  ]
+  "sizes": []
 }

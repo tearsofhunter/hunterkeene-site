@@ -46,27 +46,5 @@
     "images/an-unfamiliar-path/20.jpg",
     "images/an-unfamiliar-path/21.jpg"
   ],
-  "sizes": [
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source"
-  ]
+  "sizes": []
 }
