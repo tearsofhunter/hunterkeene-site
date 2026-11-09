@@ -353,3 +353,9 @@ body::after {
   .about.has-portrait { grid-template-columns: minmax(0, 1fr); }
   .about.has-portrait dl { grid-column: auto; }
 }
+
+.bleed .label {
+  position: absolute; left: var(--pad-l); top: 14px;
+  font-size: 11px; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
+}

@@ -10,13 +10,15 @@
       "credit": "Jane Hu",
       "phone_crop": {
         "position": "49% 50%"
-      }
+      },
+      "label": "The Gothic Folly, August 2026"
     },
     {
       "src": "images/home/gothic-folly-night.jpg",
       "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it",
       "credit": "Jane Hu",
-      "mode": "night"
+      "mode": "night",
+      "label": "The Gothic Folly, August 2026"
     }
   ],
   "current_projects": [

@@ -155,6 +155,8 @@ def build(full_doc=True):
         items = ""
         for i, h in enumerate(slides):
             credit = f'<span class="credit">Photo: {e(h["credit"])}</span>' if h.get("credit") else ""
+            if h.get("label"):
+                credit = f'<span class="label">{e(h["label"])}</span>' + credit
             pc = h.get("phone_crop") or {}
             style = ""
             if pc:
