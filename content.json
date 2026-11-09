@@ -59,7 +59,8 @@
     },
     {
       "id": "events",
-      "title": "Events"
+      "title": "Events",
+      "hidden": true
     },
     {
       "id": "education",

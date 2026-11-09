@@ -18,7 +18,9 @@ def year_key(y):
     return 9999 if str(y).lower() == "ongoing" else int(str(y)[:4]) if str(y)[:4].isdigit() else 0
 
 
-sections = C["sections"]
+# sections marked "hidden" (and their projects) are left out of the site
+sections = [s for s in C["sections"] if not s.get("hidden")]
+C["projects"] = [p for p in C["projects"] if p["section"] in {s["id"] for s in sections}]
 by_section = {s["id"]: sorted([p for p in C["projects"] if p["section"] == s["id"]],
                               key=lambda p: -year_key(p["year"])) for s in sections}
 ordered = [p for s in sections for p in by_section[s["id"]]]
