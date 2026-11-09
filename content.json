@@ -4,6 +4,11 @@
   "tagline": "On a perpetual mission to make cool stuff and support the people around me.",
   "intro": [],
   "hero": { "src": "", "alt": "" },
+  "current_projects": [
+    { "role": "Resident Artist", "name": "Chinatown Soup", "note": "Started January 2026" },
+    { "role": "Co artist", "name": "The Gothic Folly", "project": "gothic-folly" },
+    { "role": "Rotating Gallery", "name": "500 Communipaw, Jersey City NJ" }
+  ],
   "about": [],
   "contact": {
     "email": "inquiries.hunter@gmail.com",

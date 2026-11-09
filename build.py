@@ -147,9 +147,23 @@ def build(full_doc=True):
     hero = C.get("hero") or {}
     hero_img = f'<img src="{e(hero["src"])}" alt="{e(hero.get("alt", ""))}">' if hero.get("src") else ""
     home += f'<figure class="bleed{"" if hero_img else " empty"}">{hero_img}</figure>'
+    cps = C.get("current_projects") or []
+    if cps:
+        rows = ""
+        for cp in cps:
+            name = e(cp["name"])
+            if cp.get("project"):
+                name = f'<a href="{e(cp["project"])}.html">{name}</a>'
+            elif cp.get("link"):
+                name = f'<a href="{e(cp["link"])}" target="_blank" rel="noopener">{name}</a>'
+            rows += f'<tr><td>{e(cp.get("role", ""))}</td><td>{name}</td><td>{e(cp.get("note", ""))}</td></tr>'
+        home += f"""<section class="updates current" id="current" aria-labelledby="h-current">
+  <h2 id="h-current">Current projects</h2>
+  <table class="list current-list"><tbody>{rows}</tbody></table>
+</section>"""
     if news:
         home += f"""<section class="updates" id="updates" aria-labelledby="h-updates">
-  <h2 id="h-updates">Current updates</h2>
+  <h2 id="h-updates">Updates</h2>
   {updates_table(news)}
 </section>"""
     pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc, kind="home")
