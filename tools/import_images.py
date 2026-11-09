@@ -19,18 +19,38 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
 
+DEBUG_DIR = os.environ.get("IMPORT_DEBUG_DIR")
+_debug_n = [0]
+
+
+def save_debug(url, text):
+    if not DEBUG_DIR:
+        return
+    os.makedirs(DEBUG_DIR, exist_ok=True)
+    _debug_n[0] += 1
+    name = f"{_debug_n[0]:03d}-" + re.sub(r"[^a-zA-Z0-9]+", "_", url)[-80:] + ".html"
+    open(os.path.join(DEBUG_DIR, name), "w").write(text)
+
+
 def get(url, binary=False, tries=3):
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
             with urllib.request.urlopen(req, timeout=60) as r:
                 data = r.read()
-                return data if binary else data.decode("utf-8", "replace")
+                if binary:
+                    return data
+                text = data.decode("utf-8", "replace")
+                print(f"GET {url} -> {r.status}, {len(text)} chars")
+                save_debug(url, text)
+                return text
         except urllib.error.HTTPError as e:
+            print(f"GET {url} -> HTTP {e.code}")
             if e.code == 404:
                 return None
             time.sleep(2 * (i + 1))
-        except Exception:
+        except Exception as e:
+            print(f"GET {url} -> {type(e).__name__}: {e}")
             time.sleep(2 * (i + 1))
     return None
 
