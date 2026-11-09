@@ -389,7 +389,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/an-unfamiliar-path/cover.png"
+      "cover": "images/an-unfamiliar-path/tile.jpg"
     },
     {
       "slug": "eclipse",
@@ -402,7 +402,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/eclipse/cover.png"
+      "cover": "images/eclipse/tile.jpg"
     },
     {
       "slug": "fashion-explorations",
@@ -439,7 +439,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/fashion-explorations/cover.jpg",
+      "cover": "images/fashion-explorations/tile.jpg",
       "context": [
         "July 2023 – Present",
         "Independent Garment Explorations"
@@ -472,7 +472,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/reveal/cover.png",
+      "cover": "images/reveal/tile.jpg",
       "context": [
         "Spring 2018 Studio Project",
         "The Penn State University"
@@ -523,7 +523,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/hand-drawings/cover.png",
+      "cover": "images/hand-drawings/tile.jpg",
       "context": [
         "Spring and Fall 2017",
         "The Penn State University"
@@ -557,7 +557,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/kodolu-maja/cover.png",
+      "cover": "images/kodolu-maja/tile.jpg",
       "context": [
         "Feb – June 2023 Competition Entry",
         "Buildner + ArchDaily",
@@ -612,7 +612,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/monument-for-mars/cover.png",
+      "cover": "images/monument-for-mars/tile.jpg",
       "context": [
         "Fall 2021 Competition Entry",
         "Honorable Mention | Museum of Outdoor Art",
@@ -674,7 +674,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/kayak-center/cover.png",
+      "cover": "images/kayak-center/tile.jpg",
       "context": [
         "Spring 2019 Studio Project",
         "The Penn State University"
@@ -694,7 +694,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/studio-roma/cover.png",
+      "cover": "images/studio-roma/tile.jpg",
       "context": [
         "Spring 2022 Studio Project",
         "The Pantheon Institute, Rome"
@@ -719,7 +719,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/explorations-roma/cover.png",
+      "cover": "images/explorations-roma/tile.jpg",
       "context": [
         "Spring 2022 Independent Research Project",
         "Rome, Italy"
@@ -763,7 +763,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/concrete-based-membranes/cover.png",
+      "cover": "images/concrete-based-membranes/tile.jpg",
       "context": [
         "Fall 2021 Independent Research Project",
         "The Penn State University"
@@ -784,7 +784,7 @@
           "size": "half"
         }
       ],
-      "cover": "images/light-weight-tension-structures/cover.png",
+      "cover": "images/light-weight-tension-structures/tile.jpg",
       "context": [
         "Spring 2021 Studio Project",
         "The Penn State University"
@@ -805,7 +805,7 @@
           "size": "half"
         }
       ],
-      "cover": "images/high-performance-building/cover.png",
+      "cover": "images/high-performance-building/tile.jpg",
       "context": [
         "Fall 2020 Studio Project",
         "The Penn State University"
@@ -842,7 +842,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/the-dude-series/cover.png",
+      "cover": "images/the-dude-series/tile.jpg",
       "context": [
         "March 2020 Character Exploration",
         "NJ, USA"
@@ -890,7 +890,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/media-city/cover.png",
+      "cover": "images/media-city/tile.jpg",
       "context": [
         "Spring 2020 Studio Project",
         "The Penn State University"
@@ -907,7 +907,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/bamboo-tension-bridge/cover.png",
+      "cover": "images/bamboo-tension-bridge/tile.jpg",
       "context": [
         "Spring 2019 Studio Project",
         "The Penn State University"
@@ -940,7 +940,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/fractura/cover.jpg",
+      "cover": "images/fractura/tile.jpg",
       "context": [
         "Fall 2019 Studio Project",
         "The Penn State University"
@@ -971,7 +971,7 @@
           ]
         }
       ],
-      "cover": "images/ncma/cover.png",
+      "cover": "images/ncma/tile.jpg",
       "context": [
         "Spring 2019 Studio Project",
         "The Penn State University"
@@ -1012,7 +1012,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/graphic-designs/cover.jpg",
+      "cover": "images/graphic-designs/tile.jpg",
       "context": [
         "Independent Graphic and Conceptual explorations",
         "NJ / NYC, USA"
@@ -1057,7 +1057,7 @@
           "size": "full"
         }
       ],
-      "cover": "images/portfolio-2023/cover.png"
+      "cover": "images/portfolio-2023/tile.jpg"
     }
   ],
   "intro_layout": "below",

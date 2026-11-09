@@ -216,7 +216,7 @@ def build(full_doc=True):
                         f'<model-viewer src="{e(im["model"])}" alt="{e(im.get("alt", p["title"] + " 3D model"))}" '
                         f'auto-rotate auto-rotate-delay="0" rotation-per-second="8deg" disable-zoom disable-pan interaction-prompt="none" '
                         f'loading="lazy" reveal="auto" camera-orbit="35deg 60deg 72%" camera-target="auto 2.2m auto" '
-                        f'exposure="0.7" shadow-intensity="0" tone-mapping="neutral"></model-viewer>'
+                        f'exposure="0.6" shadow-intensity="1" shadow-softness="0.2" tone-mapping="neutral" environment-image="legacy"></model-viewer>'
                         f'{cap}</figure>')
             if im.get("heading"):  # a chapter heading within the gallery
                 return f'<h2 class="gallery-heading">{e(im["heading"])}</h2>'

@@ -69,28 +69,29 @@ scene.apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[1,0,0])@
 b=scene.bounds; c=(b[0]+b[1])/2
 scene.apply_translation([-c[0],-b[0][1],-c[2]])
 ext=scene.extents; R=max(ext[0],ext[2])*0.8
-# grassy earth ground: baked texture with radial fade to transparent
-N=1024; rng=np.random.default_rng(7)
-def noise(scale):
-    a=rng.random((N//scale+2,N//scale+2)).astype(np.float32)
-    im=Image.fromarray((a*255).astype(np.uint8)).resize((N,N),Image.BICUBIC).filter(ImageFilter.GaussianBlur(scale/3))
-    return np.asarray(im,dtype=np.float32)/255
-n=0.45*noise(64)+0.3*noise(16)+0.15*noise(4)+0.1*rng.random((N,N))
-grass=np.array([92,98,76],dtype=np.float32); earth=np.array([112,100,82],dtype=np.float32); dark=np.array([66,70,56],dtype=np.float32)
-patch=np.clip((noise(48)-0.45)*3,0,1)[...,None]
-col=grass*(1-patch)+earth*patch
-col=col*(0.82+0.36*n[...,None])
-col=col*(1-0.25*np.clip(noise(8)-0.5,0,1)[...,None]*2)+0*dark
-yy,xx=np.mgrid[0:N,0:N]; r=np.hypot(xx-N/2,yy-N/2)/(N/2)
-fall=np.clip((1-r)/0.5,0,1)**1.3
-alpha=(fall>(0.15+0.7*rng.random((N,N))*0.6+0.35*noise(6))).astype(np.float32)
-rgba=np.dstack([np.clip(col,0,255),alpha*255]).astype(np.uint8)
-tex=Image.fromarray(rgba,'RGBA')
-ground=trimesh.creation.cylinder(radius=R,height=0.01,sections=96)
-ground.apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[1,0,0]))
-ground.apply_translation([0,-0.03,0])
-v=ground.vertices; uv=np.c_[(v[:,0]/R+1)/2,(v[:,2]/R+1)/2]
-gm=trimesh.visual.material.PBRMaterial(baseColorTexture=tex,baseColorFactor=[255,255,255,255],metallicFactor=0,roughnessFactor=1,alphaMode='MASK',alphaCutoff=0.5,doubleSided=True)
-ground.visual=trimesh.visual.TextureVisuals(uv=uv,material=gm)
-scene.add_geometry(ground,geom_name='ground')
+if '--ground' in sys.argv:
+    # grassy earth ground: baked texture with radial fade to transparent
+    N=1024; rng=np.random.default_rng(7)
+    def noise(scale):
+        a=rng.random((N//scale+2,N//scale+2)).astype(np.float32)
+        im=Image.fromarray((a*255).astype(np.uint8)).resize((N,N),Image.BICUBIC).filter(ImageFilter.GaussianBlur(scale/3))
+        return np.asarray(im,dtype=np.float32)/255
+    n=0.45*noise(64)+0.3*noise(16)+0.15*noise(4)+0.1*rng.random((N,N))
+    grass=np.array([92,98,76],dtype=np.float32); earth=np.array([112,100,82],dtype=np.float32); dark=np.array([66,70,56],dtype=np.float32)
+    patch=np.clip((noise(48)-0.45)*3,0,1)[...,None]
+    col=grass*(1-patch)+earth*patch
+    col=col*(0.82+0.36*n[...,None])
+    col=col*(1-0.25*np.clip(noise(8)-0.5,0,1)[...,None]*2)+0*dark
+    yy,xx=np.mgrid[0:N,0:N]; r=np.hypot(xx-N/2,yy-N/2)/(N/2)
+    fall=np.clip((1-r)/0.5,0,1)**1.3
+    alpha=(fall>(0.15+0.7*rng.random((N,N))*0.6+0.35*noise(6))).astype(np.float32)
+    rgba=np.dstack([np.clip(col,0,255),alpha*255]).astype(np.uint8)
+    tex=Image.fromarray(rgba,'RGBA')
+    ground=trimesh.creation.cylinder(radius=R,height=0.01,sections=96)
+    ground.apply_transform(trimesh.transformations.rotation_matrix(-np.pi/2,[1,0,0]))
+    ground.apply_translation([0,-0.03,0])
+    v=ground.vertices; uv=np.c_[(v[:,0]/R+1)/2,(v[:,2]/R+1)/2]
+    gm=trimesh.visual.material.PBRMaterial(baseColorTexture=tex,baseColorFactor=[255,255,255,255],metallicFactor=0,roughnessFactor=1,alphaMode='MASK',alphaCutoff=0.5,doubleSided=True)
+    ground.visual=trimesh.visual.TextureVisuals(uv=uv,material=gm)
+    scene.add_geometry(ground,geom_name='ground')
 scene.export(out); print('R',R)
