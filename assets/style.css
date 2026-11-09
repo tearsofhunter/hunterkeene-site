@@ -203,3 +203,12 @@ body::before {
 .updates .list.feed { margin: 0; }
 .home-feature { scroll-margin-top: 70px; }
 #updates { scroll-margin-top: 70px; }
+
+/* full-bleed landing photo, edge to edge past the page gutters */
+.bleed {
+  margin: 0 calc(-1 * var(--pad-r)) 48px calc(-1 * var(--pad-l));
+  height: min(78vh, 62vw); min-height: 280px; max-width: none;
+  background: var(--empty); overflow: hidden;
+}
+.bleed img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) { .bleed { height: 70vh; min-height: 0; margin-bottom: 36px; } }

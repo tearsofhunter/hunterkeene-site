@@ -3,6 +3,7 @@
   "description": "New York based designer. Focused on spatial representation and the integration of analog mediums.",
   "tagline": "On a perpetual mission to make cool stuff and support the people around me.",
   "intro": [],
+  "hero": { "src": "", "alt": "" },
   "about": [],
   "contact": {
     "email": "inquiries.hunter@gmail.com",

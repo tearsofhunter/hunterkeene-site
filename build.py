@@ -46,8 +46,6 @@ def cover(p):
 
 def nav(current):
     items = [(s["id"] + ".html", s["title"], s["id"]) for s in sections if by_section[s["id"]]]
-    if news:
-        items.append(("index.html#updates", "Updates", "updates"))
     items.append(("about.html", "About", "about"))
     cur = ' aria-current="page"'
     return "".join(
@@ -146,6 +144,9 @@ def build(full_doc=True):
     # home: large name + intro, then current updates (no projects)
     intro = "".join(f"<p>{e(t)}</p>" for t in (C.get("intro") or [C["description"], C["tagline"]]))
     home = f'<section class="intro" aria-label="Introduction">{intro}</section>'
+    hero = C.get("hero") or {}
+    hero_img = f'<img src="{e(hero["src"])}" alt="{e(hero.get("alt", ""))}">' if hero.get("src") else ""
+    home += f'<figure class="bleed{"" if hero_img else " empty"}">{hero_img}</figure>'
     if news:
         home += f"""<section class="updates" id="updates" aria-labelledby="h-updates">
   <h2 id="h-updates">Current updates</h2>
