@@ -5,9 +5,10 @@
   --mute: #8C8C8C;
   --line: #E4E4E4;
   --empty: #F1F1F1;
-  --dusk-red: rgba(222, 160, 152, 0.58);
-  --dusk-lavender: rgba(182, 170, 222, 0.62);
-  --dusk-haze: rgba(212, 192, 212, 0.30);
+  --frost: rgba(255, 255, 255, 0.4);
+  --dusk-red: rgba(222, 160, 152, 0.64);
+  --dusk-lavender: rgba(182, 170, 222, 0.68);
+  --dusk-haze: rgba(212, 192, 212, 0.33);
   --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --size: 13px;
   --pad-l: max(20px, env(safe-area-inset-left, 0px));
@@ -33,13 +34,17 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* header */
 .top {
-  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg);
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--frost);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  margin-left: calc(-1 * var(--pad-l)); margin-right: calc(-1 * var(--pad-r));
+  padding-left: var(--pad-l); padding-right: var(--pad-r);
   display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
   padding-block: 18px 16px;
 }
 body::before {
   content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
-  z-index: 6; background: var(--bg);
+  z-index: 6; background: var(--frost);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
 }
 .name { font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
 .nav { display: flex; gap: 22px; margin: 0; padding: 0; list-style: none; }
@@ -238,9 +243,9 @@ body::before {
 body::after {
   content: ""; position: fixed; inset: -12%; z-index: -1; pointer-events: none;
   background:
-    radial-gradient(65% 55% at 22% 100%, var(--dusk-red), transparent 74%),
-    radial-gradient(70% 58% at 80% 100%, var(--dusk-lavender), transparent 74%),
-    linear-gradient(to top, var(--dusk-haze), transparent 66%);
+    radial-gradient(75% 120% at 22% 100%, var(--dusk-red), transparent 78%),
+    radial-gradient(80% 125% at 80% 100%, var(--dusk-lavender), transparent 78%),
+    linear-gradient(to top, var(--dusk-haze), transparent 100%);
   filter: blur(56px);
 }
 
