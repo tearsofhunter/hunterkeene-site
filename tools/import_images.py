@@ -26,7 +26,10 @@ MAX_EDGE = 2400  # web size: long edge in pixels
 def web_version(data):
     """Return (bytes, ext) resized to MAX_EDGE; JPEG unless the image needs transparency."""
     from PIL import Image
+    Image.MAX_IMAGE_PIXELS = 600_000_000  # large competition boards are expected here
     im = Image.open(io.BytesIO(data))
+    if hasattr(im, "draft"):
+        im.draft("RGB", (MAX_EDGE, MAX_EDGE))  # JPEGs decode at reduced size, saving memory
     im.load()
     im.thumbnail((MAX_EDGE, MAX_EDGE), Image.LANCZOS)
     has_alpha = im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info)
@@ -88,7 +91,11 @@ def main():
                 continue
             size, data = fetch_first([(s, f"{CDN}/project_modules/{s}/{name}") for s in MODULE_SIZES])
             if data:
-                data, ext = web_version(data)
+                try:
+                    data, ext = web_version(data)
+                except Exception as e:
+                    print(f"{slug}: could not convert {name}: {e}")
+                    continue
                 fn = f"{i:02d}{ext}"
                 open(os.path.join(outdir, fn), "wb").write(data)
                 saved.append(f"images/{slug}/{fn}")
