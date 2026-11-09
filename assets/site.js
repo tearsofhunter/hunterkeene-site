@@ -25,13 +25,14 @@
   });
 
   // home: large name shrinks into the header, intro fades as you scroll
-  var home = document.querySelector(".page.home");
+  var home = document.querySelector(".page");
   if (home) {
     var nameEl = home.querySelector(".name");
-    var intro = home.querySelector(".intro");
     var ticking = false;
     var update = function () {
       ticking = false;
+      if (!home.classList.contains("home")) { nameEl.style.setProperty("--name-scale", "1"); return; }
+      var intro = home.querySelector(".intro");
       var p = Math.min(1, Math.max(0, window.scrollY / 140));
       nameEl.style.setProperty("--name-scale", (1.5 - 0.5 * p).toFixed(3));
       if (intro) intro.style.setProperty("--intro-fade", (1 - p).toFixed(3));
@@ -40,14 +41,14 @@
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
     update();
+    window.hkUpdateHome = update;
   }
 
   // grid / list + scale
-  var index = document.querySelector("[data-view]");
-  if (index) {
+  document.querySelectorAll("[data-view]").forEach(function (index) {
     var grid = index.querySelector(".grid");
     var buttons = index.querySelectorAll("[data-set-view]");
-    var range = index.querySelector("#scale");
+    var range = index.querySelector(".scale input");
     var setView = function (v) {
       index.setAttribute("data-view", v);
       buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-set-view") === v ? "true" : "false"); });
@@ -62,15 +63,10 @@
     if (range) range.addEventListener("input", function () { setCols(range.value); });
     setView(store.get("hk-view") || "grid");
     setCols(store.get("hk-cols") || (range ? range.value : 3));
-  }
+  });
 
   // lightbox
-  var figs = Array.prototype.slice.call(document.querySelectorAll(".images [data-full]"));
-  if (!figs.length) return;
-  var items = figs.map(function (b) {
-    return { src: b.getAttribute("data-full"), cap: b.getAttribute("data-cap") || "" };
-  });
-  var title = document.querySelector(".project-head h1");
+  var items = [], title = null;
   var lb, img, count, cap, k = 0, returnTo = null;
 
   function show() {
@@ -91,8 +87,13 @@
     document.body.style.overflow = "";
     if (returnTo) returnTo.focus();
   }
-  function open(start) {
-    k = start; returnTo = document.activeElement;
+  function open(btn) {
+    var group = btn.closest(".images");
+    var btns = Array.prototype.slice.call(group.querySelectorAll("[data-full]"));
+    items = btns.map(function (b) { return { src: b.getAttribute("data-full"), cap: b.getAttribute("data-cap") || "" }; });
+    var scope = group.closest("[data-page]") || document;
+    title = scope.querySelector(".project-head h1");
+    k = btns.indexOf(btn); returnTo = document.activeElement;
     lb = document.createElement("div");
     lb.className = "lightbox";
     lb.setAttribute("role", "dialog");
@@ -122,5 +123,7 @@
     show();
     lb.querySelector(".lb-close").focus();
   }
-  figs.forEach(function (b, i) { b.addEventListener("click", function () { open(i); }); });
+  document.querySelectorAll(".images [data-full]").forEach(function (b) {
+    b.addEventListener("click", function () { open(b); });
+  });
 })();

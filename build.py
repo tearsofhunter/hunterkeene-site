@@ -100,7 +100,7 @@ def tile(p):
 </a>"""
 
 
-def index_body(projects, cols=3):
+def index_body(projects, cols=3, key="index"):
     rows = "".join(
         f'<tr><td><a href="{p["slug"]}.html">{e(p["title"])}</a></td>'
         f'<td>{e(p.get("note", ""))}</td><td>{e(p["year"])}</td></tr>' for p in projects
@@ -111,7 +111,7 @@ def index_body(projects, cols=3):
     <button type="button" data-set-view="grid" aria-pressed="true">Grid</button>
     <button type="button" data-set-view="list" aria-pressed="false">List</button>
   </div>
-  <label class="scale" for="scale">Scale <input type="range" id="scale" min="2" max="6" step="1" value="{cols}"></label>
+  <label class="scale" for="scale-{key}">Scale <input type="range" id="scale-{key}" min="2" max="6" step="1" value="{cols}"></label>
 </div>
 <div class="grid">{"".join(tile(p) for p in projects)}</div>
 <table class="list"><tbody>{rows}</tbody></table>
@@ -170,7 +170,7 @@ def build(full_doc=True):
 
     for s in sections:
         if by_section[s["id"]]:
-            pages[s["id"] + ".html"] = page(f'{s["title"]} | {C["name"]}', s["id"], index_body(by_section[s["id"]]))
+            pages[s["id"] + ".html"] = page(f'{s["title"]} | {C["name"]}', s["id"], index_body(by_section[s["id"]], key=s["id"]))
 
     for i, p in enumerate(ordered):
         prev, nxt = ordered[i - 1], ordered[(i + 1) % len(ordered)]
@@ -211,17 +211,68 @@ def build(full_doc=True):
 
 
 def build_preview(out):
-    """Full site plus start.html (the home page without the document skeleton) and assets,
-    for publishing as a Claude artifact preview."""
+    """Single-file preview for the Claude artifact viewer, which can't follow links between
+    separate pages: every page becomes a view inside start.html, switched by #hash.
+    Also writes the normal multi-page site and assets alongside it."""
+    import re
     import shutil
     os.makedirs(os.path.join(out, "assets"), exist_ok=True)
-    for name, text in build().items():
+    pages = build()
+    for name, text in pages.items():
         with open(os.path.join(out, name), "w") as f:
             f.write(text)
-    with open(os.path.join(out, "start.html"), "w") as f:
-        f.write(build(full_doc=False)["index.html"])
     for a in ("style.css", "site.js"):
         shutil.copy(os.path.join(ROOT, "assets", a), os.path.join(out, "assets", a))
+
+    def to_hash(m):
+        target = m.group(1)
+        return f'href="#{"index" if target == "index" else target}"'
+
+    views, titles = [], {}
+    for name, text in pages.items():
+        key = name[:-5]
+        main = text.split("<main>", 1)[1].split("</main>", 1)[0]
+        main = re.sub(r'href="([a-z0-9-]+)\.html"', to_hash, main)
+        titles[key] = text.split("<title>", 1)[1].split("</title>", 1)[0]
+        views.append(f'<div data-page="{key}"{"" if key == "index" else " hidden"}>{main}</div>')
+
+    home = build(full_doc=False)["index.html"]
+    head, rest = home.split('<div class="page', 1)
+    rest = '<div class="page' + rest
+    header = rest.split("<main>", 1)[0]
+    footer = rest.split("</main>", 1)[1]
+    header = re.sub(r'href="([a-z0-9-]+)\.html"', to_hash, header)
+    footer = re.sub(r'href="([a-z0-9-]+)\.html"', to_hash, footer)
+    router = """<script>
+(function () {
+  var titles = %s;
+  var page = document.querySelector(".page");
+  function show() {
+    var key = (location.hash || "").slice(1) || "index";
+    var view = document.querySelector('[data-page="' + key + '"]');
+    if (!view) { key = "index"; view = document.querySelector('[data-page="index"]'); }
+    document.querySelectorAll("[data-page]").forEach(function (v) { v.hidden = v !== view; });
+    page.classList.toggle("home", key === "index");
+    var section = view.getAttribute("data-section") || key;
+    document.querySelectorAll(".nav a").forEach(function (a) {
+      if (a.getAttribute("href") === "#" + section) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+    document.title = titles[key] || titles.index;
+    window.scrollTo(0, 0);
+    if (window.hkUpdateHome) window.hkUpdateHome();
+  }
+  window.addEventListener("hashchange", show);
+  show();
+})();
+</script>""" % json.dumps(titles)
+    sections = {p["slug"]: p["section"] for p in C["projects"]}
+    views = [v.replace(f'<div data-page="{k}"', f'<div data-page="{k}" data-section="{sections[k]}"', 1) if k in sections else v
+             for v, k in zip(views, [n[:-5] for n in pages])]
+    start = head + header + "<main>" + "".join(views) + "</main>" + footer.replace(
+        '<script src="assets/site.js"></script>', router + '\n<script src="assets/site.js"></script>')
+    with open(os.path.join(out, "start.html"), "w") as f:
+        f.write(start)
     print(f"Built preview into {out}")
 
 
