@@ -10,25 +10,41 @@ PICK={
  'reveal':('04.jpg',(0,0,1,1),'grow'),
  'hand-drawings':('02.jpg',(0.05,0.25,0.95,0.92),'grow'),
  'kodolu-maja':('04.jpg',(0.0,0.36,1.0,1.0),'shrink'),
- 'monument-for-mars':('04.jpg',(0.27,0.12,0.97,0.96),'grow'),
+ 'monument-for-mars':('04.jpg',(0.27,0.12,0.97,0.96),'shrink'),
  'kayak-center':('09.jpg',(0,0,1,1),'grow'),
- 'studio-roma':('02.jpg',(0.0,0.31,1.0,0.36),'grow'),
+ 'studio-roma':('02.jpg',(0.0,0.31,1.0,0.36),'shrink'),
  'explorations-roma':('03.png',(0.02,0,0.93,0.93),'pad'),
  'concrete-based-membranes':('02.jpg',(0.03,0.1,0.46,0.92),'shrink'),
  'light-weight-tension-structures':('03.jpg',(0.055,0.53,0.46,0.98),'shrink'),
  'high-performance-building':('02.jpg',(0.03,0.35,0.95,0.9),'shrink'),
- 'the-dude-series':('03.jpg',(0,0.25,1,1),'grow'),
+ 'the-dude-series':('02.jpg',(0,0,1,1),'grow'),
  'media-city':('02.jpg',(0.34,0.25,0.9,0.75),'shrink'),
  'bamboo-tension-bridge':('02.jpg',(0.08,0.08,0.97,0.225),'shrink'),
  'fractura':('06.jpg',(0,0,1,1),'grow'),
  'ncma':('03.jpg',(0,0,1,1),'pad'),
- 'graphic-designs':('03.jpg',(0,0,1,1),'grow'),
+ 'graphic-designs':('05.jpg',(0,0,1,1),'pad'),
  'portfolio-2023':('02.jpg',(0.14,0.12,0.91,0.85),'shrink'),
 }
 R=4/3
+import numpy as np
+def trim_white(im,limit=0.12):
+    """Strip near-white border bands (board margins) from each edge."""
+    a=np.asarray(im.convert('L')).astype(int); H,W=a.shape
+    def band(rows):  # rows: iterable of 1-D arrays from the edge inward
+        n=0
+        for r in rows:
+            if (r>232).mean()>0.97: n+=1
+            else: break
+        return n
+    t=band(a[i] for i in range(int(H*limit))); b=band(a[H-1-i] for i in range(int(H*limit)))
+    l=band(a[:,i] for i in range(int(W*limit))); r=band(a[:,W-1-i] for i in range(int(W*limit)))
+    return im.crop((l,t,W-r,H-b))
 def fit(im,box,mode):
     W,H=im.size; x0,y0,x1,y1=box[0]*W,box[1]*H,box[2]*W,box[3]*H
-    if mode in('shrink','pad'): im=im.crop((round(x0),round(y0),round(x1),round(y1))); W,H=im.size; x0,y0,x1,y1=0,0,W,H
+    if mode in('shrink','pad'):
+        im=im.crop((round(x0),round(y0),round(x1),round(y1)))
+        if mode=='shrink': im=trim_white(im)
+        W,H=im.size; x0,y0,x1,y1=0,0,W,H
     w,h=x1-x0,y1-y0; cx,cy=(x0+x1)/2,(y0+y1)/2
     if mode=='pad':
         w,h=(w,w/R) if w/h>R else (h*R,h)
