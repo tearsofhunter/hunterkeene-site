@@ -129,10 +129,6 @@
       "section": "work",
       "images": [
         {
-          "src": "images/an-unfamiliar-path/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/an-unfamiliar-path/02.jpg",
           "size": "full"
         },
@@ -222,10 +218,6 @@
       "section": "competitions",
       "images": [
         {
-          "src": "images/eclipse/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/eclipse/02.jpg",
           "size": "full"
         }
@@ -238,10 +230,6 @@
       "year": "2023–Present",
       "section": "work",
       "images": [
-        {
-          "src": "images/fashion-explorations/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/fashion-explorations/02.jpg",
           "size": "full"
@@ -284,10 +272,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/reveal/01.png",
-          "size": "full"
-        },
-        {
           "src": "images/reveal/02.jpg",
           "size": "half"
         },
@@ -320,10 +304,6 @@
       "year": "2017",
       "section": "education",
       "images": [
-        {
-          "src": "images/hand-drawings/01.jpg",
-          "size": "full"
-        },
         {
           "text": [
             "Spring 2017 Visual Communications Projects"
@@ -376,10 +356,6 @@
       "section": "competitions",
       "images": [
         {
-          "src": "images/kodolu-maja/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/kodolu-maja/02.jpg",
           "size": "full"
         },
@@ -410,10 +386,6 @@
       "section": "competitions",
       "note": "Honorable Mention",
       "images": [
-        {
-          "src": "images/monument-for-mars/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/monument-for-mars/02.jpg",
           "size": "full"
@@ -476,10 +448,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/kayak-center/01.png",
-          "size": "full"
-        },
-        {
           "src": "images/kayak-center/02.png",
           "size": "full"
         },
@@ -537,10 +505,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/studio-roma/01.png",
-          "size": "full"
-        },
-        {
           "src": "images/studio-roma/02.jpg",
           "size": "full"
         }
@@ -557,10 +521,6 @@
       "year": "2022",
       "section": "work",
       "images": [
-        {
-          "src": "images/explorations-roma/01.png",
-          "size": "full"
-        },
         {
           "src": "images/explorations-roma/02.jpg",
           "size": "full"
@@ -589,10 +549,6 @@
       "year": "2021",
       "section": "education",
       "images": [
-        {
-          "src": "images/concrete-based-membranes/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/concrete-based-membranes/02.jpg",
           "size": "full"
@@ -635,10 +591,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/light-weight-tension-structures/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/light-weight-tension-structures/02.jpg",
           "size": "half"
         },
@@ -660,10 +612,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/high-performance-building/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/high-performance-building/02.jpg",
           "size": "half"
         },
@@ -684,10 +632,6 @@
       "year": "2020",
       "section": "work",
       "images": [
-        {
-          "src": "images/the-dude-series/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/the-dude-series/02.jpg",
           "size": "full"
@@ -728,10 +672,6 @@
       "year": "2020",
       "section": "education",
       "images": [
-        {
-          "src": "images/media-city/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/media-city/02.jpg",
           "size": "half"
@@ -778,10 +718,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/bamboo-tension-bridge/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/bamboo-tension-bridge/02.jpg",
           "size": "full"
         }
@@ -798,10 +734,6 @@
       "year": "2019",
       "section": "education",
       "images": [
-        {
-          "src": "images/fractura/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/fractura/02.jpg",
           "size": "full"
@@ -836,10 +768,6 @@
       "section": "education",
       "images": [
         {
-          "src": "images/ncma/01.jpg",
-          "size": "full"
-        },
-        {
           "src": "images/ncma/02.jpg",
           "size": "half"
         },
@@ -870,10 +798,6 @@
       "year": "2021",
       "section": "work",
       "images": [
-        {
-          "src": "images/graphic-designs/01.jpg",
-          "size": "full"
-        },
         {
           "src": "images/graphic-designs/02.jpg",
           "size": "full"
@@ -915,10 +839,6 @@
       "year": "2023",
       "section": "portfolio",
       "images": [
-        {
-          "src": "images/portfolio-2023/01.png",
-          "size": "full"
-        },
         {
           "src": "images/portfolio-2023/02.jpg",
           "size": "full"
