@@ -30,8 +30,8 @@
   --empty: #1C1A23;
   --frost: rgba(15, 13, 20, 0.45);
   --dusk-red: rgba(176, 96, 104, 0.40);
-  --dusk-red-mid: rgba(176, 96, 104, 0.30);
-  --dusk-red-fade: rgba(176, 96, 104, 0.08);
+  --dusk-red-mid: rgba(150, 82, 104, 0.16);
+  --dusk-red-fade: rgba(150, 82, 104, 0);
   --dusk-lavender: rgba(118, 98, 190, 0.48);
   --dusk-haze: rgba(140, 96, 150, 0.34);
   --night: 1;
@@ -46,8 +46,8 @@
   --empty: #1C1A23;
   --frost: rgba(15, 13, 20, 0.45);
   --dusk-red: rgba(176, 96, 104, 0.40);
-  --dusk-red-mid: rgba(176, 96, 104, 0.30);
-  --dusk-red-fade: rgba(176, 96, 104, 0.08);
+  --dusk-red-mid: rgba(150, 82, 104, 0.16);
+  --dusk-red-fade: rgba(150, 82, 104, 0);
   --dusk-lavender: rgba(118, 98, 190, 0.48);
   --dusk-haze: rgba(140, 96, 150, 0.34);
   --night: 1;
@@ -312,3 +312,9 @@ body::after {
 }
 .bleed.instant .slide { transition: none; }
 :root[data-theme="dark"] .controls input[type="range"]::-webkit-slider-runnable-track { background: var(--mute); }
+
+/* night mode: feather the top of the landing photo into the page (day: no fade) */
+.bleed:not(.empty) {
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, calc(1 - var(--night, 0))) 0, #000 110px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, calc(1 - var(--night, 0))) 0, #000 110px);
+}
