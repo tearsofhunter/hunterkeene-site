@@ -202,6 +202,8 @@ def build(full_doc=True):
     for i, p in enumerate(ordered):
         prev, nxt = ordered[i - 1], ordered[(i + 1) % len(ordered)]
         imgs = p.get("images", [])
+        if not imgs and p.get("cover"):
+            imgs = [{"src": p["cover"]}]
         figs = "".join(
             f"""<figure class="{'half' if im.get('size') == 'half' else ''}">
   <button type="button" data-full="{e(im['src'])}" data-cap="{e(im.get('caption', ''))}" aria-label="View image {k + 1}">
@@ -313,4 +315,9 @@ if __name__ == "__main__":
     pages = build()
     for name, text in pages.items():
         write(name, text)
+    if OUT == ROOT:  # remove pages for projects that no longer exist
+        import glob
+        for old in glob.glob(os.path.join(ROOT, "*.html")):
+            if os.path.basename(old) not in pages:
+                os.remove(old)
     print(f"Built {len(pages)} pages into {OUT}")

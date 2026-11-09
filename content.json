@@ -132,28 +132,24 @@
       "title": "An Unfamiliar Path",
       "year": "2025",
       "section": "work",
-      "images": []
+      "images": [],
+      "cover": "images/an-unfamiliar-path/cover.png"
     },
     {
       "slug": "eclipse",
       "title": "Eclipse",
       "year": "2025",
       "section": "competitions",
-      "images": []
-    },
-    {
-      "slug": "kodolu-maja",
-      "title": "Kodolu Maja",
-      "year": "",
-      "section": "competitions",
-      "images": []
+      "images": [],
+      "cover": "images/eclipse/cover.png"
     },
     {
       "slug": "fashion-explorations",
       "title": "Fashion Explorations",
       "year": "2023",
       "section": "work",
-      "images": []
+      "images": [],
+      "cover": "images/fashion-explorations/cover.jpg"
     },
     {
       "slug": "reveal",
@@ -170,11 +166,12 @@
       "images": []
     },
     {
-      "slug": "competition-entry",
-      "title": "Competition Entry",
+      "slug": "kodolu-maja",
+      "title": "Kodolu Māja",
       "year": "2023",
       "section": "competitions",
-      "images": []
+      "images": [],
+      "cover": "images/kodolu-maja/cover.png"
     },
     {
       "slug": "monument-for-mars",
@@ -182,7 +179,8 @@
       "year": "2021",
       "section": "competitions",
       "note": "Honorable Mention",
-      "images": []
+      "images": [],
+      "cover": "images/monument-for-mars/cover.png"
     },
     {
       "slug": "an-unfamiliar-event",
@@ -203,42 +201,48 @@
       "title": "Studio Roma",
       "year": "2022",
       "section": "school",
-      "images": []
+      "images": [],
+      "cover": "images/studio-roma/cover.png"
     },
     {
       "slug": "explorations-roma",
       "title": "Explorations Roma",
       "year": "2022",
       "section": "school",
-      "images": []
+      "images": [],
+      "cover": "images/explorations-roma/cover.png"
     },
     {
       "slug": "concrete-based-membranes",
       "title": "Concrete-Based Membranes",
       "year": "2022",
       "section": "school",
-      "images": []
+      "images": [],
+      "cover": "images/concrete-based-membranes/cover.png"
     },
     {
       "slug": "light-weight-tension-structures",
       "title": "Light Weight Tension Structures Studio",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [],
+      "cover": "images/light-weight-tension-structures/cover.png"
     },
     {
       "slug": "high-performance-building",
       "title": "High Performance Building Studio",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [],
+      "cover": "images/high-performance-building/cover.png"
     },
     {
       "slug": "the-dude-series",
       "title": "The Dude Series",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [],
+      "cover": "images/the-dude-series/cover.png"
     },
     {
       "slug": "media-city",
@@ -280,7 +284,8 @@
       "title": "Portfolio Composition",
       "year": "2023",
       "section": "portfolio",
-      "images": []
+      "images": [],
+      "cover": "images/portfolio-2023/cover.png"
     }
   ],
   "intro_layout": "below"
