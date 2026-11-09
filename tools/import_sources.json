@@ -31,7 +31,14 @@
         "competition entry"
       ],
       "behance_url": "https://www.behance.net/gallery/175182021/COMPETITION-ENTRY-23",
-      "behance_cover": "53c8aa175182021.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "53c8aa175182021.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "841250175182021.64af01a3e9cd2.png",
+        "c4f3b1175182021.64af01a3ebec3.jpg",
+        "cbc4f6175182021.64af01a3e8f50.jpg",
+        "09c07e175182021.64af01a3eade6.jpg",
+        "c1f7a7175182021.64af01a3ecc79.jpg"
+      ]
     },
     {
       "slug": "portfolio-2023",
@@ -85,7 +92,20 @@
         "monument for mars"
       ],
       "behance_url": "https://www.behance.net/gallery/128753607/MONUMENT-FOR-MARS-HONORABLE-MENTION",
-      "behance_cover": "8102e0128753607.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "8102e0128753607.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "36a2a5128753607.615df83d69b8f.png",
+        "1aa26f128753607.61f7fc01f2ae2.jpg",
+        "884146128753607.61f7fc01ede14.jpg",
+        "916056128753607.61f7fc01ef25c.jpg",
+        "3fec53128753607.61f7fc01f152f.jpg",
+        "48af42128753607.61f7fc01f0b62.jpg",
+        "f6a24e128753607.61f7fc01f3642.jpg",
+        "d72547128753607.61f7fc01f2064.jpg",
+        "34149a128753607.61f7fc01efd8f.jpg",
+        "d29436128753607.61f7fc01eeb1e.jpg",
+        "dd2704128753607.61f7fc01ee4d7.jpg"
+      ]
     },
     {
       "slug": "light-weight-tension-structures",
@@ -93,7 +113,12 @@
         "light weight tension structures"
       ],
       "behance_url": "https://www.behance.net/gallery/124123729/LIGHT-WEIGHT-TENSION-STRUCTURES-STUDIO",
-      "behance_cover": "49c2df124123729.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "49c2df124123729.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "a01d96124123729.60fdbf7790e28.png",
+        "640339124123729.60fdbf7791367.png",
+        "0d8470124123729.60fdbf77918fc.png"
+      ]
     },
     {
       "slug": "high-performance-building",

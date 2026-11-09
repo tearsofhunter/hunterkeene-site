@@ -21,16 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download images
-        env:
-          IMPORT_DEBUG_DIR: debug-pages
         run: python3 tools/import_images.py
-      - name: Keep the fetched pages for inspection
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: fetched-pages
-          path: debug-pages
-          retention-days: 3
       - name: Commit images
         run: |
           git config user.name "Hunter Keene"

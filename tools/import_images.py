@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-"""One-off importer, run by the "Import project images" GitHub job.
+"""Run by the "Import project images" GitHub job.
 
-For each project in tools/import_sources.json it finds the project's page on
-hunterkeene.com (Adobe Portfolio) and/or Behance, collects the project images in
-page order at the largest size offered, downloads them to images/<slug>/NN.<ext>,
-and writes images/_import/<slug>.json listing what was saved.
+For each project in tools/import_sources.json that lists "behance_files"
+(file names taken from the project's Behance page), downloads each image at
+the largest size Behance's image server offers into images/<slug>/NN.<ext>,
+in the listed order, and records the result in images/_import/<slug>.json.
+Projects with "behance_cover" also get images/<slug>/cover.<ext>.
 """
 import json
 import os
-import re
-import sys
 import time
 import urllib.error
 import urllib.request
@@ -17,203 +16,70 @@ import urllib.request
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+CDN = "https://mir-s3-cdn-cf.behance.net"
+MODULE_SIZES = ["source", "max_3840", "fs", "2800_opt_1", "1400_opt_1", "1400", "max_1200", "disp"]
+COVER_SIZES = ["max_808", "808", "max_632", "404"]
 
 
-DEBUG_DIR = os.environ.get("IMPORT_DEBUG_DIR")
-_debug_n = [0]
-
-
-def save_debug(url, text):
-    if not DEBUG_DIR:
-        return
-    os.makedirs(DEBUG_DIR, exist_ok=True)
-    _debug_n[0] += 1
-    name = f"{_debug_n[0]:03d}-" + re.sub(r"[^a-zA-Z0-9]+", "_", url)[-80:] + ".html"
-    open(os.path.join(DEBUG_DIR, name), "w").write(text)
-
-
-def get(url, binary=False, tries=3):
+def get(url, tries=3):
     for i in range(tries):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*"})
+            req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "image/*,*/*"})
             with urllib.request.urlopen(req, timeout=60) as r:
-                data = r.read()
-                if binary:
-                    return data
-                text = data.decode("utf-8", "replace")
-                print(f"GET {url} -> {r.status}, {len(text)} chars")
-                save_debug(url, text)
-                return text
+                return r.read()
         except urllib.error.HTTPError as e:
-            print(f"GET {url} -> HTTP {e.code}")
-            if e.code == 404:
+            if e.code in (403, 404):
                 return None
             time.sleep(2 * (i + 1))
-        except Exception as e:
-            print(f"GET {url} -> {type(e).__name__}: {e}")
+        except Exception:
             time.sleep(2 * (i + 1))
     return None
 
 
-def norm(s):
-    return re.sub(r"[^a-z0-9]", "", s.lower())
-
-
-# ---------- Adobe Portfolio ----------
-ADOBE_RE = re.compile(r"https://cdn\.myportfolio\.com/[^\s\"'<>()]+")
-
-
-def adobe_index(site):
-    """title -> page url, from the project covers on the site's grid pages."""
-    out = {}
-    for path in ("/work", "/events", "/work-1", "/"):
-        html = get(site + path) or ""
-        for m in re.finditer(r"<a\b([^>]*)>(.*?)</a>", html, re.S):
-            attrs, inner = m.group(1), m.group(2)
-            if "project-cover" not in attrs:
-                continue
-            href = re.search(r'href="([^"]+)"', attrs)
-            title = re.search(r'class="[^"]*\btitle\b[^"]*"[^>]*>\s*([^<]+?)\s*<', inner)
-            if href and title:
-                url = href.group(1)
-                if url.startswith("/"):
-                    url = site + url
-                out.setdefault(norm(title.group(1)), url)
-    return out
-
-
-def slugify(t):
-    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", t.lower())).strip("-")
-
-
-def adobe_images(html):
-    """Ordered unique images (largest rendition) from an Adobe project page."""
-    best, order = {}, []
-    for url in ADOBE_RE.findall(html.replace("&amp;", "&")):
-        base = url.split("?")[0]
-        m = re.search(r"(_rw(?:c)?_(\d+)(?:x[\dx]*)?)\.(\w+)$", base)
-        width = int(m.group(2)) if m else 0
-        key = re.sub(r"_rwc?_[\dx]+(?=\.\w+$)", "", base)
-        if key not in best:
-            order.append(key)
-            best[key] = (width, url)
-        elif width > best[key][0]:
-            best[key] = (width, url)
-    return [best[k][1] for k in order]
-
-
-# ---------- Behance ----------
-BEH_RE = re.compile(r"https://mir-s3-cdn-cf\.behance\.net/project_modules/([a-z0-9_]+)/([^\s\"'<>?]+)")
-BEH_SIZES = ["source", "max_3840", "fs", "1400_opt_1", "1400", "max_1200", "disp", "max_632"]
-
-
-def behance_images(html):
-    order, seen = [], set()
-    for size, name in BEH_RE.findall(html):
-        if name not in seen:
-            seen.add(name)
-            order.append(name)
-    return order
-
-
-def download_behance(name, dest_base):
-    for size in BEH_SIZES:
-        data = get(f"https://mir-s3-cdn-cf.behance.net/project_modules/{size}/{name}", binary=True)
+def fetch_first(paths):
+    for size, url in paths:
+        data = get(url)
         if data and len(data) > 2000:
-            ext = os.path.splitext(name)[1].lower() or ".jpg"
-            return data, ext
+            return size, data
     return None, None
 
 
 def main():
     src = json.load(open(os.path.join(ROOT, "tools", "import_sources.json")))
-    site = src["adobe_site"].rstrip("/")
-    index = adobe_index(site)
-    print(f"Adobe index: {len(index)} projects found")
     os.makedirs(os.path.join(ROOT, "images", "_import"), exist_ok=True)
-
-    found = {}
     for p in src["projects"]:
         slug = p["slug"]
-        adobe_url = p.get("adobe_url")
-        if not adobe_url:
-            for key in p.get("adobe_titles", []):
-                k = norm(key)
-                adobe_url = index.get(k) or next((u for t, u in index.items() if t.startswith(k)), None)
-                if adobe_url:
-                    break
-        if not adobe_url:
-            for key in p.get("adobe_titles", []):
-                guess = f"{site}/{slugify(key)}"
-                if get(guess):
-                    adobe_url = guess
-                    break
-        lists = {}
-        if adobe_url:
-            html = get(adobe_url) or ""
-            lists["adobe"] = adobe_images(html)
-        if p.get("behance_url"):
-            html = get(p["behance_url"]) or ""
-            lists["behance"] = behance_images(html)
-        found[slug] = {"adobe_url": adobe_url, "behance_url": p.get("behance_url"), "lists": lists}
-
-    # drop site chrome (logos etc.) that shows up on many project pages
-    counts = {}
-    for f in found.values():
-        for u in set(f["lists"].get("adobe", [])):
-            k = u.split("?")[0]
-            counts[k] = counts.get(k, 0) + 1
-    chrome = {k for k, n in counts.items() if n >= 3}
-
-    # project covers straight from Behance's image server (works even when pages are blocked)
-    cover_sizes = ["max_808", "808", "max_632", "404"]
-    for p in src["projects"]:
-        name = p.get("behance_cover")
-        if not name:
-            continue
-        for size in cover_sizes:
-            data = get(f"https://mir-s3-cdn-cf.behance.net/projects/{size}/{name}", binary=True)
-            if data and len(data) > 2000:
-                ext = os.path.splitext(name)[1].lower() or ".jpg"
-                os.makedirs(os.path.join(ROOT, "images", p["slug"]), exist_ok=True)
-                open(os.path.join(ROOT, "images", p["slug"], f"cover{ext}"), "wb").write(data)
-                print(f"cover {p['slug']}: {size}, {len(data)} bytes")
-                break
-        else:
-            print(f"cover {p['slug']}: not available")
-
-    summary = []
-    for slug, f in found.items():
-        adobe = [u for u in f["lists"].get("adobe", []) if u.split("?")[0] not in chrome]
-        behance = f["lists"].get("behance", [])
         outdir = os.path.join(ROOT, "images", slug)
+
+        if p.get("behance_cover") and not any(f.startswith("cover.") for f in (os.listdir(outdir) if os.path.isdir(outdir) else [])):
+            name = p["behance_cover"]
+            size, data = fetch_first([(s, f"{CDN}/projects/{s}/{name}") for s in COVER_SIZES])
+            if data:
+                os.makedirs(outdir, exist_ok=True)
+                open(os.path.join(outdir, "cover" + (os.path.splitext(name)[1].lower() or ".jpg")), "wb").write(data)
+
+        names = p.get("behance_files") or []
+        if not names:
+            continue
         os.makedirs(outdir, exist_ok=True)
-        saved = []
-        source = "behance" if len(behance) >= len(adobe) and behance else "adobe"
-        if source == "behance":
-            for i, name in enumerate(behance, 1):
-                data, ext = download_behance(name, outdir)
-                if data:
-                    fn = f"{i:02d}{ext}"
-                    open(os.path.join(outdir, fn), "wb").write(data)
-                    saved.append(f"images/{slug}/{fn}")
-        else:
-            for i, url in enumerate(adobe, 1):
-                data = get(url, binary=True)
-                if data and len(data) > 2000:
-                    ext = os.path.splitext(url.split("?")[0])[1].lower() or ".jpg"
-                    fn = f"{i:02d}{ext}"
-                    open(os.path.join(outdir, fn), "wb").write(data)
-                    saved.append(f"images/{slug}/{fn}")
-        if not saved and not os.listdir(outdir):
-            os.rmdir(outdir)
-        rec = {"slug": slug, "source": source if saved else None, "adobe_url": f["adobe_url"],
-               "behance_url": f["behance_url"], "adobe_found": len(adobe), "behance_found": len(behance),
-               "saved": saved}
-        json.dump(rec, open(os.path.join(ROOT, "images", "_import", f"{slug}.json"), "w"), indent=2)
-        summary.append(f"{slug}: {len(saved)} images ({rec['source']})")
-    print("\n".join(summary))
+        saved, sizes = [], []
+        for i, name in enumerate(names, 1):
+            ext = os.path.splitext(name)[1].lower() or ".jpg"
+            fn = f"{i:02d}{ext}"
+            if os.path.exists(os.path.join(outdir, fn)):
+                saved.append(f"images/{slug}/{fn}")
+                continue
+            size, data = fetch_first([(s, f"{CDN}/project_modules/{s}/{name}") for s in MODULE_SIZES])
+            if data:
+                open(os.path.join(outdir, fn), "wb").write(data)
+                saved.append(f"images/{slug}/{fn}")
+                sizes.append(size)
+            else:
+                print(f"{slug}: could not download {name}")
+        json.dump({"slug": slug, "files": names, "saved": saved, "sizes": sizes},
+                  open(os.path.join(ROOT, "images", "_import", f"{slug}.json"), "w"), indent=2)
+        print(f"{slug}: {len(saved)}/{len(names)} images (sizes: {sorted(set(sizes))})")
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
