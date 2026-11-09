@@ -8,8 +8,8 @@
     { "src": "images/home/gothic-folly-night.jpg", "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it", "credit": "Jane Hu" }
   ],
   "current_projects": [
+    { "role": "Co artist", "name": "The Gothic Folly", "project": "gothic-folly", "note": "Started March 2026" },
     { "role": "Resident Artist", "name": "Chinatown Soup", "note": "Started January 2026" },
-    { "role": "Co artist", "name": "The Gothic Folly", "project": "gothic-folly" },
     { "role": "Rotating Gallery", "name": "500 Communipaw, Jersey City NJ" }
   ],
   "about": [],
