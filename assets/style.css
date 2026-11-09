@@ -8,7 +8,9 @@
   --frost: rgba(255, 255, 255, 0.4);
   --dusk-red: rgba(222, 160, 152, 0.64);
   --dusk-lavender: rgba(182, 170, 222, 0.68);
-  --dusk-haze: rgba(212, 192, 212, 0.33);
+  --dusk-haze: rgba(206, 174, 200, 0.42);
+  --dusk-red-mid: rgba(222, 160, 152, 0.36);
+  --dusk-red-fade: rgba(222, 160, 152, 0.10);
   --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --size: 13px;
   --pad-l: max(20px, env(safe-area-inset-left, 0px));
@@ -239,13 +241,14 @@ body::before {
   .list.current-list tr:last-child { border-bottom: 1px solid var(--line); }
 }
 
-/* sunset glow: faint, desaturated, blurred; rises from the bottom of the window */
+/* sunset glow: desaturated and blurred; lavender at the bottom rising to light red at the top */
 body::after {
   content: ""; position: fixed; inset: -12%; z-index: -1; pointer-events: none;
-  background:
-    radial-gradient(75% 120% at 22% 100%, var(--dusk-red), transparent 78%),
-    radial-gradient(80% 125% at 80% 100%, var(--dusk-lavender), transparent 78%),
-    linear-gradient(to top, var(--dusk-haze), transparent 100%);
+  background: linear-gradient(to top,
+    var(--dusk-lavender) 0%,
+    var(--dusk-haze) 34%,
+    var(--dusk-red-mid) 62%,
+    var(--dusk-red-fade) 100%);
   filter: blur(56px);
 }
 
