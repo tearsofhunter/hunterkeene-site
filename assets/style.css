@@ -339,3 +339,17 @@ body::after {
 .project-head .text p { margin: 0 0 0.8em; }
 .gallery-text { grid-column: 1 / -1; max-width: 46em; padding-block: 12px 20px; }
 .gallery-text p { margin: 0 0 0.8em; }
+
+/* about portrait */
+.about.has-portrait { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 0.7fr); align-items: start; }
+.portrait { margin: 0; }
+.portrait img { width: 100%; height: auto; }
+.portrait figcaption { padding-top: 6px; color: var(--mute); font-size: 11px; }
+@media (max-width: 1000px) {
+  .about.has-portrait { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .about.has-portrait dl { grid-column: 2; }
+}
+@media (max-width: 760px) {
+  .about.has-portrait { grid-template-columns: minmax(0, 1fr); }
+  .about.has-portrait dl { grid-column: auto; }
+}

@@ -232,8 +232,14 @@ def build(full_doc=True):
 
     c = C["contact"]
     about_text = "".join(f"<p>{e(t)}</p>" for t in (C.get("about") or [C["description"], C["tagline"]]))
-    about = f"""<div class="about">
-  <div>{about_text}</div>
+    pt = C.get("portrait") or {}
+    portrait = ""
+    if pt.get("src"):
+        cr = f'<figcaption>Photo: {e(pt["credit"])}</figcaption>' if pt.get("credit") else ""
+        portrait = f'<figure class="portrait"><img src="{e(pt["src"])}" alt="{e(pt.get("alt", ""))}">{cr}</figure>'
+    about = f"""<div class="about{" has-portrait" if portrait else ""}">
+  {portrait}
+  <div class="about-text">{about_text}</div>
   <dl>
     <dt>Email</dt><dd><a href="mailto:{e(c["email"])}">{e(c["email"])}</a></dd>
     <dt>Instagram</dt><dd><a href="{e(c["instagram"])}" target="_blank" rel="noopener">@{e(c["instagram"].rstrip("/").split("/")[-1])}</a></dd>

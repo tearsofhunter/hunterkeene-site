@@ -960,5 +960,10 @@
       "cover": "images/portfolio-2023/cover.png"
     }
   ],
-  "intro_layout": "below"
+  "intro_layout": "below",
+  "portrait": {
+    "src": "images/about/portrait.jpg",
+    "alt": "Hunter Keene in silhouette against a lit stained-glass panel",
+    "credit": ""
+  }
 }
