@@ -1,26 +1,158 @@
 {
   "adobe_site": "https://hunterkeene.com",
   "projects": [
-    { "slug": "an-unfamiliar-path", "adobe_titles": ["an unfamiliar path"], "behance_url": "https://www.behance.net/gallery/236056953/an-unfamiliar-path" },
-    { "slug": "eclipse", "adobe_titles": ["eclipse"], "behance_url": "https://www.behance.net/gallery/236057457/ECLIPSE" },
-    { "slug": "fashion-explorations", "adobe_titles": ["fashion explorations"], "behance_url": "https://www.behance.net/gallery/184401091/FASHION-EXPLORATIONS" },
-    { "slug": "competition-entry", "adobe_titles": ["competition entry"], "behance_url": "https://www.behance.net/gallery/175182021/COMPETITION-ENTRY-23" },
-    { "slug": "portfolio-2023", "adobe_titles": ["updated 6-27-23", "updated"], "behance_url": "https://www.behance.net/gallery/174060735/UPDATED-6-27-23" },
-    { "slug": "reveal", "adobe_titles": ["reveal"] },
-    { "slug": "kayak-center", "adobe_titles": ["kayak center"] },
-    { "slug": "studio-roma", "adobe_titles": ["studio roma"], "behance_url": "https://www.behance.net/gallery/145748057/STUDIO-ROMA" },
-    { "slug": "explorations-roma", "adobe_titles": ["explorations roma"], "behance_url": "https://www.behance.net/gallery/143531523/EXPLORATIONS-ROMA" },
-    { "slug": "concrete-based-membranes", "adobe_titles": ["concrete-based membranes", "concrete based membranes"], "behance_url": "https://www.behance.net/gallery/135761015/CONCRETE-BASED-MEMBRANES" },
-    { "slug": "monument-for-mars", "adobe_titles": ["monument for mars"], "behance_url": "https://www.behance.net/gallery/128753607/MONUMENT-FOR-MARS-HONORABLE-MENTION" },
-    { "slug": "light-weight-tension-structures", "adobe_titles": ["light weight tension structures"], "behance_url": "https://www.behance.net/gallery/124123729/LIGHT-WEIGHT-TENSION-STRUCTURES-STUDIO" },
-    { "slug": "high-performance-building", "adobe_titles": ["high performance building"], "behance_url": "https://www.behance.net/gallery/124125401/HIGH-PERFORMANCE-BUILDING-STUDIO" },
-    { "slug": "the-dude-series", "adobe_titles": ["the dude series"], "behance_url": "https://www.behance.net/gallery/124123203/THE-DUDE-SERIES" },
-    { "slug": "media-city", "adobe_titles": ["media city"] },
-    { "slug": "bamboo-tension-bridge", "adobe_titles": ["bamboo tension bridge", "bamboo"] },
-    { "slug": "fractura", "adobe_titles": ["fractura"] },
-    { "slug": "ncma", "adobe_titles": ["ncma"] },
-    { "slug": "graphic-designs", "adobe_titles": ["graphic designs"] },
-    { "slug": "hand-drawings", "adobe_titles": ["hand drawings"] },
-    { "slug": "an-unfamiliar-event", "adobe_titles": ["an unfamiliar event"] }
+    {
+      "slug": "an-unfamiliar-path",
+      "adobe_titles": [
+        "an unfamiliar path"
+      ],
+      "behance_url": "https://www.behance.net/gallery/236056953/an-unfamiliar-path",
+      "behance_cover": "217205236056953.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "eclipse",
+      "adobe_titles": [
+        "eclipse"
+      ],
+      "behance_url": "https://www.behance.net/gallery/236057457/ECLIPSE",
+      "behance_cover": "cc89ba236057457.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "fashion-explorations",
+      "adobe_titles": [
+        "fashion explorations"
+      ],
+      "behance_url": "https://www.behance.net/gallery/184401091/FASHION-EXPLORATIONS",
+      "behance_cover": "a54ff1184401091.6552d29443843.jpg"
+    },
+    {
+      "slug": "competition-entry",
+      "adobe_titles": [
+        "competition entry"
+      ],
+      "behance_url": "https://www.behance.net/gallery/175182021/COMPETITION-ENTRY-23",
+      "behance_cover": "53c8aa175182021.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "portfolio-2023",
+      "adobe_titles": [
+        "updated 6-27-23",
+        "updated"
+      ],
+      "behance_url": "https://www.behance.net/gallery/174060735/UPDATED-6-27-23",
+      "behance_cover": "74b0e8174060735.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "reveal",
+      "adobe_titles": [
+        "reveal"
+      ]
+    },
+    {
+      "slug": "kayak-center",
+      "adobe_titles": [
+        "kayak center"
+      ]
+    },
+    {
+      "slug": "studio-roma",
+      "adobe_titles": [
+        "studio roma"
+      ],
+      "behance_url": "https://www.behance.net/gallery/145748057/STUDIO-ROMA",
+      "behance_cover": "3c15cf145748057.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "explorations-roma",
+      "adobe_titles": [
+        "explorations roma"
+      ],
+      "behance_url": "https://www.behance.net/gallery/143531523/EXPLORATIONS-ROMA",
+      "behance_cover": "99d9e3143531523.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "concrete-based-membranes",
+      "adobe_titles": [
+        "concrete-based membranes",
+        "concrete based membranes"
+      ],
+      "behance_url": "https://www.behance.net/gallery/135761015/CONCRETE-BASED-MEMBRANES",
+      "behance_cover": "6a1b51135761015.Y3JvcCwxMzk5LDEwOTUsMCww.png"
+    },
+    {
+      "slug": "monument-for-mars",
+      "adobe_titles": [
+        "monument for mars"
+      ],
+      "behance_url": "https://www.behance.net/gallery/128753607/MONUMENT-FOR-MARS-HONORABLE-MENTION",
+      "behance_cover": "8102e0128753607.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "light-weight-tension-structures",
+      "adobe_titles": [
+        "light weight tension structures"
+      ],
+      "behance_url": "https://www.behance.net/gallery/124123729/LIGHT-WEIGHT-TENSION-STRUCTURES-STUDIO",
+      "behance_cover": "49c2df124123729.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "high-performance-building",
+      "adobe_titles": [
+        "high performance building"
+      ],
+      "behance_url": "https://www.behance.net/gallery/124125401/HIGH-PERFORMANCE-BUILDING-STUDIO",
+      "behance_cover": "4f1110124125401.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+    },
+    {
+      "slug": "the-dude-series",
+      "adobe_titles": [
+        "the dude series"
+      ],
+      "behance_url": "https://www.behance.net/gallery/124123203/THE-DUDE-SERIES",
+      "behance_cover": "cda124124123203.Y3JvcCwzMzY3LDI2MzMsMCww.png"
+    },
+    {
+      "slug": "media-city",
+      "adobe_titles": [
+        "media city"
+      ]
+    },
+    {
+      "slug": "bamboo-tension-bridge",
+      "adobe_titles": [
+        "bamboo tension bridge",
+        "bamboo"
+      ]
+    },
+    {
+      "slug": "fractura",
+      "adobe_titles": [
+        "fractura"
+      ]
+    },
+    {
+      "slug": "ncma",
+      "adobe_titles": [
+        "ncma"
+      ]
+    },
+    {
+      "slug": "graphic-designs",
+      "adobe_titles": [
+        "graphic designs"
+      ]
+    },
+    {
+      "slug": "hand-drawings",
+      "adobe_titles": [
+        "hand drawings"
+      ]
+    },
+    {
+      "slug": "an-unfamiliar-event",
+      "adobe_titles": [
+        "an unfamiliar event"
+      ]
+    }
   ]
 }

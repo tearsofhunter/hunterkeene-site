@@ -165,6 +165,23 @@ def main():
             counts[k] = counts.get(k, 0) + 1
     chrome = {k for k, n in counts.items() if n >= 3}
 
+    # project covers straight from Behance's image server (works even when pages are blocked)
+    cover_sizes = ["max_808", "808", "max_632", "404"]
+    for p in src["projects"]:
+        name = p.get("behance_cover")
+        if not name:
+            continue
+        for size in cover_sizes:
+            data = get(f"https://mir-s3-cdn-cf.behance.net/projects/{size}/{name}", binary=True)
+            if data and len(data) > 2000:
+                ext = os.path.splitext(name)[1].lower() or ".jpg"
+                os.makedirs(os.path.join(ROOT, "images", p["slug"]), exist_ok=True)
+                open(os.path.join(ROOT, "images", p["slug"], f"cover{ext}"), "wb").write(data)
+                print(f"cover {p['slug']}: {size}, {len(data)} bytes")
+                break
+        else:
+            print(f"cover {p['slug']}: not available")
+
     summary = []
     for slug, f in found.items():
         adobe = [u for u in f["lists"].get("adobe", []) if u.split("?")[0] not in chrome]
@@ -188,11 +205,8 @@ def main():
                     fn = f"{i:02d}{ext}"
                     open(os.path.join(outdir, fn), "wb").write(data)
                     saved.append(f"images/{slug}/{fn}")
-        if not saved:
-            try:
-                os.rmdir(outdir)
-            except OSError:
-                pass
+        if not saved and not os.listdir(outdir):
+            os.rmdir(outdir)
         rec = {"slug": slug, "source": source if saved else None, "adobe_url": f["adobe_url"],
                "behance_url": f["behance_url"], "adobe_found": len(adobe), "behance_found": len(behance),
                "saved": saved}
