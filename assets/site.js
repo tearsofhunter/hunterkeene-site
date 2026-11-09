@@ -32,7 +32,8 @@
     var update = function () {
       ticking = false;
       if (!home.classList.contains("home")) { nameEl.style.setProperty("--name-scale", "1"); return; }
-      var intro = home.querySelector(".intro");
+      // the intro only fades when it sits above the photo
+      var intro = home.classList.contains("intro-top") ? home.querySelector(".intro") : null;
       var p = Math.min(1, Math.max(0, window.scrollY / 140));
       nameEl.style.setProperty("--name-scale", (1.5 - 0.5 * p).toFixed(3));
       if (intro) intro.style.setProperty("--intro-fade", (1 - p).toFixed(3));
