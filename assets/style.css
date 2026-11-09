@@ -5,6 +5,9 @@
   --mute: #8C8C8C;
   --line: #E4E4E4;
   --empty: #F1F1F1;
+  --dusk-red: rgba(222, 168, 160, 0.30);
+  --dusk-lavender: rgba(186, 176, 220, 0.32);
+  --dusk-haze: rgba(214, 198, 214, 0.16);
   --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --size: 13px;
   --pad-l: max(20px, env(safe-area-inset-left, 0px));
@@ -14,8 +17,9 @@
 
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
+html { background: var(--bg); }
 body {
-  margin: 0; background: var(--bg); color: var(--fg);
+  margin: 0; background: transparent; color: var(--fg);
   font-family: var(--font); font-size: var(--size); line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
@@ -223,4 +227,14 @@ body::before {
   .list.current-list td, .list.current-list td:first-child { border: 0; padding: 0; width: auto; text-align: left; }
   .list.current-list tr:last-child td { border-bottom: 0; }
   .list.current-list tr:last-child { border-bottom: 1px solid var(--line); }
+}
+
+/* sunset glow: faint, desaturated, blurred; rises from the bottom of the window */
+body::after {
+  content: ""; position: fixed; inset: -12%; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(55% 42% at 22% 100%, var(--dusk-red), transparent 72%),
+    radial-gradient(60% 45% at 80% 100%, var(--dusk-lavender), transparent 72%),
+    linear-gradient(to top, var(--dusk-haze), transparent 58%);
+  filter: blur(56px);
 }
