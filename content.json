@@ -4,7 +4,8 @@
   "tagline": "On a perpetual mission to make cool stuff and support the people around me.",
   "intro": [],
   "hero": [
-    { "src": "images/home/gothic-folly-dust.jpg", "alt": "The Gothic Folly, a scaffold cathedral with a rose window, in a dust storm", "credit": "Jane Hu" },
+    { "src": "images/home/gothic-folly-dust.jpg", "alt": "The Gothic Folly, a scaffold cathedral with a rose window, in a dust storm", "credit": "Jane Hu",
+      "phone_crop": { "position": "49% 50%", "zoom": 1.25, "origin": "50% 100%" } },
     { "src": "images/home/gothic-folly-night.jpg", "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it", "credit": "Jane Hu" }
   ],
   "current_projects": [

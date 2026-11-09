@@ -269,5 +269,8 @@ body::after {
 .bleed .dots button:focus-visible { outline: 1px solid #fff; outline-offset: 3px; }
 @media (max-width: 760px) {
   .bleed .slide:first-child { position: absolute; }
-  .bleed:not(.empty) .slide img { height: 100%; object-position: 50% 40%; }
+  .bleed:not(.empty) .slide img {
+    height: 100%; object-position: var(--m-pos, 50% 40%);
+    transform: scale(var(--m-zoom, 1)); transform-origin: var(--m-origin, 50% 50%);
+  }
 }
