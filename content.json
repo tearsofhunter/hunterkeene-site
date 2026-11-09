@@ -282,5 +282,6 @@
       "section": "portfolio",
       "images": []
     }
-  ]
+  ],
+  "intro_layout": "below"
 }
