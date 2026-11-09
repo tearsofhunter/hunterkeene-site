@@ -537,8 +537,7 @@
       "images": [
         {
           "model": "models/kodolu-maja.glb",
-          "poster": "images/kodolu-maja/model-poster.png",
-          "caption": "3D model. Drag to orbit, pinch or scroll to zoom.",
+          "caption": "3D model",
           "alt": "Kodolu Māja 3D model"
         },
         {

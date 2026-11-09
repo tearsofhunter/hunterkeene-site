@@ -213,9 +213,10 @@ def build(full_doc=True):
                 cap = f"<figcaption>{e(im['caption'])}</figcaption>" if im.get("caption") else ""
                 return (f'<figure class="model">'
                         f'<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>'
-                        f'<model-viewer src="{e(im["model"])}" poster="{e(im.get("poster", ""))}" alt="{e(im.get("alt", p["title"] + " 3D model"))}" '
-                        f'camera-controls touch-action="pan-y" loading="lazy" reveal="auto" camera-orbit="35deg 62deg 95%" '
-                        f'exposure="0.8" shadow-intensity="0.8" shadow-softness="0.8" tone-mapping="neutral" interaction-prompt="auto"></model-viewer>'
+                        f'<model-viewer src="{e(im["model"])}" alt="{e(im.get("alt", p["title"] + " 3D model"))}" '
+                        f'auto-rotate auto-rotate-delay="0" rotation-per-second="8deg" disable-zoom disable-pan interaction-prompt="none" '
+                        f'loading="lazy" reveal="auto" camera-orbit="35deg 60deg 82%" camera-target="auto 2.2m auto" '
+                        f'exposure="0.55" shadow-intensity="0.9" shadow-softness="0.9" tone-mapping="neutral"></model-viewer>'
                         f'{cap}</figure>')
             if im.get("heading"):  # a chapter heading within the gallery
                 return f'<h2 class="gallery-heading">{e(im["heading"])}</h2>'
@@ -305,19 +306,10 @@ def build_preview(out):
     if os.path.isdir(os.path.join(ROOT, "images")):
         shutil.copytree(os.path.join(ROOT, "images"), os.path.join(out, "images"), dirs_exist_ok=True)
 
-    # artifacts can't serve .glb: embed each model as a JSON glTF for the preview
-    import base64, struct, glob as _g
+    # artifacts don't serve .glb: ship the same bytes under a served extension (the viewer reads the file contents, not the name)
+    import glob as _g
     for glb in _g.glob(os.path.join(out, "models", "*.glb")):
-        raw = open(glb, "rb").read()
-        jlen = struct.unpack_from("<I", raw, 12)[0]
-        gj = json.loads(raw[20:20 + jlen])
-        off = 20 + jlen
-        blen = struct.unpack_from("<I", raw, off)[0]
-        binc = raw[off + 8: off + 8 + blen]
-        gj["buffers"][0]["uri"] = "data:application/octet-stream;base64," + base64.b64encode(binc).decode()
-        with open(glb[:-4] + ".gltf.json", "w") as f:
-            json.dump(gj, f)
-        os.remove(glb)
+        os.rename(glb, glb + ".wasm")
 
     def to_hash(m):
         target = m.group(1)
@@ -328,7 +320,7 @@ def build_preview(out):
         key = name[:-5]
         main = text.split("<main>", 1)[1].split("</main>", 1)[0]
         main = re.sub(r'href="([a-z0-9-]+)\.html"', to_hash, main)
-        main = re.sub(r'(models/[a-z0-9-]+)\.glb', r'\1.gltf.json', main)
+        main = re.sub(r'(models/[a-z0-9-]+\.glb)', r'\1.wasm', main)
         titles[key] = text.split("<title>", 1)[1].split("</title>", 1)[0]
         views.append(f'<div data-page="{key}"{"" if key == "index" else " hidden"}>{main}</div>')
 
