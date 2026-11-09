@@ -381,3 +381,8 @@ body::after {
 .images > .gallery-heading:first-child { margin-top: 0; }
 .project-head .links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 4px; }
 .project-head .links a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+
+/* 3D model */
+.images figure.model { grid-column: 1 / -1; }
+.model model-viewer { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; max-width: 100%; background: transparent; --poster-color: transparent; }
+@media (max-width: 760px) { .model model-viewer { aspect-ratio: 4 / 5; } }

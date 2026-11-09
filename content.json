@@ -271,7 +271,7 @@
           ]
         }
       ],
-      "cover": "images/gothic-folly/teaser.jpg",
+      "cover": "images/home/gothic-folly-night.jpg",
       "teaser": {
         "src": "images/gothic-folly/teaser.jpg",
         "alt": "The Gothic Folly at sunset on the playa",
@@ -534,6 +534,12 @@
       "year": "2023",
       "section": "competitions",
       "images": [
+        {
+          "model": "models/kodolu-maja.glb",
+          "poster": "images/kodolu-maja/model-poster.png",
+          "caption": "3D model. Drag to orbit, pinch or scroll to zoom.",
+          "alt": "Kodolu Māja 3D model"
+        },
         {
           "src": "images/kodolu-maja/02.jpg",
           "size": "full"

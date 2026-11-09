@@ -207,6 +207,14 @@ def build(full_doc=True):
         if not imgs and p.get("cover"):
             imgs = [{"src": p["cover"]}]
         def fig(k, im):
+            if im.get("model"):  # interactive 3D model (glTF), loads when scrolled into view
+                cap = f"<figcaption>{e(im['caption'])}</figcaption>" if im.get("caption") else ""
+                return (f'<figure class="model">'
+                        f'<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>'
+                        f'<model-viewer src="{e(im["model"])}" poster="{e(im.get("poster", ""))}" alt="{e(im.get("alt", p["title"] + " 3D model"))}" '
+                        f'camera-controls touch-action="pan-y" loading="lazy" reveal="auto" camera-orbit="35deg 62deg 95%" '
+                        f'exposure="0.8" shadow-intensity="0.8" shadow-softness="0.8" tone-mapping="neutral" interaction-prompt="auto"></model-viewer>'
+                        f'{cap}</figure>')
             if im.get("heading"):  # a chapter heading within the gallery
                 return f'<h2 class="gallery-heading">{e(im["heading"])}</h2>'
             if im.get("text"):  # a text block placed between images
@@ -290,6 +298,8 @@ def build_preview(out):
             f.write(text)
     for a in ("style.css", "site.js"):
         shutil.copy(os.path.join(ROOT, "assets", a), os.path.join(out, "assets", a))
+    if os.path.isdir(os.path.join(ROOT, "models")):
+        shutil.copytree(os.path.join(ROOT, "models"), os.path.join(out, "models"), dirs_exist_ok=True)
     if os.path.isdir(os.path.join(ROOT, "images")):
         shutil.copytree(os.path.join(ROOT, "images"), os.path.join(out, "images"), dirs_exist_ok=True)
 
