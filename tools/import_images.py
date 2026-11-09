@@ -29,9 +29,11 @@ def web_version(data):
     Image.MAX_IMAGE_PIXELS = 600_000_000  # large competition boards are expected here
     im = Image.open(io.BytesIO(data))
     if hasattr(im, "draft"):
-        im.draft("RGB", (MAX_EDGE, MAX_EDGE))  # JPEGs decode at reduced size, saving memory
+        im.draft("RGB", (MAX_EDGE, MAX_EDGE * 8))  # JPEGs decode at reduced size, saving memory
     im.load()
-    im.thumbnail((MAX_EDGE, MAX_EDGE), Image.LANCZOS)
+    # limit width only, so tall boards keep their detail (height capped at 8x width)
+    if im.width > MAX_EDGE or im.height > MAX_EDGE * 8:
+        im.thumbnail((MAX_EDGE, MAX_EDGE * 8), Image.LANCZOS)
     has_alpha = im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info)
     if has_alpha and im.getextrema()[-1][0] < 255:
         out = io.BytesIO()
