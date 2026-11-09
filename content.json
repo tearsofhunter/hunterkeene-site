@@ -4,14 +4,37 @@
   "tagline": "On a perpetual mission to make cool stuff and support the people around me.",
   "intro": [],
   "hero": [
-    { "src": "images/home/gothic-folly-dust.jpg", "alt": "The Gothic Folly, a scaffold cathedral with a rose window, in a dust storm", "credit": "Jane Hu",
-      "phone_crop": { "position": "49% 50%" } },
-    { "src": "images/home/gothic-folly-night.jpg", "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it", "credit": "Jane Hu", "mode": "night" }
+    {
+      "src": "images/home/gothic-folly-dust.jpg",
+      "alt": "The Gothic Folly, a scaffold cathedral with a rose window, in a dust storm",
+      "credit": "Jane Hu",
+      "phone_crop": {
+        "position": "49% 50%"
+      }
+    },
+    {
+      "src": "images/home/gothic-folly-night.jpg",
+      "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it",
+      "credit": "Jane Hu",
+      "mode": "night"
+    }
   ],
   "current_projects": [
-    { "role": "Co artist", "name": "The Gothic Folly", "project": "gothic-folly", "note": "Started March 2026" },
-    { "role": "Resident Artist", "name": "Chinatown Soup", "note": "Started January 2026" },
-    { "role": "Rotating Gallery", "name": "500 Communipaw, Jersey City NJ" }
+    {
+      "role": "Co artist",
+      "name": "The Gothic Folly",
+      "project": "gothic-folly",
+      "note": "Started March 2026"
+    },
+    {
+      "role": "Resident Artist",
+      "name": "Chinatown Soup",
+      "note": "Started January 2026"
+    },
+    {
+      "role": "Rotating Gallery",
+      "name": "500 Communipaw, Jersey City NJ"
+    }
   ],
   "about": [],
   "contact": {
@@ -72,17 +95,24 @@
     },
     {
       "date": "2026-09",
+      "outlet": "Dezeen",
+      "title": "The quirky architecture of Burning Man 2026",
+      "link": "https://www.dezeen.com/?p=2367540",
+      "project": "gothic-folly"
+    },
+    {
+      "date": "2026-09",
       "outlet": "SFGATE",
       "title": "The best photos of Burning Man 2026",
       "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
       "project": "gothic-folly"
     },
     {
-      "date": "2026-09",
-      "outlet": "Dezeen",
-      "title": "The quirky architecture of Burning Man 2026",
-      "link": "https://www.dezeen.com/?p=2367540",
-      "project": "gothic-folly"
+      "date": "2024-09-19",
+      "outlet": "ArchDaily",
+      "title": "Buildner's Home of Shadows Competition: Winners of the Artificial Light-Free Home Challenge",
+      "link": "https://www.archdaily.com/1021078/buildners-home-of-shadows-competition-winners-of-the-artificial-light-free-home-challenge",
+      "project": "eclipse"
     }
   ],
   "projects": [
@@ -104,7 +134,14 @@
       "slug": "eclipse",
       "title": "Eclipse",
       "year": "2025",
-      "section": "work",
+      "section": "competitions",
+      "images": []
+    },
+    {
+      "slug": "kodolu-maja",
+      "title": "Kodolu Maja",
+      "year": "",
+      "section": "competitions",
       "images": []
     },
     {
