@@ -170,7 +170,28 @@
       "title": "Kodolu Māja",
       "year": "2023",
       "section": "competitions",
-      "images": [],
+      "images": [
+        {
+          "src": "images/kodolu-maja/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kodolu-maja/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kodolu-maja/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kodolu-maja/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kodolu-maja/05.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/kodolu-maja/cover.png"
     },
     {
@@ -179,7 +200,52 @@
       "year": "2021",
       "section": "competitions",
       "note": "Honorable Mention",
-      "images": [],
+      "images": [
+        {
+          "src": "images/monument-for-mars/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/08.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/09.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/10.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/monument-for-mars/11.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/monument-for-mars/cover.png"
     },
     {
@@ -225,7 +291,20 @@
       "title": "Light Weight Tension Structures Studio",
       "year": "2021",
       "section": "school",
-      "images": [],
+      "images": [
+        {
+          "src": "images/light-weight-tension-structures/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/light-weight-tension-structures/02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/light-weight-tension-structures/03.jpg",
+          "size": "half"
+        }
+      ],
       "cover": "images/light-weight-tension-structures/cover.png"
     },
     {

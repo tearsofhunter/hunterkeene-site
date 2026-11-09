@@ -7,6 +7,7 @@ the largest size Behance's image server offers into images/<slug>/NN.<ext>,
 in the listed order, and records the result in images/_import/<slug>.json.
 Projects with "behance_cover" also get images/<slug>/cover.<ext>.
 """
+import io
 import json
 import os
 import time
@@ -19,6 +20,23 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 CDN = "https://mir-s3-cdn-cf.behance.net"
 MODULE_SIZES = ["source", "max_3840", "fs", "2800_opt_1", "1400_opt_1", "1400", "max_1200", "disp"]
 COVER_SIZES = ["max_808", "808", "max_632", "404"]
+MAX_EDGE = 2400  # web size: long edge in pixels
+
+
+def web_version(data):
+    """Return (bytes, ext) resized to MAX_EDGE; JPEG unless the image needs transparency."""
+    from PIL import Image
+    im = Image.open(io.BytesIO(data))
+    im.load()
+    im.thumbnail((MAX_EDGE, MAX_EDGE), Image.LANCZOS)
+    has_alpha = im.mode in ("RGBA", "LA") or (im.mode == "P" and "transparency" in im.info)
+    if has_alpha and im.getextrema()[-1][0] < 255:
+        out = io.BytesIO()
+        im.save(out, "PNG", optimize=True)
+        return out.getvalue(), ".png"
+    out = io.BytesIO()
+    im.convert("RGB").save(out, "JPEG", quality=84, optimize=True, progressive=True)
+    return out.getvalue(), ".jpg"
 
 
 def get(url, tries=3):
@@ -64,13 +82,14 @@ def main():
         os.makedirs(outdir, exist_ok=True)
         saved, sizes = [], []
         for i, name in enumerate(names, 1):
-            ext = os.path.splitext(name)[1].lower() or ".jpg"
-            fn = f"{i:02d}{ext}"
-            if os.path.exists(os.path.join(outdir, fn)):
-                saved.append(f"images/{slug}/{fn}")
+            existing = [f for f in os.listdir(outdir) if f.startswith(f"{i:02d}.")]
+            if existing:
+                saved.append(f"images/{slug}/{existing[0]}")
                 continue
             size, data = fetch_first([(s, f"{CDN}/project_modules/{s}/{name}") for s in MODULE_SIZES])
             if data:
+                data, ext = web_version(data)
+                fn = f"{i:02d}{ext}"
                 open(os.path.join(outdir, fn), "wb").write(data)
                 saved.append(f"images/{slug}/{fn}")
                 sizes.append(size)
