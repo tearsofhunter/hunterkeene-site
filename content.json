@@ -60,8 +60,8 @@
       "title": "Events"
     },
     {
-      "id": "school",
-      "title": "School"
+      "id": "education",
+      "title": "Education"
     },
     {
       "id": "portfolio",
@@ -286,7 +286,7 @@
       "slug": "reveal",
       "title": "Reveal",
       "year": "2018",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/reveal/01.png",
@@ -323,7 +323,7 @@
       "slug": "hand-drawings",
       "title": "Hand Drawings",
       "year": "2017",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/hand-drawings/01.jpg",
@@ -478,7 +478,7 @@
       "slug": "kayak-center",
       "title": "Kayak Center",
       "year": "2019",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/kayak-center/01.png",
@@ -539,7 +539,7 @@
       "slug": "studio-roma",
       "title": "Studio Roma",
       "year": "2022",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/studio-roma/01.png",
@@ -560,7 +560,7 @@
       "slug": "explorations-roma",
       "title": "Explorations Roma",
       "year": "2022",
-      "section": "school",
+      "section": "work",
       "images": [
         {
           "src": "images/explorations-roma/01.png",
@@ -592,7 +592,7 @@
       "slug": "concrete-based-membranes",
       "title": "Concrete-Based Membranes",
       "year": "2021",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/concrete-based-membranes/01.jpg",
@@ -637,7 +637,7 @@
       "slug": "light-weight-tension-structures",
       "title": "Light Weight Tension Structures Studio",
       "year": "2021",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/light-weight-tension-structures/01.jpg",
@@ -662,7 +662,7 @@
       "slug": "high-performance-building",
       "title": "High Performance Building Studio",
       "year": "2020",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/high-performance-building/01.jpg",
@@ -731,7 +731,7 @@
       "slug": "media-city",
       "title": "Media City Technical System Integration",
       "year": "2020",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/media-city/01.jpg",
@@ -780,7 +780,7 @@
       "slug": "bamboo-tension-bridge",
       "title": "Bamboo Tension Bridge",
       "year": "2019",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/bamboo-tension-bridge/01.jpg",
@@ -801,7 +801,7 @@
       "slug": "fractura",
       "title": "Fractura",
       "year": "2019",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/fractura/01.jpg",
@@ -838,7 +838,7 @@
       "slug": "ncma",
       "title": "NCMA",
       "year": "2019",
-      "section": "school",
+      "section": "education",
       "images": [
         {
           "src": "images/ncma/01.jpg",
