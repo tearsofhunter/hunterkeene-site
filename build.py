@@ -146,7 +146,8 @@ def build(full_doc=True):
     home = f'<section class="intro" aria-label="Introduction">{intro}</section>'
     hero = C.get("hero") or {}
     hero_img = f'<img src="{e(hero["src"])}" alt="{e(hero.get("alt", ""))}">' if hero.get("src") else ""
-    home += f'<figure class="bleed{"" if hero_img else " empty"}">{hero_img}</figure>'
+    credit = f'<figcaption class="credit">Photo: {e(hero["credit"])}</figcaption>' if hero_img and hero.get("credit") else ""
+    home += f'<figure class="bleed{"" if hero_img else " empty"}">{hero_img}{credit}</figure>'
     cps = C.get("current_projects") or []
     if cps:
         rows = ""
