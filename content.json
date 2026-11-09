@@ -132,7 +132,92 @@
       "title": "An Unfamiliar Path",
       "year": "2025",
       "section": "work",
-      "images": [],
+      "images": [
+        {
+          "src": "images/an-unfamiliar-path/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/08.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/09.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/10.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/11.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/12.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/13.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/14.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/15.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/16.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/17.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/18.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/19.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/20.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/an-unfamiliar-path/21.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/an-unfamiliar-path/cover.png"
     },
     {
@@ -140,7 +225,16 @@
       "title": "Eclipse",
       "year": "2025",
       "section": "competitions",
-      "images": [],
+      "images": [
+        {
+          "src": "images/eclipse/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/eclipse/02.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/eclipse/cover.png"
     },
     {
@@ -148,7 +242,40 @@
       "title": "Fashion Explorations",
       "year": "2023",
       "section": "work",
-      "images": [],
+      "images": [
+        {
+          "src": "images/fashion-explorations/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fashion-explorations/08.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/fashion-explorations/cover.jpg"
     },
     {
@@ -156,14 +283,74 @@
       "title": "Reveal",
       "year": "2023",
       "section": "work",
-      "images": []
+      "images": [
+        {
+          "src": "images/reveal/01.png",
+          "size": "full"
+        },
+        {
+          "src": "images/reveal/02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/reveal/03.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/reveal/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/reveal/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/reveal/06.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/reveal/cover.png"
     },
     {
       "slug": "hand-drawings",
       "title": "Hand Drawings",
       "year": "2022",
       "section": "work",
-      "images": []
+      "images": [
+        {
+          "src": "images/hand-drawings/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/hand-drawings/08.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/hand-drawings/cover.png"
     },
     {
       "slug": "kodolu-maja",
@@ -260,14 +447,65 @@
       "title": "Kayak Center",
       "year": "2023",
       "section": "school",
-      "images": []
+      "images": [
+        {
+          "src": "images/kayak-center/01.png",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/02.png",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/07.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/kayak-center/08.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/kayak-center/09.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/kayak-center/10.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/kayak-center/cover.png"
     },
     {
       "slug": "studio-roma",
       "title": "Studio Roma",
       "year": "2022",
       "section": "school",
-      "images": [],
+      "images": [
+        {
+          "src": "images/studio-roma/01.png",
+          "size": "full"
+        },
+        {
+          "src": "images/studio-roma/02.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/studio-roma/cover.png"
     },
     {
@@ -275,7 +513,24 @@
       "title": "Explorations Roma",
       "year": "2022",
       "section": "school",
-      "images": [],
+      "images": [
+        {
+          "src": "images/explorations-roma/01.png",
+          "size": "full"
+        },
+        {
+          "src": "images/explorations-roma/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/explorations-roma/03.png",
+          "size": "full"
+        },
+        {
+          "src": "images/explorations-roma/04.png",
+          "size": "full"
+        }
+      ],
       "cover": "images/explorations-roma/cover.png"
     },
     {
@@ -283,7 +538,40 @@
       "title": "Concrete-Based Membranes",
       "year": "2022",
       "section": "school",
-      "images": [],
+      "images": [
+        {
+          "src": "images/concrete-based-membranes/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/concrete-based-membranes/08.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/concrete-based-membranes/cover.png"
     },
     {
@@ -312,7 +600,20 @@
       "title": "High Performance Building Studio",
       "year": "2021",
       "section": "school",
-      "images": [],
+      "images": [
+        {
+          "src": "images/high-performance-building/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/high-performance-building/02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/high-performance-building/03.jpg",
+          "size": "half"
+        }
+      ],
       "cover": "images/high-performance-building/cover.png"
     },
     {
@@ -320,7 +621,36 @@
       "title": "The Dude Series",
       "year": "2021",
       "section": "school",
-      "images": [],
+      "images": [
+        {
+          "src": "images/the-dude-series/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/the-dude-series/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/the-dude-series/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/the-dude-series/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/the-dude-series/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/the-dude-series/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/the-dude-series/07.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/the-dude-series/cover.png"
     },
     {
@@ -328,42 +658,205 @@
       "title": "Media City Technical System Integration",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [
+        {
+          "src": "images/media-city/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/media-city/02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/media-city/03.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/media-city/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/media-city/05.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/media-city/06.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/media-city/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/media-city/08.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/media-city/09.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/media-city/cover.png"
     },
     {
       "slug": "bamboo-tension-bridge",
       "title": "Bamboo Tension Bridge",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [
+        {
+          "src": "images/bamboo-tension-bridge/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/bamboo-tension-bridge/02.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/bamboo-tension-bridge/cover.png"
     },
     {
       "slug": "fractura",
       "title": "Fractura",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [
+        {
+          "src": "images/fractura/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fractura/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fractura/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fractura/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fractura/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/fractura/06.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/fractura/cover.jpg"
     },
     {
       "slug": "ncma",
       "title": "NCMA",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [
+        {
+          "src": "images/ncma/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/ncma/02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/ncma/03.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/ncma/04.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/ncma/cover.png"
     },
     {
       "slug": "graphic-designs",
       "title": "Graphic Designs",
       "year": "2021",
       "section": "school",
-      "images": []
+      "images": [
+        {
+          "src": "images/graphic-designs/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/graphic-designs/08.jpg",
+          "size": "full"
+        }
+      ],
+      "cover": "images/graphic-designs/cover.jpg"
     },
     {
       "slug": "portfolio-2023",
       "title": "Portfolio Composition",
       "year": "2023",
       "section": "portfolio",
-      "images": [],
+      "images": [
+        {
+          "src": "images/portfolio-2023/01.png",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/08.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/portfolio-2023/09.jpg",
+          "size": "full"
+        }
+      ],
       "cover": "images/portfolio-2023/cover.png"
     }
   ],
