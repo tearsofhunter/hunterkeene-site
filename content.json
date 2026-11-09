@@ -125,7 +125,22 @@
           "heading": "Concept"
         },
         {
+          "text": [
+            "Reconnect people with shared space through monumental architecture.",
+            "Use the visual language of Gothic cathedrals to bridge cultures and identities.",
+            "Transform individual energy into a collective experience of light, sound, and scale. A gathering space, a performance arena, a place for reflection."
+          ]
+        },
+        {
+          "src": "images/gothic-folly/concept-02.jpg",
+          "size": "full"
+        },
+        {
           "src": "images/gothic-folly/concept-01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/presence.png",
           "size": "full"
         },
         {
@@ -145,6 +160,62 @@
         },
         {
           "src": "images/gothic-folly/dev-04.png",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/dev-06.png",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/dev-05.png",
+          "size": "full"
+        },
+        {
+          "heading": "Fabrication"
+        },
+        {
+          "text": [
+            "Rose Window fabrication began May 15, 2026, in New York."
+          ]
+        },
+        {
+          "src": "images/gothic-folly/fab-01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/fab-02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/gothic-folly/fab-03.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/gothic-folly/team-01.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/gothic-folly/fab-04.jpg",
+          "size": "half"
+        },
+        {
+          "heading": "Light"
+        },
+        {
+          "text": [
+            "35,900 programmable LEDs, opened up to a community of makers to design light shows for the cathedral."
+          ]
+        },
+        {
+          "src": "images/gothic-folly/light-02.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/gothic-folly/light-03.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/gothic-folly/light-01.jpg",
           "size": "full"
         },
         {
@@ -183,6 +254,7 @@
         },
         {
           "text": [
+            "Burning Man, Black Rock City — August 30 – September 7, 2026",
             "City of Gods, Industry City, Brooklyn — October 23–24, 2026",
             "Vampire Ball, Industry City, Brooklyn — October 30–31, 2026"
           ]
@@ -211,7 +283,7 @@
         "Fiscal sponsor: Five Ton Crane"
       ],
       "text": [
-        "A cathedral risen from the playa — open to all who wander beneath its arches.",
+        "A monumental open-air scaffold cathedral shaped by light and participation.",
         "A 60-foot cathedral-inspired sculpture built from scaffolding, utilitarian materials and 35,900 programmable LEDs. By day it frames the sky; by night it becomes a beacon of light and music."
       ],
       "links": [
