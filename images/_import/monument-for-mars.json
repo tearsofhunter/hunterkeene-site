@@ -26,17 +26,5 @@
     "images/monument-for-mars/10.jpg",
     "images/monument-for-mars/11.jpg"
   ],
-  "sizes": [
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source",
-    "source"
-  ]
+  "sizes": []
 }
