@@ -1,9 +1,30 @@
 {
   "slug": "the-dude-series",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/124123203/THE-DUDE-SERIES",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "141ad7124123203.60fdbcad4b031.png",
+    "cbbb14124123203.623222abe49dc.png",
+    "712250124123203.621638b5b21c3.png",
+    "5607c3124123203.60fdbcad4cbb0.png",
+    "d890d0124123203.60fdbcad4bfa6.png",
+    "d51978124123203.60fdbcad4c55f.jpg",
+    "996ec6124123203.60fdbcad4b74d.jpg"
+  ],
+  "saved": [
+    "images/the-dude-series/01.jpg",
+    "images/the-dude-series/02.jpg",
+    "images/the-dude-series/03.jpg",
+    "images/the-dude-series/04.jpg",
+    "images/the-dude-series/05.jpg",
+    "images/the-dude-series/06.jpg",
+    "images/the-dude-series/07.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

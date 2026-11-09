@@ -1,9 +1,15 @@
 {
   "slug": "studio-roma",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/145748057/STUDIO-ROMA",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "b35904145748057.62a38944eb0dd.png",
+    "25bf5d145748057.62a38944eb86a.jpg"
+  ],
+  "saved": [
+    "images/studio-roma/01.png",
+    "images/studio-roma/02.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source"
+  ]
 }

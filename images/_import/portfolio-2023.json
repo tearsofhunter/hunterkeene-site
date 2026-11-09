@@ -1,9 +1,36 @@
 {
   "slug": "portfolio-2023",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/174060735/UPDATED-6-27-23",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "c4bca9174060735.649b209c7126e.png",
+    "b4564a174060735.649b209c6ffe3.png",
+    "5b6c22174060735.649b209c721ba.png",
+    "f48a2b174060735.649b209c6ec31.png",
+    "4672af174060735.649b209c6abe7.png",
+    "943a1f174060735.649b209c69c28.png",
+    "315dcd174060735.649b209c6b985.png",
+    "e94fb1174060735.649b209c6c90b.png",
+    "2cc789174060735.649b209c6d946.png"
+  ],
+  "saved": [
+    "images/portfolio-2023/01.png",
+    "images/portfolio-2023/02.jpg",
+    "images/portfolio-2023/03.jpg",
+    "images/portfolio-2023/04.jpg",
+    "images/portfolio-2023/05.jpg",
+    "images/portfolio-2023/06.jpg",
+    "images/portfolio-2023/07.jpg",
+    "images/portfolio-2023/08.jpg",
+    "images/portfolio-2023/09.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

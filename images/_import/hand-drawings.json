@@ -1,9 +1,33 @@
 {
   "slug": "hand-drawings",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": null,
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "2ee0f3136840769.620129955d62a.png",
+    "7442b0136840769.620129955f6a5.png",
+    "772795136840769.620129955e5be.png",
+    "21b1e2136840769.620129955ef53.png",
+    "81a489136840769.62012995610a3.png",
+    "99f506136840769.620129955ff6f.png",
+    "a7a589136840769.620129955df7f.png",
+    "331af6136840769.62012995608e8.png"
+  ],
+  "saved": [
+    "images/hand-drawings/01.jpg",
+    "images/hand-drawings/02.jpg",
+    "images/hand-drawings/03.jpg",
+    "images/hand-drawings/04.jpg",
+    "images/hand-drawings/05.jpg",
+    "images/hand-drawings/06.jpg",
+    "images/hand-drawings/07.jpg",
+    "images/hand-drawings/08.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

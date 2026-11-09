@@ -1,9 +1,27 @@
 {
   "slug": "fractura",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": null,
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "28121f124127771.60fdd93f44bca.png",
+    "6dce16124127771.60fdd93f45233.jpg",
+    "02454f124127771.60fdd93f444ac.png",
+    "71cdc1124127771.611abbc7600b6.jpeg",
+    "f861ef124127771.611abbc75fb2c.jpeg",
+    "340b63124127771.611abbc7608e8.jpeg"
+  ],
+  "saved": [
+    "images/fractura/01.jpg",
+    "images/fractura/02.jpg",
+    "images/fractura/03.jpg",
+    "images/fractura/04.jpg",
+    "images/fractura/05.jpg",
+    "images/fractura/06.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

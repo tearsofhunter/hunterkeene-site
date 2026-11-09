@@ -1,9 +1,15 @@
 {
   "slug": "eclipse",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/236057457/ECLIPSE",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "b51b48236057457.68e43282d013a.png",
+    "979238236057457.68e43282cf8da.jpg"
+  ],
+  "saved": [
+    "images/eclipse/01.jpg",
+    "images/eclipse/02.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source"
+  ]
 }

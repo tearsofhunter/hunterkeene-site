@@ -1,9 +1,33 @@
 {
   "slug": "fashion-explorations",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/184401091/FASHION-EXPLORATIONS",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "8a0b44184401091.655194586355a.png",
+    "9de0b5184401091.65541e8acca12.png",
+    "bf8d9a184401091.65541e8acb760.png",
+    "66be40184401091.655194586624b.png",
+    "3f1b48184401091.6551945862711.png",
+    "2d2f26184401091.65519458644f6.png",
+    "72962d184401091.65519458616d6.png",
+    "0fff66184401091.6551945868e8d.png"
+  ],
+  "saved": [
+    "images/fashion-explorations/01.jpg",
+    "images/fashion-explorations/02.jpg",
+    "images/fashion-explorations/03.jpg",
+    "images/fashion-explorations/04.jpg",
+    "images/fashion-explorations/05.jpg",
+    "images/fashion-explorations/06.jpg",
+    "images/fashion-explorations/07.jpg",
+    "images/fashion-explorations/08.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

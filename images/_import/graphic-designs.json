@@ -1,9 +1,33 @@
 {
   "slug": "graphic-designs",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": null,
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "c65e14124992241.6110164bc2024.png",
+    "459df1124992241.6110164bc341f.jpg",
+    "ac19d6124992241.6110164bc3a3c.jpg",
+    "77e737124992241.6110164bc2e39.png",
+    "ff7613124992241.6110164bc2846.png",
+    "6929b3124992241.62012db2eb99e.jpg",
+    "95ae29124992241.62322456766a6.png",
+    "98e0d6124992241.6232245676f86.png"
+  ],
+  "saved": [
+    "images/graphic-designs/01.jpg",
+    "images/graphic-designs/02.jpg",
+    "images/graphic-designs/03.jpg",
+    "images/graphic-designs/04.jpg",
+    "images/graphic-designs/05.jpg",
+    "images/graphic-designs/06.jpg",
+    "images/graphic-designs/07.jpg",
+    "images/graphic-designs/08.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

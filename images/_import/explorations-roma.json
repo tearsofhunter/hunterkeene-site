@@ -1,9 +1,21 @@
 {
   "slug": "explorations-roma",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/143531523/EXPLORATIONS-ROMA",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "2678f2143531523.627c11126cb4b.png",
+    "8636ba143531523.627c11126c380.png",
+    "b2319f143531523.627c11126bb49.png",
+    "e0acd9143531523.627c11126b010.png"
+  ],
+  "saved": [
+    "images/explorations-roma/01.png",
+    "images/explorations-roma/02.jpg",
+    "images/explorations-roma/03.png",
+    "images/explorations-roma/04.png"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

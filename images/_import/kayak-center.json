@@ -1,9 +1,39 @@
 {
   "slug": "kayak-center",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": null,
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "a1cd96173855211.649751a139dd3.png",
+    "e05fc7173855211.649751a13cef9.png",
+    "e76544173855211.649751a1390ae.jpg",
+    "c59a53173855211.649751a13adb0.jpg",
+    "516b7d173855211.649751a13bf3c.jpeg",
+    "f2d6a5173855211.649751a13749e.jpeg",
+    "3ed491173855211.649751a13845d.png",
+    "0c8c9c173855211.649752d070cf8.jpg",
+    "95f6b8173855211.649752d072bfe.jpg",
+    "fb268f173855211.649752d071f79.jpg"
+  ],
+  "saved": [
+    "images/kayak-center/01.png",
+    "images/kayak-center/02.png",
+    "images/kayak-center/03.jpg",
+    "images/kayak-center/04.jpg",
+    "images/kayak-center/05.jpg",
+    "images/kayak-center/06.jpg",
+    "images/kayak-center/07.jpg",
+    "images/kayak-center/08.jpg",
+    "images/kayak-center/09.jpg",
+    "images/kayak-center/10.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

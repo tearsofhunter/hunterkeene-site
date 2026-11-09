@@ -1,9 +1,15 @@
 {
   "slug": "bamboo-tension-bridge",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": null,
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "7f932d124995297.611025f026a68.png",
+    "e5dfe3124995297.611025f0273e6.png"
+  ],
+  "saved": [
+    "images/bamboo-tension-bridge/01.jpg",
+    "images/bamboo-tension-bridge/02.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source"
+  ]
 }

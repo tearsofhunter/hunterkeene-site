@@ -1,9 +1,27 @@
 {
   "slug": "reveal",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": null,
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "b19dd2173996351.649a1d253551f.png",
+    "f7e4f6173996351.649a1d2536e09.jpg",
+    "4218ba173996351.649a1d25361d5.jpg",
+    "f16a28173996351.649b1a2a5cd72.jpg",
+    "8ca9c0173996351.649b1a2a5a39a.jpg",
+    "5befca173996351.649b1a2a5b361.jpg"
+  ],
+  "saved": [
+    "images/reveal/01.png",
+    "images/reveal/02.jpg",
+    "images/reveal/03.jpg",
+    "images/reveal/04.jpg",
+    "images/reveal/05.jpg",
+    "images/reveal/06.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }
