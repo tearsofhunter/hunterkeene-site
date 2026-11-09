@@ -880,5 +880,151 @@
     "src": "images/about/portrait.jpg",
     "alt": "Hunter Keene in silhouette against a lit stained-glass panel",
     "credit": "Victor Castro"
-  }
+  },
+  "references": [
+    {
+      "date": "2026-11-09",
+      "outlet": "Penn State News",
+      "title": "From Penn State to Burning Man: Alumni debut projects at desert festival",
+      "project": "gothic-folly",
+      "link": "https://www.psu.edu/news/arts-and-architecture/story/penn-state-burning-man-alumni-debut-projects-desert-festival",
+      "kind": "press"
+    },
+    {
+      "date": "2026-10-22",
+      "outlet": "Accuracy Third (podcast)",
+      "title": "S10 E00 - AFTERBURN 2026 - Synecdoche Feeling",
+      "project": "gothic-folly",
+      "link": "https://podcasts.apple.com/ca/podcast/s10-e00-afterburn-2026-synecdoche-feeling/id1145174819?i=1000797648264",
+      "kind": "podcast"
+    },
+    {
+      "date": "2026-10-22",
+      "outlet": "GayCities",
+      "title": "13 Homo Halloween parties guaranteed to raise your spirits",
+      "project": "gothic-folly",
+      "link": "https://www.gaycities.com/articles/107754/13-halloween-parties-guaranteed-to-raise-your-spirits/",
+      "kind": "press"
+    },
+    {
+      "date": "2026-10-20",
+      "outlet": "NomadLawyer",
+      "title": "City of Gods Festival 2026 Expands Brooklyn Nightlife with 150,000 Sq Ft Immersive Experience",
+      "project": "gothic-folly",
+      "link": "https://www.nomadlawyer.org/city-of-gods-festival-2026-brooklyn-industry-city-immersive-experience",
+      "kind": "context"
+    },
+    {
+      "date": "2026-10-20",
+      "outlet": "Travel And Tour World",
+      "title": "City of Gods Festival 2026 Takes Over Brooklyn with Music, Art and Halloween Thrills",
+      "project": "gothic-folly",
+      "link": "https://www.travelandtourworld.com/news/article/9zr0i1db38e3/",
+      "kind": "context"
+    },
+    {
+      "date": "2026-10-01",
+      "outlet": "devilwalking",
+      "title": "Your Guide To City Of Gods Halloween 2026",
+      "project": "gothic-folly",
+      "link": "https://devilwalking.com/blogs/festivals-and-rave/city-of-gods-halloween-nyc",
+      "kind": "context"
+    },
+    {
+      "date": "2026-09-24",
+      "outlet": "Duncan.co (Duncan Rawlinson)",
+      "title": "Burning Man 2026 Photos",
+      "project": "gothic-folly",
+      "link": "https://duncan.co/burning-man-2026/",
+      "kind": "photo"
+    },
+    {
+      "date": "2026-09-23",
+      "outlet": "FreeYork",
+      "title": "Burning Man 2026: Towering Creations and Emotional Narratives in the Nevada Desert",
+      "project": "gothic-folly",
+      "link": "https://freeyork.org/architecture/burning-man-2026-towering-creations/",
+      "kind": "press"
+    },
+    {
+      "date": "2026-09-22",
+      "outlet": "e-a-a.com",
+      "title": "Ephemeral Desert Architecture: Burning Man's 2026 Engineering Marvels",
+      "project": "gothic-folly",
+      "link": "https://www.e-a-a.com/ephemeral-desert-architecture-burning-mans-2026-engineering-marvels/",
+      "kind": "press"
+    },
+    {
+      "date": "2026-09-13",
+      "outlet": "ArchiPanic",
+      "title": "Burning Man 2026 explored the connection between different realms",
+      "project": "gothic-folly",
+      "link": "https://www.archipanic.com/burning-man-2026/",
+      "kind": "press"
+    },
+    {
+      "date": "2026-09-12",
+      "outlet": "Dusted (squashpractice.com)",
+      "title": "Dusted – Burning Man 2026",
+      "project": "gothic-folly",
+      "link": "https://squashpractice.com/2026/09/12/dusted-burning-man-2026/",
+      "kind": "blog"
+    },
+    {
+      "date": "2026-09",
+      "outlet": "Dezeen",
+      "title": "The quirky architecture of Burning Man 2026",
+      "project": "gothic-folly",
+      "link": "https://www.dezeen.com/?p=2367540",
+      "kind": "press"
+    },
+    {
+      "date": "2026-09",
+      "outlet": "SFGATE",
+      "title": "The best photos of Burning Man 2026",
+      "project": "gothic-folly",
+      "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
+      "kind": "press"
+    },
+    {
+      "date": "2026",
+      "outlet": "Burning Man Project",
+      "title": "2026 Art Listings: The Gothic Folly",
+      "project": "gothic-folly",
+      "link": "https://burningman.org/black-rock-city/black-rock-city-2026/2026-art-listings/",
+      "kind": "listing"
+    },
+    {
+      "date": "2024-09-19",
+      "outlet": "ArchDaily",
+      "title": "Buildner's Home of Shadows Competition: Winners of the Artificial Light-Free Home Challenge",
+      "project": "eclipse",
+      "link": "https://www.archdaily.com/1021078/buildners-home-of-shadows-competition-winners-of-the-artificial-light-free-home-challenge",
+      "kind": "press"
+    },
+    {
+      "date": "2021-11-12",
+      "outlet": "Penn State College of Arts and Architecture",
+      "title": "Stuckeman architecture students earn honorable mention in design competition",
+      "project": "monument-for-mars",
+      "link": "https://arts.psu.edu/news/stuckeman-architecture-students-earn-honorable-mention-in-design-competition",
+      "kind": "press"
+    },
+    {
+      "date": "",
+      "outlet": "Burning Man Photo Gallery",
+      "title": "The Gothic Folly at Dawn",
+      "project": "gothic-folly",
+      "link": "https://gallery.burningman.org/collections/everything/",
+      "kind": "photo"
+    },
+    {
+      "date": "",
+      "outlet": "Red Pilot Photography",
+      "title": "Burning Man 2026 portfolio",
+      "project": "gothic-folly",
+      "link": "https://www.redpilotphotography.com/",
+      "kind": "photo"
+    }
+  ]
 }

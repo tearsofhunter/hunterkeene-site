@@ -359,3 +359,18 @@ body::after {
   font-size: 11px; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.35);
 }
+
+/* press on project pages */
+.project-press { padding-bottom: 28px; }
+.project-press h2 { font-size: var(--size); font-weight: 400; color: var(--mute); margin: 0 0 10px; }
+.list.refs { margin: 0; }
+.list.refs td:first-child { width: 22%; padding-right: 20px; color: var(--mute); }
+.list.refs td + td { color: var(--fg); padding-left: 0; }
+.list.refs td:last-child { color: var(--mute); padding-left: 20px; }
+@media (max-width: 760px) {
+  .list.refs tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; border-top: 1px solid var(--line); padding: 10px 0; }
+  .list.refs td, .list.refs td:first-child { border: 0; padding: 0; width: auto; }
+  .list.refs td:nth-child(2) { grid-column: 1 / -1; grid-row: 2; padding-top: 2px; }
+  .list.refs td:last-child { grid-column: 2; grid-row: 1; padding-left: 0; }
+  .list.refs tr:last-child { border-bottom: 1px solid var(--line); }
+}

@@ -219,12 +219,27 @@ def build(full_doc=True):
         meta = ", ".join(x for x in [p.get("note"), section_title[p["section"]], p["year"]] if x)
         context = "".join(f"<span>{e(t)}</span>" for t in (p.get("context") or []))
         text = "".join(f"<p>{e(t)}</p>" for t in (p.get("text") or []))
+        refs = [r for r in C.get("references", []) if r.get("project") == p["slug"]]
+        refs.sort(key=lambda n: (bool(n.get("date")), str(n.get("date") or "")), reverse=True)
+        press = ""
+        if refs:
+            rows = ""
+            for r in refs:
+                t = e(r["title"])
+                if r.get("link"):
+                    t = f'<a href="{e(r["link"])}" target="_blank" rel="noopener">{t}</a>'
+                rows += f'<tr><td>{e(r.get("outlet", ""))}</td><td>{t}</td><td>{e(fmt_date(r.get("date")))}</td></tr>'
+            press = f"""<section class="project-press" aria-labelledby="press-{p['slug']}">
+  <h2 id="press-{p['slug']}">Press</h2>
+  <table class="list refs"><tbody>{rows}</tbody></table>
+</section>"""
         body = f"""<div class="project-head">
   <h1>{e(p["title"])}</h1>
   <span class="meta">{e(meta)}</span>
   {f'<div class="context">{context}</div>' if context else ""}
   {f'<div class="text">{text}</div>' if text else ""}
 </div>
+{press}
 <div class="images">{figs}</div>
 <nav class="pager" aria-label="More projects">
   <a href="{prev["slug"]}.html"><span>Previous</span>&nbsp; {e(prev["title"])}</a>
