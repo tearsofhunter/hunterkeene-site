@@ -44,6 +44,30 @@
     window.hkUpdateHome = update;
   }
 
+  // landing slideshow: crossfade every 6s; dots jump to a photo
+  document.querySelectorAll(".bleed[data-slides]").forEach(function (show) {
+    var slides = show.querySelectorAll(".slide");
+    var dots = show.querySelectorAll(".dots button");
+    if (slides.length < 2) return;
+    var i = 0, timer = null;
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var go = function (n) {
+      i = (n + slides.length) % slides.length;
+      slides.forEach(function (s, k) {
+        s.classList.toggle("on", k === i);
+        if (k === i) s.removeAttribute("aria-hidden"); else s.setAttribute("aria-hidden", "true");
+      });
+      dots.forEach(function (d, k) { if (k === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current"); });
+    };
+    var start = function () {
+      if (still) return;
+      clearInterval(timer);
+      timer = setInterval(function () { if (!document.hidden) go(i + 1); }, 6000);
+    };
+    dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); start(); }); });
+    start();
+  });
+
   // grid / list + scale
   document.querySelectorAll("[data-view]").forEach(function (index) {
     var grid = index.querySelector(".grid");

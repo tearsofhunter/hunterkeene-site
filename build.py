@@ -144,10 +144,24 @@ def build(full_doc=True):
     # home: large name + intro, then current updates (no projects)
     intro = "".join(f"<p>{e(t)}</p>" for t in (C.get("intro") or [C["description"], C["tagline"]]))
     home = f'<section class="intro" aria-label="Introduction">{intro}</section>'
-    hero = C.get("hero") or {}
-    hero_img = f'<img src="{e(hero["src"])}" alt="{e(hero.get("alt", ""))}">' if hero.get("src") else ""
-    credit = f'<figcaption class="credit">Photo: {e(hero["credit"])}</figcaption>' if hero_img and hero.get("credit") else ""
-    home += f'<figure class="bleed{"" if hero_img else " empty"}">{hero_img}{credit}</figure>'
+    hero = C.get("hero") or []
+    if isinstance(hero, dict):
+        hero = [hero]
+    slides = [h for h in hero if h.get("src")]
+    if slides:
+        items = ""
+        for i, h in enumerate(slides):
+            credit = f'<span class="credit">Photo: {e(h["credit"])}</span>' if h.get("credit") else ""
+            items += (f'<div class="slide{" on" if i == 0 else ""}"{"" if i == 0 else " aria-hidden=\"true\""}>'
+                      f'<img src="{e(h["src"])}" alt="{e(h.get("alt", ""))}"{"" if i == 0 else " loading=\"lazy\""}>{credit}</div>')
+        dots = ""
+        if len(slides) > 1:
+            dots = '<div class="dots">' + "".join(
+                f'<button type="button" aria-label="Show photo {i + 1} of {len(slides)}"{" aria-current=\"true\"" if i == 0 else ""}></button>'
+                for i in range(len(slides))) + "</div>"
+        home += f'<figure class="bleed" data-slides="{len(slides)}">{items}{dots}</figure>'
+    else:
+        home += '<figure class="bleed empty"></figure>'
     cps = C.get("current_projects") or []
     if cps:
         rows = ""
