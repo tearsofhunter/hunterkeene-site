@@ -70,6 +70,13 @@
   ],
   "news": [
     {
+      "date": "2026-11-09",
+      "outlet": "Penn State News",
+      "title": "From Penn State to Burning Man: Alumni debut projects at desert festival",
+      "link": "https://www.psu.edu/news/arts-and-architecture/story/penn-state-burning-man-alumni-debut-projects-desert-festival",
+      "project": "gothic-folly"
+    },
+    {
       "date": "2026-10-22",
       "outlet": "Accuracy Third (podcast)",
       "title": "S10 E00 - AFTERBURN 2026 - Synecdoche Feeling",
@@ -99,16 +106,16 @@
     },
     {
       "date": "2026-09",
-      "outlet": "Dezeen",
-      "title": "The quirky architecture of Burning Man 2026",
-      "link": "https://www.dezeen.com/?p=2367540",
+      "outlet": "SFGATE",
+      "title": "The best photos of Burning Man 2026",
+      "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
       "project": "gothic-folly"
     },
     {
       "date": "2026-09",
-      "outlet": "SFGATE",
-      "title": "The best photos of Burning Man 2026",
-      "link": "https://www.sfgate.com/travel/burningman/article/photos-burning-man-2026-22414672.php",
+      "outlet": "Dezeen",
+      "title": "The quirky architecture of Burning Man 2026",
+      "link": "https://www.dezeen.com/?p=2367540",
       "project": "gothic-folly"
     },
     {
