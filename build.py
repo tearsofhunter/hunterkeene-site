@@ -143,7 +143,10 @@ def build(full_doc=True):
     pages = {}
     # home: large name + intro, then current updates (no projects)
     intro = "".join(f"<p>{e(t)}</p>" for t in (C.get("intro") or [C["description"], C["tagline"]]))
-    home = f'<section class="intro" aria-label="Introduction">{intro}</section>'
+    # where the intro sits: "top" (above the photo), "over" (on the photo), "below" (under it)
+    layout = C.get("intro_layout", "top")
+    intro_html = f'<section class="intro" aria-label="Introduction">{intro}</section>'
+    home = intro_html if layout == "top" else ""
     hero = C.get("hero") or []
     if isinstance(hero, dict):
         hero = [hero]
@@ -165,9 +168,12 @@ def build(full_doc=True):
             dots = '<div class="dots">' + "".join(
                 f'<button type="button" aria-label="Show photo {i + 1} of {len(slides)}"{" aria-current=\"true\"" if i == 0 else ""}></button>'
                 for i in range(len(slides))) + "</div>"
-        home += f'<figure class="bleed" data-slides="{len(slides)}">{items}{dots}</figure>'
+        over = intro_html.replace('class="intro"', 'class="intro over"') if layout == "over" else ""
+        home += f'<figure class="bleed" data-slides="{len(slides)}">{items}{over}{dots}</figure>'
     else:
         home += '<figure class="bleed empty"></figure>'
+    if layout == "below" or (layout == "over" and not slides):
+        home += intro_html
     cps = C.get("current_projects") or []
     if cps:
         rows = ""
@@ -187,7 +193,7 @@ def build(full_doc=True):
   <h2 id="h-updates">Updates</h2>
   {updates_table(news)}
 </section>"""
-    pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc, kind="home")
+    pages["index.html"] = page(C["name"], "home", home, full_doc=full_doc, kind=f"home intro-{layout}")
 
     for s in sections:
         if by_section[s["id"]]:
