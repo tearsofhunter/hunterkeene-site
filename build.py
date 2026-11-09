@@ -204,18 +204,23 @@ def build(full_doc=True):
         imgs = p.get("images", [])
         if not imgs and p.get("cover"):
             imgs = [{"src": p["cover"]}]
-        figs = "".join(
-            f"""<figure class="{'half' if im.get('size') == 'half' else ''}">
+        def fig(k, im):
+            if im.get("text"):  # a text block placed between images
+                paras = "".join(f"<p>{e(t)}</p>" for t in im["text"])
+                return f'<div class="gallery-text">{paras}</div>'
+            return f"""<figure class="{'half' if im.get('size') == 'half' else ''}">
   <button type="button" data-full="{e(im['src'])}" data-cap="{e(im.get('caption', ''))}" aria-label="View image {k + 1}">
     <img src="{e(im['src'])}" alt="{e(im.get('caption') or p['title'])}" loading="{'eager' if k == 0 else 'lazy'}">
   </button>{f"<figcaption>{e(im['caption'])}</figcaption>" if im.get('caption') else ""}
-</figure>""" for k, im in enumerate(imgs)
-        ) or '<div class="blank"></div>'
+</figure>"""
+        figs = "".join(fig(k, im) for k, im in enumerate(imgs)) or '<div class="blank"></div>'
         meta = ", ".join(x for x in [p.get("note"), section_title[p["section"]], p["year"]] if x)
+        context = "".join(f"<span>{e(t)}</span>" for t in (p.get("context") or []))
         text = "".join(f"<p>{e(t)}</p>" for t in (p.get("text") or []))
         body = f"""<div class="project-head">
   <h1>{e(p["title"])}</h1>
   <span class="meta">{e(meta)}</span>
+  {f'<div class="context">{context}</div>' if context else ""}
   {f'<div class="text">{text}</div>' if text else ""}
 </div>
 <div class="images">{figs}</div>

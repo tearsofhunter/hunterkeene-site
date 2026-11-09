@@ -223,7 +223,7 @@
     {
       "slug": "eclipse",
       "title": "Eclipse",
-      "year": "2025",
+      "year": "2024",
       "section": "competitions",
       "images": [
         {
@@ -240,7 +240,7 @@
     {
       "slug": "fashion-explorations",
       "title": "Fashion Explorations",
-      "year": "2023",
+      "year": "2023–Present",
       "section": "work",
       "images": [
         {
@@ -276,13 +276,17 @@
           "size": "full"
         }
       ],
-      "cover": "images/fashion-explorations/cover.jpg"
+      "cover": "images/fashion-explorations/cover.jpg",
+      "context": [
+        "July 2023 – Present",
+        "Independent Garment Explorations"
+      ]
     },
     {
       "slug": "reveal",
       "title": "Reveal",
-      "year": "2023",
-      "section": "work",
+      "year": "2018",
+      "section": "school",
       "images": [
         {
           "src": "images/reveal/01.png",
@@ -309,17 +313,26 @@
           "size": "full"
         }
       ],
-      "cover": "images/reveal/cover.png"
+      "cover": "images/reveal/cover.png",
+      "context": [
+        "Spring 2018 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "hand-drawings",
       "title": "Hand Drawings",
-      "year": "2022",
-      "section": "work",
+      "year": "2017",
+      "section": "school",
       "images": [
         {
           "src": "images/hand-drawings/01.jpg",
           "size": "full"
+        },
+        {
+          "text": [
+            "Spring 2017 Visual Communications Projects"
+          ]
         },
         {
           "src": "images/hand-drawings/02.jpg",
@@ -332,6 +345,11 @@
         {
           "src": "images/hand-drawings/04.jpg",
           "size": "full"
+        },
+        {
+          "text": [
+            "Fall 2017 Existing Conditions Studio Explorations"
+          ]
         },
         {
           "src": "images/hand-drawings/05.jpg",
@@ -350,7 +368,11 @@
           "size": "full"
         }
       ],
-      "cover": "images/hand-drawings/cover.png"
+      "cover": "images/hand-drawings/cover.png",
+      "context": [
+        "Spring and Fall 2017",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "kodolu-maja",
@@ -379,7 +401,12 @@
           "size": "full"
         }
       ],
-      "cover": "images/kodolu-maja/cover.png"
+      "cover": "images/kodolu-maja/cover.png",
+      "context": [
+        "Feb – June 2023 Competition Entry",
+        "Buildner + ArchDaily",
+        "Independent Project"
+      ]
     },
     {
       "slug": "monument-for-mars",
@@ -433,7 +460,12 @@
           "size": "full"
         }
       ],
-      "cover": "images/monument-for-mars/cover.png"
+      "cover": "images/monument-for-mars/cover.png",
+      "context": [
+        "Fall 2021 Competition Entry",
+        "Honorable Mention | Museum of Outdoor Art",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "an-unfamiliar-event",
@@ -445,7 +477,7 @@
     {
       "slug": "kayak-center",
       "title": "Kayak Center",
-      "year": "2023",
+      "year": "2019",
       "section": "school",
       "images": [
         {
@@ -463,6 +495,11 @@
         {
           "src": "images/kayak-center/04.jpg",
           "size": "full"
+        },
+        {
+          "text": [
+            "Drawing inspiration from the conceptual form of this apparatus, a Kayak center located in Bald Eagle State Park in Central Pennsylvania is designed. This center works with the natural rhythms of the area, capitalizing on the fluctuating water level throughout the year."
+          ]
         },
         {
           "src": "images/kayak-center/05.jpg",
@@ -489,7 +526,14 @@
           "size": "full"
         }
       ],
-      "cover": "images/kayak-center/cover.png"
+      "cover": "images/kayak-center/cover.png",
+      "context": [
+        "Spring 2019 Studio Project",
+        "The Penn State University"
+      ],
+      "text": [
+        "This project began with the design of a Kayak rack. This was designed to have several functions. The first is to store a series of Kayaks in a dry and space efficient way. The second is to provide passive shading for the program located behind the apparatus. This storage device utilizes perforated plywood to emulate a series of pivoting elements which allow for the storage surface to articulate."
+      ]
     },
     {
       "slug": "studio-roma",
@@ -506,7 +550,11 @@
           "size": "full"
         }
       ],
-      "cover": "images/studio-roma/cover.png"
+      "cover": "images/studio-roma/cover.png",
+      "context": [
+        "Spring 2022 Studio Project",
+        "The Pantheon Institute, Rome"
+      ]
     },
     {
       "slug": "explorations-roma",
@@ -531,12 +579,19 @@
           "size": "full"
         }
       ],
-      "cover": "images/explorations-roma/cover.png"
+      "cover": "images/explorations-roma/cover.png",
+      "context": [
+        "Spring 2022 Independent Research Project",
+        "Rome, Italy"
+      ],
+      "text": [
+        "[Exploration of Roman conditions that create an area’s indescribable character]"
+      ]
     },
     {
       "slug": "concrete-based-membranes",
       "title": "Concrete-Based Membranes",
-      "year": "2022",
+      "year": "2021",
       "section": "school",
       "images": [
         {
@@ -572,7 +627,11 @@
           "size": "full"
         }
       ],
-      "cover": "images/concrete-based-membranes/cover.png"
+      "cover": "images/concrete-based-membranes/cover.png",
+      "context": [
+        "Fall 2021 Independent Research Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "light-weight-tension-structures",
@@ -593,12 +652,16 @@
           "size": "half"
         }
       ],
-      "cover": "images/light-weight-tension-structures/cover.png"
+      "cover": "images/light-weight-tension-structures/cover.png",
+      "context": [
+        "Spring 2021 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "high-performance-building",
       "title": "High Performance Building Studio",
-      "year": "2021",
+      "year": "2020",
       "section": "school",
       "images": [
         {
@@ -614,12 +677,16 @@
           "size": "half"
         }
       ],
-      "cover": "images/high-performance-building/cover.png"
+      "cover": "images/high-performance-building/cover.png",
+      "context": [
+        "Fall 2020 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "the-dude-series",
       "title": "The Dude Series",
-      "year": "2021",
+      "year": "2020",
       "section": "school",
       "images": [
         {
@@ -651,12 +718,19 @@
           "size": "full"
         }
       ],
-      "cover": "images/the-dude-series/cover.png"
+      "cover": "images/the-dude-series/cover.png",
+      "context": [
+        "March 2020 Character Exploration",
+        "NJ, USA"
+      ],
+      "text": [
+        "A developing series featuring \"THE DUDE\". Loosely based situations and settings from my own life THE DUDE navigates."
+      ]
     },
     {
       "slug": "media-city",
       "title": "Media City Technical System Integration",
-      "year": "2021",
+      "year": "2020",
       "section": "school",
       "images": [
         {
@@ -696,12 +770,16 @@
           "size": "full"
         }
       ],
-      "cover": "images/media-city/cover.png"
+      "cover": "images/media-city/cover.png",
+      "context": [
+        "Spring 2020 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "bamboo-tension-bridge",
       "title": "Bamboo Tension Bridge",
-      "year": "2021",
+      "year": "2019",
       "section": "school",
       "images": [
         {
@@ -713,12 +791,16 @@
           "size": "full"
         }
       ],
-      "cover": "images/bamboo-tension-bridge/cover.png"
+      "cover": "images/bamboo-tension-bridge/cover.png",
+      "context": [
+        "Spring 2019 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "fractura",
       "title": "Fractura",
-      "year": "2021",
+      "year": "2019",
       "section": "school",
       "images": [
         {
@@ -746,12 +828,16 @@
           "size": "full"
         }
       ],
-      "cover": "images/fractura/cover.jpg"
+      "cover": "images/fractura/cover.jpg",
+      "context": [
+        "Fall 2019 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "ncma",
       "title": "NCMA",
-      "year": "2021",
+      "year": "2019",
       "section": "school",
       "images": [
         {
@@ -769,9 +855,19 @@
         {
           "src": "images/ncma/04.jpg",
           "size": "full"
+        },
+        {
+          "text": [
+            "Chip Board, Plaster blocks, Laser etched Pine base",
+            "Physical model shows custom CMU block created using plaster molds. A section of the larger design is represented."
+          ]
         }
       ],
-      "cover": "images/ncma/cover.png"
+      "cover": "images/ncma/cover.png",
+      "context": [
+        "Spring 2019 Studio Project",
+        "The Penn State University"
+      ]
     },
     {
       "slug": "graphic-designs",
@@ -812,7 +908,11 @@
           "size": "full"
         }
       ],
-      "cover": "images/graphic-designs/cover.jpg"
+      "cover": "images/graphic-designs/cover.jpg",
+      "context": [
+        "Independent Graphic and Conceptual explorations",
+        "NJ / NYC, USA"
+      ]
     },
     {
       "slug": "portfolio-2023",
