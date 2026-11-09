@@ -303,6 +303,20 @@ def build_preview(out):
     if os.path.isdir(os.path.join(ROOT, "images")):
         shutil.copytree(os.path.join(ROOT, "images"), os.path.join(out, "images"), dirs_exist_ok=True)
 
+    # artifacts can't serve .glb: embed each model as a JSON glTF for the preview
+    import base64, struct, glob as _g
+    for glb in _g.glob(os.path.join(out, "models", "*.glb")):
+        raw = open(glb, "rb").read()
+        jlen = struct.unpack_from("<I", raw, 12)[0]
+        gj = json.loads(raw[20:20 + jlen])
+        off = 20 + jlen
+        blen = struct.unpack_from("<I", raw, off)[0]
+        binc = raw[off + 8: off + 8 + blen]
+        gj["buffers"][0]["uri"] = "data:application/octet-stream;base64," + base64.b64encode(binc).decode()
+        with open(glb[:-4] + ".gltf.json", "w") as f:
+            json.dump(gj, f)
+        os.remove(glb)
+
     def to_hash(m):
         target = m.group(1)
         return f'href="#{"index" if target == "index" else target}"'
@@ -312,6 +326,7 @@ def build_preview(out):
         key = name[:-5]
         main = text.split("<main>", 1)[1].split("</main>", 1)[0]
         main = re.sub(r'href="([a-z0-9-]+)\.html"', to_hash, main)
+        main = re.sub(r'(models/[a-z0-9-]+)\.glb', r'\1.gltf.json', main)
         titles[key] = text.split("<title>", 1)[1].split("</title>", 1)[0]
         views.append(f'<div data-page="{key}"{"" if key == "index" else " hidden"}>{main}</div>')
 
