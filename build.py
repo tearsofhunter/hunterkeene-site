@@ -223,6 +223,8 @@ def build_preview(out):
             f.write(text)
     for a in ("style.css", "site.js"):
         shutil.copy(os.path.join(ROOT, "assets", a), os.path.join(out, "assets", a))
+    if os.path.isdir(os.path.join(ROOT, "images")):
+        shutil.copytree(os.path.join(ROOT, "images"), os.path.join(out, "images"), dirs_exist_ok=True)
 
     def to_hash(m):
         target = m.group(1)
