@@ -207,6 +207,8 @@ def build(full_doc=True):
         if not imgs and p.get("cover"):
             imgs = [{"src": p["cover"]}]
         def fig(k, im):
+            if im.get("heading"):  # a chapter heading within the gallery
+                return f'<h2 class="gallery-heading">{e(im["heading"])}</h2>'
             if im.get("text"):  # a text block placed between images
                 paras = "".join(f"<p>{e(t)}</p>" for t in im["text"])
                 return f'<div class="gallery-text">{paras}</div>'
@@ -219,6 +221,7 @@ def build(full_doc=True):
         meta = ", ".join(x for x in [p.get("note"), section_title[p["section"]], p["year"]] if x)
         context = "".join(f"<span>{e(t)}</span>" for t in (p.get("context") or []))
         text = "".join(f"<p>{e(t)}</p>" for t in (p.get("text") or []))
+        links = "".join(f'<a href="{e(l["url"])}" target="_blank" rel="noopener">{e(l["label"])}</a>' for l in (p.get("links") or []))
         refs = [r for r in C.get("references", []) if r.get("project") == p["slug"]]
         refs.sort(key=lambda n: (bool(n.get("date")), str(n.get("date") or "")), reverse=True)
         press = ""
@@ -233,11 +236,18 @@ def build(full_doc=True):
   <h2 id="press-{p['slug']}">Press</h2>
   <table class="list refs"><tbody>{rows}</tbody></table>
 </section>"""
-        body = f"""<div class="project-head">
+        tz = p.get("teaser") or {}
+        teaser = ""
+        if tz.get("src"):
+            cr = f'<span class="credit">Photo: {e(tz["credit"])}</span>' if tz.get("credit") else ""
+            teaser = (f'<figure class="bleed teaser"><div class="slide on">'
+                      f'<img src="{e(tz["src"])}" alt="{e(tz.get("alt", p["title"]))}">{cr}</div></figure>')
+        body = teaser + f"""<div class="project-head">
   <h1>{e(p["title"])}</h1>
   <span class="meta">{e(meta)}</span>
   {f'<div class="context">{context}</div>' if context else ""}
   {f'<div class="text">{text}</div>' if text else ""}
+  {f'<div class="links">{links}</div>' if links else ""}
 </div>
 {press}
 <div class="images">{figs}</div>

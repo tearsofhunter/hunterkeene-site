@@ -374,3 +374,10 @@ body::after {
   .list.refs td:last-child { grid-column: 2; grid-row: 1; padding-left: 0; }
   .list.refs tr:last-child { border-bottom: 1px solid var(--line); }
 }
+
+/* project teaser and gallery chapters */
+.bleed.teaser { margin-bottom: 8px; }
+.gallery-heading { grid-column: 1 / -1; font-size: var(--size); font-weight: 500; margin: 36px 0 4px; padding-top: 12px; border-top: 1px solid var(--line); }
+.images > .gallery-heading:first-child { margin-top: 0; }
+.project-head .links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 4px; }
+.project-head .links a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }

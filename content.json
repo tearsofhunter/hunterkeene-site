@@ -117,10 +117,117 @@
   "projects": [
     {
       "slug": "gothic-folly",
-      "title": "Gothic Folly",
-      "year": "Ongoing",
+      "title": "The Gothic Folly",
+      "year": "2026",
       "section": "work",
-      "images": []
+      "images": [
+        {
+          "heading": "Concept"
+        },
+        {
+          "src": "images/gothic-folly/concept-01.jpg",
+          "size": "full"
+        },
+        {
+          "heading": "Design development"
+        },
+        {
+          "src": "images/gothic-folly/dev-02.png",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/dev-01.png",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/dev-03.png",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/dev-04.png",
+          "size": "full"
+        },
+        {
+          "heading": "Built"
+        },
+        {
+          "src": "images/gothic-folly/built-01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/built-02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/built-03.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/built-04.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/built-05.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/built-06.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/gothic-folly/built-07.jpg",
+          "size": "full"
+        },
+        {
+          "heading": "Shown"
+        },
+        {
+          "text": [
+            "City of Gods, Industry City, Brooklyn — October 23–24, 2026",
+            "Vampire Ball, Industry City, Brooklyn — October 30–31, 2026"
+          ]
+        },
+        {
+          "heading": "Credits"
+        },
+        {
+          "text": [
+            "Lead artists: Hunter Keene, Alex Noerpel",
+            "Lighting system lead: John Keefe · Light show design: Marie Gilot · Lighting and electrics: Mark S, Nicolas Herrera · Electrician: Trevor Kirschenheiter",
+            "Rigging lead: Jeff Tan · Logistics lead: DJ Rufo · Quartermaster: Liz Hansen · Climber: Santiago Marin",
+            "With Colleen Murphy, Anton Ivanov, Markus Winkler, Vesper Synd, Natalia Antonova, Tony Wood, James Green"
+          ]
+        }
+      ],
+      "cover": "images/gothic-folly/teaser.jpg",
+      "teaser": {
+        "src": "images/gothic-folly/teaser.jpg",
+        "alt": "The Gothic Folly at sunset on the playa",
+        "credit": ""
+      },
+      "context": [
+        "Burning Man 2026, Black Rock City",
+        "Lead artists: Hunter Keene and Alex Noerpel",
+        "Fiscal sponsor: Five Ton Crane"
+      ],
+      "text": [
+        "A cathedral risen from the playa — open to all who wander beneath its arches.",
+        "A 60-foot cathedral-inspired sculpture built from scaffolding, utilitarian materials and 35,900 programmable LEDs. By day it frames the sky; by night it becomes a beacon of light and music."
+      ],
+      "links": [
+        {
+          "label": "thegothicfolly.com",
+          "url": "https://thegothicfolly.com"
+        },
+        {
+          "label": "Construction wiki",
+          "url": "https://wiki.thegothicfolly.com/"
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/thegothicfolly/"
+        }
+      ]
     },
     {
       "slug": "an-unfamiliar-path",
