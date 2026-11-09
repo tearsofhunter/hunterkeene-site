@@ -215,8 +215,8 @@ def build(full_doc=True):
                         f'<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>'
                         f'<model-viewer src="{e(im["model"])}" alt="{e(im.get("alt", p["title"] + " 3D model"))}" '
                         f'auto-rotate auto-rotate-delay="0" rotation-per-second="8deg" disable-zoom disable-pan interaction-prompt="none" '
-                        f'loading="lazy" reveal="auto" camera-orbit="35deg 60deg 82%" camera-target="auto 2.2m auto" '
-                        f'exposure="0.55" shadow-intensity="0.9" shadow-softness="0.9" tone-mapping="neutral"></model-viewer>'
+                        f'loading="lazy" reveal="auto" camera-orbit="35deg 60deg 72%" camera-target="auto 2.2m auto" '
+                        f'exposure="0.7" shadow-intensity="0" tone-mapping="neutral"></model-viewer>'
                         f'{cap}</figure>')
             if im.get("heading"):  # a chapter heading within the gallery
                 return f'<h2 class="gallery-heading">{e(im["heading"])}</h2>'
