@@ -1,9 +1,24 @@
 {
   "slug": "kodolu-maja",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/175182021/COMPETITION-ENTRY-23",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "841250175182021.64af01a3e9cd2.png",
+    "c4f3b1175182021.64af01a3ebec3.jpg",
+    "cbc4f6175182021.64af01a3e8f50.jpg",
+    "09c07e175182021.64af01a3eade6.jpg",
+    "c1f7a7175182021.64af01a3ecc79.jpg"
+  ],
+  "saved": [
+    "images/kodolu-maja/01.png",
+    "images/kodolu-maja/02.jpg",
+    "images/kodolu-maja/03.jpg",
+    "images/kodolu-maja/04.jpg",
+    "images/kodolu-maja/05.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }

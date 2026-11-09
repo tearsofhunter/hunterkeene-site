@@ -1,9 +1,42 @@
 {
   "slug": "monument-for-mars",
-  "source": null,
-  "adobe_url": null,
-  "behance_url": "https://www.behance.net/gallery/128753607/MONUMENT-FOR-MARS-HONORABLE-MENTION",
-  "adobe_found": 0,
-  "behance_found": 0,
-  "saved": []
+  "files": [
+    "36a2a5128753607.615df83d69b8f.png",
+    "1aa26f128753607.61f7fc01f2ae2.jpg",
+    "884146128753607.61f7fc01ede14.jpg",
+    "916056128753607.61f7fc01ef25c.jpg",
+    "3fec53128753607.61f7fc01f152f.jpg",
+    "48af42128753607.61f7fc01f0b62.jpg",
+    "f6a24e128753607.61f7fc01f3642.jpg",
+    "d72547128753607.61f7fc01f2064.jpg",
+    "34149a128753607.61f7fc01efd8f.jpg",
+    "d29436128753607.61f7fc01eeb1e.jpg",
+    "dd2704128753607.61f7fc01ee4d7.jpg"
+  ],
+  "saved": [
+    "images/monument-for-mars/01.png",
+    "images/monument-for-mars/02.jpg",
+    "images/monument-for-mars/03.jpg",
+    "images/monument-for-mars/04.jpg",
+    "images/monument-for-mars/05.jpg",
+    "images/monument-for-mars/06.jpg",
+    "images/monument-for-mars/07.jpg",
+    "images/monument-for-mars/08.jpg",
+    "images/monument-for-mars/09.jpg",
+    "images/monument-for-mars/10.jpg",
+    "images/monument-for-mars/11.jpg"
+  ],
+  "sizes": [
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source",
+    "source"
+  ]
 }
