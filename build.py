@@ -275,9 +275,17 @@ def build(full_doc=True):
     if pt.get("src"):
         cr = f'<figcaption>Photo: {e(pt["credit"])}</figcaption>' if pt.get("credit") else ""
         portrait = f'<figure class="portrait"><img src="{e(pt["src"])}" alt="{e(pt.get("alt", ""))}">{cr}</figure>'
+    pf = C.get("portfolio_pdf") or {}
+    pdf_btn = ""
+    if pf.get("src") and os.path.exists(os.path.join(ROOT, pf["src"])):
+        mb = os.path.getsize(os.path.join(ROOT, pf["src"])) / 1e6
+        name = os.path.basename(pf["src"])
+        pdf_btn = (f'<a class="dl-btn" href="{e(pf["src"])}" download="{e(name)}">'
+                   f'<span>{e(pf.get("label", "Download portfolio"))}</span>'
+                   f'<span class="dl-meta">PDF, {mb:.1f} MB <span aria-hidden="true">↓</span></span></a>')
     about = f"""<div class="about{" has-portrait" if portrait else ""}">
   {portrait}
-  <div class="about-text">{about_text}</div>
+  <div class="about-text">{about_text}{pdf_btn}</div>
   <dl>
     <dt>Email</dt><dd><a href="mailto:{e(c["email"])}">{e(c["email"])}</a></dd>
     <dt>Instagram</dt><dd><a href="{e(c["instagram"])}" target="_blank" rel="noopener">@{e(c["instagram"].rstrip("/").split("/")[-1])}</a></dd>
@@ -301,6 +309,8 @@ def build_preview(out):
             f.write(text)
     for a in ("style.css", "site.js"):
         shutil.copy(os.path.join(ROOT, "assets", a), os.path.join(out, "assets", a))
+    if os.path.isdir(os.path.join(ROOT, "files")):
+        shutil.copytree(os.path.join(ROOT, "files"), os.path.join(out, "files"), dirs_exist_ok=True)
     if os.path.isdir(os.path.join(ROOT, "models")):
         shutil.copytree(os.path.join(ROOT, "models"), os.path.join(out, "models"), dirs_exist_ok=True)
     if os.path.isdir(os.path.join(ROOT, "images")):

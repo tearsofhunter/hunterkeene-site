@@ -68,7 +68,8 @@
     },
     {
       "id": "portfolio",
-      "title": "Portfolio"
+      "title": "Portfolio",
+      "hidden": true
     }
   ],
   "news": [
@@ -1200,5 +1201,9 @@
       "link": "https://gallery.burningman.org/collections/everything/",
       "kind": "photo"
     }
-  ]
+  ],
+  "portfolio_pdf": {
+    "src": "files/Hunter-Keene-Portfolio.pdf",
+    "label": "Download portfolio"
+  }
 }
