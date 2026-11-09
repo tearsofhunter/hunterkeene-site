@@ -157,7 +157,8 @@ def build(full_doc=True):
             if pc:
                 style = (f' style="--m-pos:{e(pc.get("position", "50% 40%"))};'
                          f'--m-zoom:{float(pc.get("zoom", 1))};--m-origin:{e(pc.get("origin", "50% 50%"))}"')
-            items += (f'<div class="slide{" on" if i == 0 else ""}"{style}{"" if i == 0 else " aria-hidden=\"true\""}>'
+            mode = f' data-mode="{e(h["mode"])}"' if h.get("mode") else ""
+            items += (f'<div class="slide{" on" if i == 0 else ""}"{style}{mode}{"" if i == 0 else " aria-hidden=\"true\""}>'
                       f'<img src="{e(h["src"])}" alt="{e(h.get("alt", ""))}"{"" if i == 0 else " loading=\"lazy\""}>{credit}</div>')
         dots = ""
         if len(slides) > 1:

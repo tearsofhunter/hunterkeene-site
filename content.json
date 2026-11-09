@@ -6,7 +6,7 @@
   "hero": [
     { "src": "images/home/gothic-folly-dust.jpg", "alt": "The Gothic Folly, a scaffold cathedral with a rose window, in a dust storm", "credit": "Jane Hu",
       "phone_crop": { "position": "49% 50%" } },
-    { "src": "images/home/gothic-folly-night.jpg", "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it", "credit": "Jane Hu" }
+    { "src": "images/home/gothic-folly-night.jpg", "alt": "The Gothic Folly lit up at night, with a crowd and bikes gathered beneath it", "credit": "Jane Hu", "mode": "night" }
   ],
   "current_projects": [
     { "role": "Co artist", "name": "The Gothic Folly", "project": "gothic-folly", "note": "Started March 2026" },

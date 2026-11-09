@@ -15,7 +15,43 @@
   --size: 13px;
   --pad-l: max(20px, env(safe-area-inset-left, 0px));
   --pad-r: max(20px, env(safe-area-inset-right, 0px));
+  --night: 0;
   color-scheme: light;
+}
+
+/* night mode: same layout, glow and frost on a deep violet-black ground.
+   Turns on when the visitor's device is in dark mode. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  --bg: #0F0D14;
+  --fg: #ECEAF1;
+  --mute: #8E8A99;
+  --line: #2A2732;
+  --empty: #1C1A23;
+  --frost: rgba(15, 13, 20, 0.45);
+  --dusk-red: rgba(176, 96, 104, 0.40);
+  --dusk-red-mid: rgba(176, 96, 104, 0.30);
+  --dusk-red-fade: rgba(176, 96, 104, 0.08);
+  --dusk-lavender: rgba(118, 98, 190, 0.48);
+  --dusk-haze: rgba(140, 96, 150, 0.34);
+  --night: 1;
+  color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F0D14;
+  --fg: #ECEAF1;
+  --mute: #8E8A99;
+  --line: #2A2732;
+  --empty: #1C1A23;
+  --frost: rgba(15, 13, 20, 0.45);
+  --dusk-red: rgba(176, 96, 104, 0.40);
+  --dusk-red-mid: rgba(176, 96, 104, 0.30);
+  --dusk-red-fade: rgba(176, 96, 104, 0.08);
+  --dusk-lavender: rgba(118, 98, 190, 0.48);
+  --dusk-haze: rgba(140, 96, 150, 0.34);
+  --night: 1;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -274,3 +310,5 @@ body::after {
     transform: scale(var(--m-zoom, 1)); transform-origin: var(--m-origin, 50% 50%);
   }
 }
+.bleed.instant .slide { transition: none; }
+:root[data-theme="dark"] .controls input[type="range"]::-webkit-slider-runnable-track { background: var(--mute); }

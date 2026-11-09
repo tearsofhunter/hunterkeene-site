@@ -65,6 +65,22 @@
       timer = setInterval(function () { if (!document.hidden) go(i + 1); }, 6000);
     };
     dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); start(); }); });
+    // open on the photo that matches the theme: the night shot in night mode
+    var isNight = function () {
+      return getComputedStyle(document.documentElement).getPropertyValue("--night").trim() === "1";
+    };
+    var openOnTheme = function () {
+      var want = 0;
+      if (isNight()) slides.forEach(function (s, k) { if (s.getAttribute("data-mode") === "night") want = k; });
+      show.classList.add("instant");
+      go(want);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { show.classList.remove("instant"); }); });
+    };
+    openOnTheme();
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mq.addEventListener) mq.addEventListener("change", function () { openOnTheme(); start(); });
+    }
     start();
   });
 
