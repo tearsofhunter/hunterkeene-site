@@ -7,7 +7,30 @@
         "an unfamiliar path"
       ],
       "behance_url": "https://www.behance.net/gallery/236056953/an-unfamiliar-path",
-      "behance_cover": "217205236056953.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "217205236056953.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "038cd4236056953.68e430377268c.png",
+        "890aef236056953.68e43037740e9.jpg",
+        "5f354d236056953.68e43037770e9.jpg",
+        "59a761236056953.68e43037776b9.jpg",
+        "1ab8bf236056953.68e43037739a3.jpg",
+        "e281f9236056953.68e4303778a8e.jpg",
+        "c2d55b236056953.68e43037707a0.jpg",
+        "118fe3236056953.68e4303778390.jpg",
+        "b08bbb236056953.68e4303771496.jpg",
+        "61e184236056953.68e43037733a8.jpg",
+        "19f219236056953.68e4303777c55.jpg",
+        "ffbb35236056953.68e43037720a5.jpg",
+        "e612a5236056953.68e4303776300.jpg",
+        "612c4b236056953.68e4303775b54.jpg",
+        "24755e236056953.68fbd7e22450f.png",
+        "d756c7236056953.68e43037719e3.jpg",
+        "ec6ca1236056953.68e4303774faf.jpg",
+        "760132236056953.68e4303776b09.jpg",
+        "53fdb3236056953.68e4303770f52.jpg",
+        "78a080236056953.68e43037755be.jpg",
+        "47313f236056953.68e430377484f.jpg"
+      ]
     },
     {
       "slug": "eclipse",
@@ -15,7 +38,11 @@
         "eclipse"
       ],
       "behance_url": "https://www.behance.net/gallery/236057457/ECLIPSE",
-      "behance_cover": "cc89ba236057457.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "cc89ba236057457.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "b51b48236057457.68e43282d013a.png",
+        "979238236057457.68e43282cf8da.jpg"
+      ]
     },
     {
       "slug": "fashion-explorations",
@@ -23,7 +50,17 @@
         "fashion explorations"
       ],
       "behance_url": "https://www.behance.net/gallery/184401091/FASHION-EXPLORATIONS",
-      "behance_cover": "a54ff1184401091.6552d29443843.jpg"
+      "behance_cover": "a54ff1184401091.6552d29443843.jpg",
+      "behance_files": [
+        "8a0b44184401091.655194586355a.png",
+        "9de0b5184401091.65541e8acca12.png",
+        "bf8d9a184401091.65541e8acb760.png",
+        "66be40184401091.655194586624b.png",
+        "3f1b48184401091.6551945862711.png",
+        "2d2f26184401091.65519458644f6.png",
+        "72962d184401091.65519458616d6.png",
+        "0fff66184401091.6551945868e8d.png"
+      ]
     },
     {
       "slug": "kodolu-maja",
@@ -47,19 +84,52 @@
         "updated"
       ],
       "behance_url": "https://www.behance.net/gallery/174060735/UPDATED-6-27-23",
-      "behance_cover": "74b0e8174060735.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "74b0e8174060735.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "c4bca9174060735.649b209c7126e.png",
+        "b4564a174060735.649b209c6ffe3.png",
+        "5b6c22174060735.649b209c721ba.png",
+        "f48a2b174060735.649b209c6ec31.png",
+        "4672af174060735.649b209c6abe7.png",
+        "943a1f174060735.649b209c69c28.png",
+        "315dcd174060735.649b209c6b985.png",
+        "e94fb1174060735.649b209c6c90b.png",
+        "2cc789174060735.649b209c6d946.png"
+      ]
     },
     {
       "slug": "reveal",
       "adobe_titles": [
         "reveal"
-      ]
+      ],
+      "behance_files": [
+        "b19dd2173996351.649a1d253551f.png",
+        "f7e4f6173996351.649a1d2536e09.jpg",
+        "4218ba173996351.649a1d25361d5.jpg",
+        "f16a28173996351.649b1a2a5cd72.jpg",
+        "8ca9c0173996351.649b1a2a5a39a.jpg",
+        "5befca173996351.649b1a2a5b361.jpg"
+      ],
+      "behance_cover": "6c95ba173996351.Y3JvcCwzMzY3LDI2MzQsMCww.png"
     },
     {
       "slug": "kayak-center",
       "adobe_titles": [
         "kayak center"
-      ]
+      ],
+      "behance_files": [
+        "a1cd96173855211.649751a139dd3.png",
+        "e05fc7173855211.649751a13cef9.png",
+        "e76544173855211.649751a1390ae.jpg",
+        "c59a53173855211.649751a13adb0.jpg",
+        "516b7d173855211.649751a13bf3c.jpeg",
+        "f2d6a5173855211.649751a13749e.jpeg",
+        "3ed491173855211.649751a13845d.png",
+        "0c8c9c173855211.649752d070cf8.jpg",
+        "95f6b8173855211.649752d072bfe.jpg",
+        "fb268f173855211.649752d071f79.jpg"
+      ],
+      "behance_cover": "39760c173855211.Y3JvcCwxMzk5LDEwOTUsMCww.png"
     },
     {
       "slug": "studio-roma",
@@ -67,7 +137,11 @@
         "studio roma"
       ],
       "behance_url": "https://www.behance.net/gallery/145748057/STUDIO-ROMA",
-      "behance_cover": "3c15cf145748057.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "3c15cf145748057.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "b35904145748057.62a38944eb0dd.png",
+        "25bf5d145748057.62a38944eb86a.jpg"
+      ]
     },
     {
       "slug": "explorations-roma",
@@ -75,7 +149,13 @@
         "explorations roma"
       ],
       "behance_url": "https://www.behance.net/gallery/143531523/EXPLORATIONS-ROMA",
-      "behance_cover": "99d9e3143531523.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "99d9e3143531523.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "2678f2143531523.627c11126cb4b.png",
+        "8636ba143531523.627c11126c380.png",
+        "b2319f143531523.627c11126bb49.png",
+        "e0acd9143531523.627c11126b010.png"
+      ]
     },
     {
       "slug": "concrete-based-membranes",
@@ -84,7 +164,17 @@
         "concrete based membranes"
       ],
       "behance_url": "https://www.behance.net/gallery/135761015/CONCRETE-BASED-MEMBRANES",
-      "behance_cover": "6a1b51135761015.Y3JvcCwxMzk5LDEwOTUsMCww.png"
+      "behance_cover": "6a1b51135761015.Y3JvcCwxMzk5LDEwOTUsMCww.png",
+      "behance_files": [
+        "a33147135761015.61edc1c5ddeab.png",
+        "3130b3135761015.61edb99a0d1b8.png",
+        "a84ef1135761015.61edb99a0b081.png",
+        "fb3c20135761015.61edb99a0c3fe.png",
+        "f3bca0135761015.61edb99a0b9d0.png",
+        "38f4d8135761015.61edb99a0a3ef.png",
+        "bd84e2135761015.61edb99a0aa39.png",
+        "fde3cd135761015.61edb99a0cb5c.png"
+      ]
     },
     {
       "slug": "monument-for-mars",
@@ -126,7 +216,12 @@
         "high performance building"
       ],
       "behance_url": "https://www.behance.net/gallery/124125401/HIGH-PERFORMANCE-BUILDING-STUDIO",
-      "behance_cover": "4f1110124125401.Y3JvcCwzMzY3LDI2MzQsMCww.png"
+      "behance_cover": "4f1110124125401.Y3JvcCwzMzY3LDI2MzQsMCww.png",
+      "behance_files": [
+        "55e310124125401.60fdc9bcd361d.png",
+        "8918cf124125401.60fdc9bcd3e0c.png",
+        "353e7d124125401.60fdc9bcd4424.png"
+      ]
     },
     {
       "slug": "the-dude-series",
@@ -134,44 +229,108 @@
         "the dude series"
       ],
       "behance_url": "https://www.behance.net/gallery/124123203/THE-DUDE-SERIES",
-      "behance_cover": "cda124124123203.Y3JvcCwzMzY3LDI2MzMsMCww.png"
+      "behance_cover": "cda124124123203.Y3JvcCwzMzY3LDI2MzMsMCww.png",
+      "behance_files": [
+        "141ad7124123203.60fdbcad4b031.png",
+        "cbbb14124123203.623222abe49dc.png",
+        "712250124123203.621638b5b21c3.png",
+        "5607c3124123203.60fdbcad4cbb0.png",
+        "d890d0124123203.60fdbcad4bfa6.png",
+        "d51978124123203.60fdbcad4c55f.jpg",
+        "996ec6124123203.60fdbcad4b74d.jpg"
+      ]
     },
     {
       "slug": "media-city",
       "adobe_titles": [
         "media city"
-      ]
+      ],
+      "behance_files": [
+        "21400a124126257.60fdcf0789bb7.png",
+        "2d70df124126257.60fdcf078a3c2.png",
+        "96e53d124126257.60fdcf078a986.png",
+        "581b83124126257.61ffe7d21b271.jpg",
+        "1d0696124126257.61ffe7d21d5f3.jpg",
+        "021b84124126257.61ffe7d21ba19.jpg",
+        "f24e9e124126257.61ffe7d21d01b.jpg",
+        "ea687e124126257.61ffe7d21c03a.jpg",
+        "1cd60e124126257.61ffe7d21c7fd.jpg"
+      ],
+      "behance_cover": "ecf2ff124126257.Y3JvcCwzMzY3LDI2MzMsMCww.png"
     },
     {
       "slug": "bamboo-tension-bridge",
       "adobe_titles": [
         "bamboo tension bridge",
         "bamboo"
-      ]
+      ],
+      "behance_files": [
+        "7f932d124995297.611025f026a68.png",
+        "e5dfe3124995297.611025f0273e6.png"
+      ],
+      "behance_cover": "b09e2a124995297.Y3JvcCwzMzY3LDI2MzQsMCww.png"
     },
     {
       "slug": "fractura",
       "adobe_titles": [
         "fractura"
-      ]
+      ],
+      "behance_files": [
+        "28121f124127771.60fdd93f44bca.png",
+        "6dce16124127771.60fdd93f45233.jpg",
+        "02454f124127771.60fdd93f444ac.png",
+        "71cdc1124127771.611abbc7600b6.jpeg",
+        "f861ef124127771.611abbc75fb2c.jpeg",
+        "340b63124127771.611abbc7608e8.jpeg"
+      ],
+      "behance_cover": "5b9944124127771.611abbc6c5c47.jpg"
     },
     {
       "slug": "ncma",
       "adobe_titles": [
         "ncma"
-      ]
+      ],
+      "behance_files": [
+        "fd59f5124128837.60fde2245c0c3.png",
+        "428097124128837.60fde2245c8d5.jpg",
+        "1ac711124128837.60fde22402d03.jpg",
+        "73ddc9124128837.60fde2240255f.jpg"
+      ],
+      "behance_cover": "a48f1c124128837.Y3JvcCwzMzY3LDI2MzQsMCww.png"
     },
     {
       "slug": "graphic-designs",
       "adobe_titles": [
         "graphic designs"
-      ]
+      ],
+      "behance_files": [
+        "c65e14124992241.6110164bc2024.png",
+        "459df1124992241.6110164bc341f.jpg",
+        "ac19d6124992241.6110164bc3a3c.jpg",
+        "77e737124992241.6110164bc2e39.png",
+        "ff7613124992241.6110164bc2846.png",
+        "6929b3124992241.62012db2eb99e.jpg",
+        "95ae29124992241.62322456766a6.png",
+        "98e0d6124992241.6232245676f86.png"
+      ],
+      "behance_cover": "71b843124992241.611abc724e3eb.jpg"
     },
     {
       "slug": "hand-drawings",
       "adobe_titles": [
         "hand drawings"
-      ]
+      ],
+      "behance_files": [
+        "2ee0f3136840769.620129955d62a.png",
+        "7442b0136840769.620129955f6a5.png",
+        "772795136840769.620129955e5be.png",
+        "21b1e2136840769.620129955ef53.png",
+        "81a489136840769.62012995610a3.png",
+        "99f506136840769.620129955ff6f.png",
+        "a7a589136840769.620129955df7f.png",
+        "331af6136840769.62012995608e8.png"
+      ],
+      "behance_cover": "ee2b3f136840769.Y3JvcCwzMzY3LDI2MzMsMCww.png"
     },
     {
       "slug": "an-unfamiliar-event",
