@@ -19,6 +19,22 @@
       "credit": "Jane Hu",
       "mode": "night",
       "label": "The Gothic Folly, August 2026"
+    },
+    {
+      "src": "images/home/printmaking-pile.jpg",
+      "alt": "Linocut prints hung at The Pile, a group show at Chinatown Soup",
+      "label": "Print Making, The Pile at Chinatown Soup, March 2026"
+    },
+    {
+      "src": "images/home/concrete-membranes.jpg",
+      "alt": "Close-up of a cast concrete-based membrane",
+      "label": "Concrete-Based Membranes, 2021"
+    },
+    {
+      "src": "images/home/kodolu-board.jpg",
+      "alt": "Kodolu Māja competition board: exploded axonometric and performance section",
+      "label": "Kodolu Māja, 2023",
+      "tone": "light"
     }
   ],
   "current_projects": [

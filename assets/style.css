@@ -396,3 +396,6 @@ body::after {
 .dl-btn .dl-meta { color: var(--mute); font-size: 0.85em; }
 .dl-btn:hover { background: var(--fg, #111); color: var(--bg, #fff); }
 .dl-btn:hover .dl-meta { color: inherit; }
+
+/* slides that are mostly white (drawings, boards): dark label and credit */
+.bleed .slide.light .label, .bleed .slide.light .credit { color: rgba(20, 18, 24, 0.78); text-shadow: none; }
