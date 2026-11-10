@@ -31,7 +31,8 @@
     {
       "role": "Resident Artist",
       "name": "Chinatown Soup",
-      "note": "Started January 2026"
+      "note": "Started January 2026",
+      "project": "printmaking"
     },
     {
       "role": "Rotating Gallery",
@@ -297,6 +298,60 @@
         {
           "label": "Instagram",
           "url": "https://www.instagram.com/thegothicfolly/"
+        }
+      ]
+    },
+    {
+      "slug": "printmaking",
+      "title": "Print Making",
+      "year": "Chinatown Soup, 2026",
+      "section": "work",
+      "cover": "images/printmaking/tile.jpg",
+      "context": [
+        "Resident Artist, Chinatown Soup",
+        "Linocut",
+        "The Pile, group show at Chinatown Soup, March 18 – April 5, 2026"
+      ],
+      "images": [
+        {
+          "src": "images/printmaking/01.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/printmaking/02.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/printmaking/03.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/printmaking/04.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/printmaking/05.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/printmaking/06.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/printmaking/07.jpg",
+          "size": "full"
+        },
+        {
+          "src": "images/printmaking/08.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/printmaking/09.jpg",
+          "size": "half"
+        },
+        {
+          "src": "images/printmaking/10.jpg",
+          "size": "full"
         }
       ]
     },

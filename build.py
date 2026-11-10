@@ -15,7 +15,9 @@ FONTS = "https://fonts.googleapis.com/css2?family=Geist:wght@400;500&display=swa
 
 
 def year_key(y):
-    return 9999 if str(y).lower() == "ongoing" else int(str(y)[:4]) if str(y)[:4].isdigit() else 0
+    import re
+    m = re.search(r"\d{4}", str(y))
+    return 9999 if str(y).lower() == "ongoing" else int(m.group()) if m else 0
 
 
 # sections marked "hidden" (and their projects) are left out of the site
