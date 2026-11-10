@@ -1,5 +1,5 @@
 """Kodolu Maja at sunset. Usage: python scene2.py OUT.png [angle_deg] [samples] [width] [frame_phase 0..1]"""
-import bpy, bmesh, math, sys, mathutils
+import bpy, bmesh, math, sys, mathutils, os
 import numpy as np
 from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import connected_components
@@ -95,22 +95,25 @@ def m_moss_roof(wood):
     sx=N.new('ShaderNodeVectorMath'); sx.operation='MULTIPLY'; sx.inputs[1].default_value=(2,2,0); L.new(g.outputs[0],sx.inputs[0])
     ln=N.new('ShaderNodeVectorMath'); ln.operation='LENGTH'; L.new(sx.outputs[0],ln.inputs[0])
     nz=N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value=6; L.new(t.outputs['Object'],nz.inputs['Vector'])
-    ed=N.new('ShaderNodeMath'); ed.operation='MULTIPLY_ADD'; L.new(nz.outputs['Fac'],ed.inputs[0]); ed.inputs[1].default_value=0.12; L.new(ln.outputs['Value'],ed.inputs[2])
-    mask=N.new('ShaderNodeMath'); mask.operation='LESS_THAN'; mask.inputs[1].default_value=0.68; L.new(ed.outputs[0],mask.inputs[0])
+    ed=N.new('ShaderNodeMath'); ed.operation='MULTIPLY_ADD'; L.new(nz.outputs['Fac'],ed.inputs[0]); ed.inputs[1].default_value=0.025; L.new(ln.outputs['Value'],ed.inputs[2])
+    mask=N.new('ShaderNodeMath'); mask.operation='LESS_THAN'; mask.inputs[1].default_value=0.985; L.new(ed.outputs[0],mask.inputs[0])
     # only the upward face carries moss
     geo=N.new('ShaderNodeNewGeometry'); sp=N.new('ShaderNodeSeparateXYZ'); L.new(geo.outputs['Normal'],sp.inputs[0])
     up=N.new('ShaderNodeMath'); up.operation='GREATER_THAN'; up.inputs[1].default_value=0.5; L.new(sp.outputs[2],up.inputs[0])
-    mk=N.new('ShaderNodeMath'); mk.operation='MULTIPLY'; L.new(mask.outputs[0],mk.inputs[0]); L.new(up.outputs[0],mk.inputs[1])
-    mn=N.new('ShaderNodeTexNoise'); mn.inputs['Scale'].default_value=40; mn.inputs['Detail'].default_value=10; L.new(t.outputs['Object'],mn.inputs['Vector'])
+    mk=N.new('ShaderNodeMath'); mk.operation='MULTIPLY'; mk.inputs[0].default_value=1.0; L.new(up.outputs[0],mk.inputs[1])
+    mn=N.new('ShaderNodeTexNoise'); mn.inputs['Scale'].default_value=70; mn.inputs['Detail'].default_value=12; mn.inputs['Roughness'].default_value=0.7; L.new(t.outputs['Object'],mn.inputs['Vector'])
     moss=N.new('ShaderNodeBsdfPrincipled'); moss.inputs['Roughness'].default_value=1.0
-    L.new(ramp(N,L,mn.outputs['Fac'],(0.030,0.045,0.012),(0.11,0.15,0.04)),moss.inputs['Base Color'])
-    bp=N.new('ShaderNodeBump'); bp.inputs['Strength'].default_value=1.0; bp.inputs['Distance'].default_value=0.03; L.new(mn.outputs['Fac'],bp.inputs['Height']); L.new(bp.outputs['Normal'],moss.inputs['Normal'])
+    L.new(ramp(N,L,mn.outputs['Fac'],(0.10,0.14,0.035),(0.30,0.38,0.11)),moss.inputs['Base Color'])
+    bp=N.new('ShaderNodeBump'); bp.inputs['Strength'].default_value=1.0; bp.inputs['Distance'].default_value=0.06; L.new(mn.outputs['Fac'],bp.inputs['Height']); L.new(bp.outputs['Normal'],moss.inputs['Normal'])
     mix=N.new('ShaderNodeMixShader'); L.new(mk.outputs[0],mix.inputs[0]); L.new(b.outputs[0],mix.inputs[1]); L.new(moss.outputs[0],mix.inputs[2])
     L.new(mix.outputs[0],N['Material Output'].inputs['Surface']); return m
 def m_glass():
     m=bpy.data.materials.new('glass'); nt,N,L,b=nodes(m)
     b.inputs['Base Color'].default_value=(0.93,0.96,0.95,1); b.inputs['Transmission Weight'].default_value=1.0
     b.inputs['Roughness'].default_value=0.0; b.inputs['IOR'].default_value=1.5; return m
+FIRE_MAPS=[]
+def set_phase(ph):
+    for mp in FIRE_MAPS: mp.inputs['Location'].default_value=(0.9*math.cos(2*math.pi*ph*3),0.9*math.sin(2*math.pi*ph*3),0)
 def m_fire():
     m=bpy.data.materials.new('fire'); nt=m.node_tree if m.use_nodes else None; m.use_nodes=True; nt=m.node_tree; N=nt.nodes; L=nt.links; N.clear()
     o=N.new('ShaderNodeOutputMaterial'); vol=N.new('ShaderNodeVolumePrincipled'); L.new(vol.outputs[0],o.inputs['Volume'])
@@ -121,18 +124,18 @@ def m_fire():
     cx=N.new('ShaderNodeVectorMath'); cx.operation='SUBTRACT'; cx.inputs[1].default_value=(0.5,0.5,0); L.new(t.outputs['Generated'],cx.inputs[0])
     cm=N.new('ShaderNodeVectorMath'); cm.operation='MULTIPLY'; cm.inputs[1].default_value=(1,1,0); L.new(cx.outputs[0],cm.inputs[0])
     rr=N.new('ShaderNodeVectorMath'); rr.operation='LENGTH'; L.new(cm.outputs[0],rr.inputs[0])
-    lim=N.new('ShaderNodeMath'); lim.operation='MULTIPLY'; lim.inputs[1].default_value=0.55; L.new(hz.outputs[0],lim.inputs[0])
+    lim=N.new('ShaderNodeMath'); lim.operation='MULTIPLY'; lim.inputs[1].default_value=0.5; L.new(hz.outputs[0],lim.inputs[0])
     inside=N.new('ShaderNodeMath'); inside.operation='SUBTRACT'; L.new(lim.outputs[0],inside.inputs[0]); L.new(rr.outputs['Value'],inside.inputs[1])
-    nz=N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value=3.5; nz.inputs['Detail'].default_value=6; nz.noise_dimensions='4D'; nz.inputs['W'].default_value=phase*4
-    mp=N.new('ShaderNodeMapping'); mp.inputs['Scale'].default_value=(1,1,0.45); L.new(t.outputs['Object'],mp.inputs['Vector']); L.new(mp.outputs[0],nz.inputs['Vector'])
+    nz=N.new('ShaderNodeTexNoise'); nz.inputs['Scale'].default_value=6; nz.inputs['Detail'].default_value=6; nz.noise_dimensions='4D'; nz.inputs['W'].default_value=1.7
+    mp=N.new('ShaderNodeMapping'); mp.inputs['Scale'].default_value=(1,1,0.45); L.new(t.outputs['Object'],mp.inputs['Vector']); L.new(mp.outputs[0],nz.inputs['Vector']); FIRE_MAPS.append(mp)
     sh=N.new('ShaderNodeMath'); sh.operation='MULTIPLY_ADD'; L.new(nz.outputs['Fac'],sh.inputs[0]); sh.inputs[1].default_value=0.35; L.new(inside.outputs[0],sh.inputs[2])
-    d=N.new('ShaderNodeMath'); d.operation='SUBTRACT'; L.new(sh.outputs[0],d.inputs[0]); d.inputs[1].default_value=0.2
+    d=N.new('ShaderNodeMath'); d.operation='SUBTRACT'; L.new(sh.outputs[0],d.inputs[0]); d.inputs[1].default_value=0.08
     cl=N.new('ShaderNodeMath'); cl.operation='MULTIPLY'; cl.use_clamp=True; L.new(d.outputs[0],cl.inputs[0]); cl.inputs[1].default_value=6
     vol.inputs['Density'].default_value=0.0
     L.new(cl.outputs[0],vol.inputs['Emission Strength'])
-    em=N.new('ShaderNodeMath'); em.operation='MULTIPLY'; L.new(cl.outputs[0],em.inputs[0]); em.inputs[1].default_value=60; L.new(em.outputs[0],vol.inputs['Emission Strength'])
+    em=N.new('ShaderNodeMath'); em.operation='MULTIPLY'; L.new(cl.outputs[0],em.inputs[0]); em.inputs[1].default_value=12; L.new(em.outputs[0],vol.inputs['Emission Strength'])
     bb=N.new('ShaderNodeValToRGB'); L.new(hz.outputs[0],bb.inputs['Fac'])
-    bb.color_ramp.elements[0].color=(1.0,0.12,0.01,1); bb.color_ramp.elements[1].color=(1.0,0.55,0.12,1)
+    bb.color_ramp.elements[0].color=(1.0,0.36,0.02,1); bb.color_ramp.elements[1].color=(1.0,0.62,0.12,1)
     L.new(bb.outputs['Color'],vol.inputs['Emission Color']); return m
 
 wood=m_wood('timber',(0.20,0.15,0.105))
@@ -154,8 +157,8 @@ def add_fire(name,center,radius,height,watts):
     bpy.ops.mesh.primitive_cylinder_add(vertices=24,radius=radius,depth=height,location=(center[0],center[1],center[2]+height/2))
     f=bpy.context.object; f.name=name; f.data.materials.append(m_fire()); f.parent=root
     f.visible_shadow=False
-    li=bpy.data.lights.new(name+'L','POINT'); li.energy=watts; li.color=(1.0,0.5,0.18); li.shadow_soft_size=radius*0.8
-    lo=bpy.data.objects.new(name+'L',li); lo.visible_camera=False; sc.collection.objects.link(lo); lo.location=(center[0],center[1],center[2]+height*0.35); lo.parent=root
+    li=bpy.data.lights.new(name+'L','POINT'); li.energy=watts; li.color=(1.0,0.38,0.06); li.shadow_soft_size=radius*0.8
+    lo=bpy.data.objects.new(name+'L',li); lo.visible_camera=False; lo.visible_transmission=False; sc.collection.objects.link(lo); lo.location=(center[0],center[1],center[2]+height*0.35); lo.parent=root
     # embers / logs
     for i in range(5):
         a=i*2*math.pi/5+0.3
@@ -164,16 +167,16 @@ def add_fire(name,center,radius,height,watts):
         lm=bpy.data.materials.new('log'); lm.use_nodes=True; pb=lm.node_tree.nodes['Principled BSDF']; pb.inputs['Base Color'].default_value=(0.02,0.015,0.01,1); pb.inputs['Roughness'].default_value=0.9
         pb.inputs['Emission Color'].default_value=(1,0.25,0.03,1); pb.inputs['Emission Strength'].default_value=0.6; lg.data.materials.append(lm)
 # Fire Core bowl (outdoor gathering space) and the hearth under the chimney
-add_fire('firecore',(-0.94,6.47,0.40),0.42,1.0,900)
-add_fire('hearth',(3.23,1.34,0.24),0.38,0.9,600)
+add_fire('firecore',(-0.94,6.47,0.40),0.42,1.5,220)
+add_fire('hearth',(3.23,1.34,0.24),0.38,0.9,200)
 # warm interior light so the glazing glows at dusk instead of reading black
 for nm,(x,y,z),wv in (('yoga',(1.0,-5.7,2.4),1400),('yoga2',(-1.5,-3.5,2.2),600),('house',(-4.0,2.5,2.0),700),('house2',(1.0,3.0,2.0),500)):
     li=bpy.data.lights.new(nm,'POINT'); li.energy=wv; li.color=(1.0,0.72,0.45); li.shadow_soft_size=0.6
-    lo=bpy.data.objects.new(nm,li); sc.collection.objects.link(lo); lo.location=(x,y,z); lo.parent=root; lo.visible_camera=False; lo.visible_glossy=False
+    lo=bpy.data.objects.new(nm,li); sc.collection.objects.link(lo); lo.location=(x,y,z); lo.parent=root; lo.visible_camera=False; lo.visible_glossy=False; lo.visible_transmission=False
 
 # studio floor and sunset sky
 bpy.ops.mesh.primitive_plane_add(size=600,location=(0,0,-0.003))
-fl=bpy.context.object; fl.data.materials.append(m_simple('floor',(0.42,0.42,0.42),0.95))
+fl=bpy.context.object; fl.data.materials.append(m_simple('floor',(0.42,0.42,0.42),0.95)); fl.is_shadow_catcher=(len(sys.argv)>6 and sys.argv[6]=='alpha')
 w=bpy.data.worlds.new('w'); sc.world=w; w.use_nodes=True; WN=w.node_tree.nodes; WL=w.node_tree.links
 WN['Background'].inputs['Color'].default_value=(0.30,0.34,0.50,1); WN['Background'].inputs['Strength'].default_value=0.5
 sun=bpy.data.lights.new('sun','SUN'); sun.energy=4.2; sun.angle=math.radians(1.2); sun.color=(1.0,0.66,0.42)
@@ -184,9 +187,26 @@ tgt=mathutils.Vector((0,0,1.6)); dist=58; th=math.radians(35); ph=math.radians(5
 co.location=tgt+mathutils.Vector((dist*math.sin(ph)*math.sin(th),-dist*math.sin(ph)*math.cos(th),dist*math.cos(ph)))
 co.rotation_euler=(tgt-co.location).to_track_quat('-Z','Y').to_euler()
 r=sc.render; r.engine='CYCLES'; sc.cycles.device='CPU'; sc.cycles.samples=spp; sc.cycles.use_denoising=True; sc.cycles.use_adaptive_sampling=True
-sc.cycles.max_bounces=8; sc.cycles.transmission_bounces=8; sc.cycles.volume_bounces=0; sc.cycles.caustics_reflective=False; sc.cycles.caustics_refractive=False
+FAST=os.environ.get('FAST')
+sc.cycles.max_bounces=4 if FAST else 8; sc.cycles.transmission_bounces=4 if FAST else 8; sc.cycles.diffuse_bounces=2 if FAST else 4; sc.cycles.glossy_bounces=2 if FAST else 4
+if FAST: sc.cycles.adaptive_threshold=0.05; r.use_persistent_data=True; sc.cycles.use_light_tree=True; sc.cycles.denoiser='OPENIMAGEDENOISE'; sc.cycles.denoising_input_passes='RGB_ALBEDO_NORMAL'
+sc.cycles.volume_bounces=0; sc.cycles.caustics_reflective=False; sc.cycles.caustics_refractive=False
 sc.cycles.volume_step_rate=2.0
-r.resolution_x=W; r.resolution_y=int(W*10/16)
+r.film_transparent=(len(sys.argv)>6 and sys.argv[6]=='alpha'); r.image_settings.color_mode='RGBA'; r.resolution_x=W; r.resolution_y=int(W*10/16)
 sc.view_settings.view_transform='AgX'; sc.view_settings.look='AgX - Medium High Contrast'; sc.view_settings.exposure=0.2
 r.filepath=out; r.image_settings.file_format='PNG'
-bpy.ops.render.render(write_still=True)
+import os
+if os.environ.get('BORDER'):
+    x0,x1,y0,y1=map(float,os.environ['BORDER'].split(',')); r.use_border=True; r.use_crop_to_border=True; r.border_min_x,r.border_max_x,r.border_min_y,r.border_max_y=x0,x1,y0,y1
+N_FR=int(os.environ.get('FRAMES','0'))
+if N_FR:
+    os.makedirs(out,exist_ok=True); start=int(os.environ.get('START','0'))
+    for f in range(start,N_FR):
+        ph=f/N_FR
+        root.rotation_euler[2]=math.radians(ang+360*ph); set_phase(ph)
+        r.filepath=os.path.join(out,'f%04d.png'%f)
+        if os.path.exists(r.filepath): continue
+        bpy.ops.render.render(write_still=True); print('FRAME',f,flush=True)
+else:
+    set_phase(phase)
+    bpy.ops.render.render(write_still=True)
