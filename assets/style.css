@@ -365,7 +365,7 @@ body::after {
 }
 
 /* press on project pages */
-.project-press { padding-bottom: 28px; }
+.project-press { padding-top: 56px; }
 .project-press h2 { font-size: var(--size); font-weight: 400; color: var(--mute); margin: 0 0 10px; }
 .list.refs { margin: 0; }
 .list.refs td:first-child { width: 22%; padding-right: 20px; color: var(--mute); }

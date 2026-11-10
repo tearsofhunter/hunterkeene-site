@@ -262,8 +262,8 @@ def build(full_doc=True):
   {f'<div class="text">{text}</div>' if text else ""}
   {f'<div class="links">{links}</div>' if links else ""}
 </div>
-{press}
 <div class="images">{figs}</div>
+{press}
 <nav class="pager" aria-label="More projects">
   <a href="{prev["slug"]}.html"><span>Previous</span>&nbsp; {e(prev["title"])}</a>
   <a href="{nxt["slug"]}.html">{e(nxt["title"])} &nbsp;<span>Next</span></a>
