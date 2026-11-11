@@ -403,7 +403,7 @@ body::after {
 
 /* wide screens: the slideshow fills the window below the name bar, never taller */
 @media (min-width: 761px) {
-  .bleed:not(.empty):not(.teaser) { height: min(66.667vw, calc(100svh - 72px)); }
-  .bleed:not(.empty):not(.teaser) .slide, .bleed:not(.empty):not(.teaser) .slide:first-child { position: absolute; inset: 0; }
-  .bleed:not(.empty):not(.teaser) .slide img { height: 100%; object-fit: cover; object-position: 50% 45%; }
+  .bleed:not(.empty) { height: min(66.667vw, calc(100svh - 72px)); }
+  .bleed:not(.empty) .slide, .bleed:not(.empty) .slide:first-child { position: absolute; inset: 0; }
+  .bleed:not(.empty) .slide img { height: 100%; object-fit: cover; object-position: 50% 45%; }
 }
