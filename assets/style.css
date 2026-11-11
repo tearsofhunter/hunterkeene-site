@@ -13,9 +13,10 @@
   --dusk-red-mid: rgba(222, 160, 152, 0.36);
   --dusk-red-fade: rgba(222, 160, 152, 0.10);
   --font: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --size: 13px;
-  --pad-l: max(20px, env(safe-area-inset-left, 0px));
-  --pad-r: max(20px, env(safe-area-inset-right, 0px));
+  --size: clamp(13px, 0.36vw + 8.4px, 16px);
+  /* gutters widen on big screens so text columns stop at ~1680px; full-bleed parts still reach the edges */
+  --pad-l: max(20px, env(safe-area-inset-left, 0px), calc((100vw - 1680px) / 2));
+  --pad-r: max(20px, env(safe-area-inset-right, 0px), calc((100vw - 1680px) / 2));
   --night: 0;
   color-scheme: light;
 }
@@ -248,7 +249,7 @@ body::before {
 .home .name { display: inline-block; transform-origin: left center; transform: scale(var(--name-scale, 1.5)); will-change: transform; }
 .home .top { padding-block: 26px 22px; }
 .intro { padding-block: 22px 56px; opacity: var(--intro-fade, 1); }
-.intro p { font-size: 15px; line-height: 1.5; max-width: 36em; margin: 0 0 0.8em; }
+.intro p { font-size: clamp(15px, 0.45vw + 9.2px, 19px); line-height: 1.5; max-width: 36em; margin: 0 0 0.8em; }
 .updates { padding-bottom: 48px; }
 .updates h2 { font-size: var(--size); font-weight: 400; color: var(--mute); margin: 0 0 12px; }
 .updates .list.feed { margin: 0; }
@@ -399,3 +400,10 @@ body::after {
 
 /* slides that are mostly white (drawings, boards): dark label and credit */
 .bleed .slide.light .label, .bleed .slide.light .credit { color: rgba(20, 18, 24, 0.78); text-shadow: none; }
+
+/* wide screens: the slideshow fills the window below the name bar, never taller */
+@media (min-width: 761px) {
+  .bleed:not(.empty):not(.teaser) { height: min(66.667vw, calc(100svh - 72px)); }
+  .bleed:not(.empty):not(.teaser) .slide, .bleed:not(.empty):not(.teaser) .slide:first-child { position: absolute; inset: 0; }
+  .bleed:not(.empty):not(.teaser) .slide img { height: 100%; object-fit: cover; object-position: 50% 45%; }
+}
